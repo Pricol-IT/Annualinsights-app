@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+include base_path('routes/users.php');
 
 /*
 |--------------------------------------------------------------------------
@@ -18,5 +19,3 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

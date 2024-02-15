@@ -25,4 +25,13 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
+    public function dashboard()
+    {
+        if (auth('user')->check() && authUser()->role == 'user') {
+            return redirect()->route('user.dashboard');
+        } 
+
+        return redirect('login');
+    }
 }
