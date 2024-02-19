@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('energy_data', function (Blueprint $table) {
             $table->id();
             $table->string('year');
-            $table->enum('loction',['Plant Corporate','Plant 1','Plant 2','Plant 3','Plant 5','Plant 7','Plant 9','Plant 10','Plant 12']);
+            $table->enum('loction',['Plant-Corporate','Plant-1','Plant-2','Plant-3','Plant-5','Plant-7','Plant-9','Plant-10','Plant-12']);
             $table->string('month');
             $table->string('fuel_for_diesel_generators');
             $table->string('power_from_diesel_generators');

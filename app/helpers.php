@@ -9,3 +9,4 @@ if (! function_exists('authUser')) {
         return auth()->user();
     }
 }
+

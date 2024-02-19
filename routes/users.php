@@ -18,6 +18,11 @@ Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'dashboard
 
 Route::prefix('user')->middleware('user')->group(function () { 
     Route::get('/dashboard', [UserController::class,'index'])->name('user.dashboard');
-});
+    Route::get('/commuteform', [UserController::class,'commuteform'])->name('user.commuteform');
+    Route::get('/financialyear', [UserController::class,'financialyear'])->name('user.financialyear');
+    Route::post('/generateyear', [UserController::class,'generatefinancialyear'])->name('user.generateyear');
 
-Route::resource('energy_data',EnergyDataController::class);
+    
+    Route::resource('energy_data',EnergyDataController::class);
+Route::post('/addmonth', [EnergyDataController::class,'addmonth'])->name('addmonth');
+});

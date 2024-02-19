@@ -15,7 +15,7 @@ include base_path('routes/users.php');
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('login');
 });
 
 Auth::routes();
