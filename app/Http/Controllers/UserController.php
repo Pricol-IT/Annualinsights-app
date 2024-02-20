@@ -51,7 +51,7 @@ foreach($plants as $plant){
         ]);
     }
 }
-    return $energy_data;
+    // return $energy_data;
 
         return view('user.financialyear');
     }

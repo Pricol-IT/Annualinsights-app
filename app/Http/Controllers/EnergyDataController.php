@@ -12,8 +12,8 @@ class EnergyDataController extends Controller
      */
     public function index( Request $request)
     {
-        $query = EnergyData::orderBy('id',"desc");
-    
+        $query = EnergyData::orderBy('id',"asc");
+
         if($request->has('year')  && $request->year != '')
         {
             $query->where('year', $request->year);
@@ -22,8 +22,15 @@ class EnergyDataController extends Controller
         {
             $query->where('loction', $request->loction);
         }
+        if(!$request->has('year')  && !$request->has('loction'))
+        {
+            $query->latest()->limit(12);
+        }
         $data = $query->get();
-        return view('user.energy_data.index', compact('data'));
+        $uniqueYears = EnergyData::orderBy('id',"asc")->distinct()->pluck('year');
+        $uniqueLocations = EnergyData::orderBy('id',"asc")->distinct()->pluck('loction');
+        // return $uniqueYears;
+        return view('user.energy_data.index', compact('data','uniqueYears','uniqueLocations'));
     }
 
     /**
@@ -71,7 +78,8 @@ class EnergyDataController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $data=EnergyData::find($id);
+        return view('user.energy_data.create',compact('data'));
     }
 
     /**
@@ -79,7 +87,23 @@ class EnergyDataController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $energy_data =[
+            'year'=>$request->year,
+            'loction'=>$request->loction,
+            'month'=>$request->month,
+            'fuel_for_diesel_generators'=>$request->fuel_for_diesel_generators,
+            'power_from_diesel_generators'=>$request->power_from_diesel_generators,
+            'electricity'=>$request->electricity,
+            'power_purchase_agreement'=>$request->power_purchase_agreement,
+            'captive_power'=>$request->captive_power
+        ];
+        $data=EnergyData::where('id',$id)->update($energy_data);
+        if ($data){
+            return redirect()->route('energy_data.index');
+        } else{
+            return back();
+        }
+
     }
 
     /**

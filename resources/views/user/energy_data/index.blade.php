@@ -6,174 +6,98 @@
 <main id="main" class="main">
     <div class="container">
         @csrf
-        <h3> Overall Dashboard</h1>
-            <div class="card">
+        <h3>Dashboard</h3>
 
-
-                <div class="card-body table-responsive p-0">
-                    <table class=" table datatable">
-                        <thead>
-                            <tr>
-                                <th>Year</th>
-                                <th>Power from Diesel Generators in kWh</th>
-                                <th>Electricity in kWh</th>
-                                <th>Power Purchase Agreement in kWh</th>
-                                <th>Captive Power (In-Plant Installations) in kWh</th>
-                                <th>Total Units in kWh</th>
-                                <th>Total Renewable Energy in kWh</th>
-                                <th>Renewable Energy %</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {{-- @forelse ($links as $link)
-                        <tr>
-                            <td>{{$loop->iteration}}</td>
-                            <td>{{$link->title}}</td>
-                            <td><a href="{{$link->link_url}}">{{$link->link_url}}</a></td>
-                            <td>{{ucfirst($link->status)}}</td>
-
-
-                            <td>
-                                <div class="d-flex gap-1">
-                                    <a href="#" class="btn btn-sm btn-warning">
-                                        <i class="bi bi-pencil"></i>
-                                    </a>
-                                    <form method="post" action="#">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="btn btn-sm btn-danger"><i class="bi bi-trash"></i></button>
-                                    </form>
-                                </div>
-                            </td>
-                            </tr>
-                            @empty --}}
-                            <tr>
-                                <td colspan="4" class="text-center">record not found</td>
-                            </tr>
-                            {{-- @endforelse --}}
-
-                        </tbody>
-                    </table>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="card p-3">
+                    <canvas id="myChart"></canvas>
                 </div>
             </div>
-            <h3>Plant Wise Report</h1>
-                <div class="card">
-                    <form action="{{ route('addmonth') }}" method="POST">
-                        @csrf
-                        <div class="card-header">
-                            {{-- <form id="formSubmit" action="{{route('energy_data.index')}}" method="GET" onchange="this.submit();"> --}}
-                            <div class=" d-flex justify-content-around">
-                                <div class="form-group">
-                                    <label class="class mb-2" for="for">
-                                        Year
-                                        <span class="form-label-required text-danger">*</span>
-                                    </label>
-                                    <select class="form-control" name="year" id="year">
-                                        <option value="" {{ request('year')== '' ? 'selected' : ''}}> Select year</option>
-                                        <option value="2022-23" {{ request('year')== '2022-23' ? 'selected' : ''}}>2022-23</option>
-                                        <option value="2023-24" {{ request('year')== '2023-24' ? 'selected' : ''}}>2023-24</option>
-                                    </select>
+        </div>
+        <h3>Plant Wise Report</h3>
+        <div class="card">
+            @csrf
+            <div class="card-header">
+                <form id="formSubmit" action="{{route('energy_data.index')}}" method="GET" onchange="this.submit();">
+                    <div class=" d-flex justify-content-around">
+                        <div class="form-group">
+                            <label class="class mb-2" for="for">
+                                Select Year:
+                            </label>
+                            <select class="form-control" name="year" id="year">
+                                @foreach ($uniqueYears as $year)
+                                <option value={{$year}} {{ request('year')== $year ? 'selected' : ''}}>{{$year}}</option>
+                                @endforeach
+                            </select>
 
-                                </div>
-                                <div class="form-group">
-                                    <label class="class mb-2" for="for">
-                                        Location
-                                        <span class="form-label-required text-danger">*</span>
-                                    </label>
-                                    <select class="form-control" name="loction" id="loction">
-                                        <option value="" {{ request('loction')== '' ? 'selected' : ''}}> Select location</option>
-                                        <option value="Plant-1" {{ request('loction')== 'Plant-1' ? 'selected' : ''}}>Plant 1</option>
-                                        <option value="Plant-2" {{ request('loction')== 'Plant-2' ? 'selected' : ''}}>Plant 2</option>
-                                        <option value="Plant-3" {{ request('loction')== 'Plant-3' ? 'selected' : ''}}>Plant 3</option>
-                                        <option value="Plant-5" {{ request('loction')== 'Plant-5' ? 'selected' : ''}}>Plant 5</option>
-                                        <option value="Plant-7" {{ request('loction')== 'Plant-7' ? 'selected' : ''}}>Plant 7</option>
-                                        <option value="Plant-9" {{ request('loction')== 'Plant-9' ? 'selected' : ''}}>Plant 9</option>
-                                        <option value="Plant-10" {{ request('loction')== 'Plant-10' ? 'selected' : ''}}>Plant 10</option>
-                                        <option value="Plant-12" {{ request('loction')== 'Plant-12' ? 'selected' : ''}}>Plant 12</option>
-                                        <option value="Plant-Corporate" {{ request('location')== 'Plant-Corporate' ? 'selected' : ''}}>Plant Corporate</option>
-                                    </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="class mb-2" for="for">
+                                Select Location:
+                            </label>
+                            <select class="form-control" name="loction" id="loction">
+                                @foreach ($uniqueLocations as $location)
+                                <option value={{$location}} {{ request('loction')== $location ? 'selected' : ''}}>{{$location}}</option>
+                                @endforeach
+                            </select>
 
-                                </div>
-
-
-                            </div>
-                            {{-- </form> --}}
                         </div>
 
 
+                    </div>
+                </form>
+            </div>
 
-                        <div class="card-body table-responsive p-0">
-                            <table class=" table datatable">
-                                <thead>
-                                    <tr>
-                                        <th>Month</th>
-                                        <th>Fuel for Diesel Generators</th>
-                                        <th>Power from Diesel Generators</th>
-                                        <th>Electricity</th>
-                                        <th>Power Purchase Agreement</th>
-                                        <th>Captive Power (In-Plant Installations)</th>
-                                        <th>Total Renewable Energy in kWh</th>
-                                        <th>Renewable Energy %</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @php
-                                    $month=['Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec','Jan', 'Feb', 'Mar']
-                                    @endphp
 
-                                    @foreach($month as $month)
-                                    <tr>
-                                        <td>{{$month}}
-                                            <input type="hidden" name="month" value={{$month}}></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td>
-                                            <div class="d-flex gap-1">
-                                                <button type="submit" class="btn btn-sm btn-warning">
-                                                    <i class="bi bi-pencil"></i>
-                                                </button>
 
-                                            </div>
-                                        </td>
-                                    </tr> @endforeach
-                                    {{-- @forelse ($links as $link)
+            <div class="card-body table-responsive">
+                <table class=" table ">
+                    <thead>
                         <tr>
-                            <td>{{$loop->iteration}}</td>
-                                    <td>{{$link->title}}</td>
-                                    <td><a href="{{$link->link_url}}">{{$link->link_url}}</a></td>
-                                    <td>{{ucfirst($link->status)}}</td>
+                            <th>Month</th>
+                            <th>Power from Diesel Generators</th>
+                            <th>Power Purchase Agreement</th>
+                            <th>Captive Power</th>
+                            <th>Electricity</th>
+                            <th>Total Renewable Energy in kWh</th>
+                            <th>Renewable Energy %</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
 
+                        @forelse($data as $data)
+                        <tr>
+                            <td>{{$data->month}}</td>
+                            <td>{{$data->power_from_diesel_generators}}</td>
+                            <td>{{$data->power_purchase_agreement}}</td>
+                            <td>{{$data->captive_power}}</td>
+                            <td>{{$data->electricity}}</td>
+                            <td>#</td>
+                            <td>#</td>
+                            <td>
+                                <div class="d-flex gap-1">
+                                    <a href="{{ route('energy_data.edit', $data->id) }}" class="btn btn-sm btn-warning">
+                                        <i class="bi bi-pencil"></i>
+                                    </a>
 
-                                    <td>
-                                        <div class="d-flex gap-1">
-                                            <a href="#" class="btn btn-sm btn-warning">
-                                                <i class="bi bi-pencil"></i>
-                                            </a>
-                                            <form method="post" action="#">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit" class="btn btn-sm btn-danger"><i class="bi bi-trash"></i></button>
-                                            </form>
-                                        </div>
-                                    </td>
-                                    </tr>
-                                    @empty --}}
-                                    <tr>
-                                        <td colspan="4" class="text-center">record not found</td>
-                                    </tr>
-                                    {{-- @endforelse --}}
+                                </div>
+                            </td>
+                        </tr>
+                        @empty
+                        <tr>
+                            <td colspan="4" class="text-center">record not found</td>
+                        </tr>
+                        @endforelse
 
-                                </tbody>
-                            </table>
-                        </div>
-                    </form>
-                </div>
+                    </tbody>
+                    <tbody>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
 
     </div>
 
@@ -181,22 +105,43 @@
 @endsection
 @section('script')
 <script>
-    document.getElementById('year').addEventListener('change', function() {
-        var selectedYear = this.value;
+    const ctx = document.getElementById('myChart');
+    const data = {
+        labels: ['Power from Diesel Generators', 'Power Purchase Agreement', 'Captive Power', 'Electricity']
+        , datasets: [{
+            axis: 'y'
+            , label: false
+            , data: [650000, 590000, 800000, 810000, 560000, 550000, 400000]
+            , fill: false
+            , backgroundColor: [
+                'rgba(255, 99, 132, 0.2)'
+                , 'rgba(255, 159, 64, 0.2)'
+                , 'rgba(255, 205, 86, 0.2)'
+                , 'rgba(75, 192, 192, 0.2)'
+                , 'rgba(54, 162, 235, 0.2)'
+                , 'rgba(153, 102, 255, 0.2)'
+                , 'rgba(201, 203, 207, 0.2)'
+            ]
+            , borderColor: [
+                'rgb(255, 99, 132)'
+                , 'rgb(255, 159, 64)'
+                , 'rgb(255, 205, 86)'
+                , 'rgb(75, 192, 192)'
+                , 'rgb(54, 162, 235)'
+                , 'rgb(153, 102, 255)'
+                , 'rgb(201, 203, 207)'
+            ]
+            , borderWidth: 1
+        }]
+    };
+    new Chart(ctx, {
+        type: 'bar'
+        , data
+        , options: {
+            indexAxis: 'y'
+        , }
 
-        // Make an AJAX request to the Laravel route
-        fetch('/generate-month?year=' + selectedYear)
-            .then(response => response.json())
-            .then(data => {
-                // Assuming you have a variable to store the months in your JavaScript
-                var months = data.months;
-                console.log(months); // Output the months to console
 
-                // You can now use the 'months' variable as needed
-            });
-
-        // Trigger a window refresh if needed
-        // window.location.reload();
     });
 
 </script>
