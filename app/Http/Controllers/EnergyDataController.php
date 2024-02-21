@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\EnergyData;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class EnergyDataController extends Controller
 {
@@ -27,10 +28,21 @@ class EnergyDataController extends Controller
             $query->latest()->limit(12);
         }
         $data = $query->get();
-        $uniqueYears = EnergyData::orderBy('id',"asc")->distinct()->pluck('year');
+        $uniqueYears = EnergyData::distinct()->orderBy('year',"asc")->pluck('year');
         $uniqueLocations = EnergyData::orderBy('id',"asc")->distinct()->pluck('loction');
         // return $uniqueYears;
-        return view('user.energy_data.index', compact('data','uniqueYears','uniqueLocations'));
+
+        $currentyeartotal=DB::table('energy_data')->selectRaw('SUM(power_from_diesel_generators) as dg')
+        ->selectRaw('SUM(electricity) as ecity')->selectRaw('SUM(power_purchase_agreement) as ppa')->selectRaw('SUM(captive_power) as cap')->where('year',$uniqueYears->last())->first();
+
+
+        $threeyeartotal=DB::table('energy_data')->select('year')->selectRaw('SUM(power_from_diesel_generators + electricity + power_purchase_agreement + captive_power) as total')
+        ->groupBy('year')->orderBy('year','desc')->limit(3)->get();
+
+        $piecharttotal=DB::table('energy_data')->selectRaw('SUM(power_from_diesel_generators + electricity + power_purchase_agreement + captive_power) as totalkWh')->selectRaw('SUM( power_purchase_agreement + captive_power) as RE')->where('year',$uniqueYears->last())->first();
+        $RE_percentage=(($piecharttotal->RE)/($piecharttotal->totalkWh))*100;
+        // return $RE_percentage;
+        return view('user.energy_data.index', compact('data','uniqueYears','uniqueLocations','currentyeartotal','threeyeartotal','RE_percentage'));
     }
 
     /**
@@ -99,7 +111,7 @@ class EnergyDataController extends Controller
         ];
         $data=EnergyData::where('id',$id)->update($energy_data);
         if ($data){
-            return redirect()->route('energy_data.index');
+            return redirect()->route('energy_data.index',['year'=>$request->year,'loction'=>$request->loction]);
         } else{
             return back();
         }

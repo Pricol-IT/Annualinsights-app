@@ -36,22 +36,22 @@
                                     <div class="row">
                                         <div class="col-md-8 offset-md-2 mt-2">
                                             <div class="form-group">
-                                                <label class="class mb-2" for="for">
+                                                {{-- <label class="class mb-2" for="for">
                                                     Fuel for Diesel Generators
                                                 </label>
-                                                <span class="form-label-required text-danger">*</span>
-                                                <input type="text" name="fuel_for_diesel_generators" id="fuel_for_diesel_generators" class="form-control class" value="{{$data->fuel_for_diesel_generators}}" placeholder="Enter in Litres">
+                                                <span class="form-label-required text-danger">*</span> --}}
+                                                <input type="hidden" name="fuel_for_diesel_generators" id="fuel_for_diesel_generators" class="form-control class" value="{{$data->fuel_for_diesel_generators}}" placeholder="Enter in Litres">
 
                                             </div>
                                             <div class="form-group">
                                                 <label class="class mb-2" for="for">
-                                                    Power from Diesel Generators
+                                                    Generation from Diesel Generators
                                                 </label>
                                                 <span class="form-label-required text-danger">*</span>
                                                 <input type="text" name="power_from_diesel_generators" id="power_from_diesel_generators" class="form-control class " value="{{$data->power_from_diesel_generators}}" placeholder="Enter in kWh">
                                             </div>
                                             <div class="form-group">
-                                                <label class="class mb-2" for="for">Electricity
+                                                <label class="class mb-2" for="for">Grid Electricity
                                                 </label>
                                                 <span class="form-label-required text-danger">*</span>
                                                 <input type="text" name="electricity" id="electricity" class="form-control class " value="{{$data->electricity}}" placeholder="Enter in kWh">
@@ -63,7 +63,7 @@
                                                 <input type="text" name="power_purchase_agreement" id="power_purchase_agreement" class="form-control class " value="{{$data->power_purchase_agreement}}" placeholder="Enter in kWh">
                                             </div>
                                             <div class="form-group">
-                                                <label class="class mb-2" for="for">Captive Power (In-Plant Installations)
+                                                <label class="class mb-2" for="for">Captive Power generation
                                                 </label>
                                                 <span class="form-label-required text-danger">*</span>
                                                 <input type="text" name="captive_power" id="captive_power" class="form-control class " value="{{$data->captive_power}}" placeholder="Enter in kWh">
