@@ -68,7 +68,7 @@ class EnergyDataController extends Controller
             'power_purchase_agreement'=>$request->power_purchase_agreement,
             'captive_power'=>$request->captive_power
         ];
-        return $data;
+        // return $data;
         $energy_data=EnergyData::create($data);
         if ($energy_data){
             return view('user.energy_data.index');
@@ -103,7 +103,6 @@ class EnergyDataController extends Controller
             'year'=>$request->year,
             'loction'=>$request->loction,
             'month'=>$request->month,
-            'fuel_for_diesel_generators'=>$request->fuel_for_diesel_generators,
             'power_from_diesel_generators'=>$request->power_from_diesel_generators,
             'electricity'=>$request->electricity,
             'power_purchase_agreement'=>$request->power_purchase_agreement,

@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('year');
             $table->enum('loction',['Plant-Corporate','Plant-1','Plant-2','Plant-3','Plant-5','Plant-7','Plant-9','Plant-10','Plant-12']);
             $table->string('month');
-            $table->string('fuel_for_diesel_generators');
+            $table->string('fuel_for_diesel_generators')->default('0');
             $table->string('power_from_diesel_generators');
             $table->string('electricity');
             $table->string('power_purchase_agreement');

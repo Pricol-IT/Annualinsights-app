@@ -6,7 +6,7 @@
 <main id="main" class="main">
     <div class="container">
         @csrf
-        <h3>Dashboard</h3>
+        <h3 class="fw-bold">Dashboard</h3>
 
         <div class="row">
             <div class="col-lg-6">
@@ -16,17 +16,18 @@
             </div>
             <div class="col-lg-6">
                 <div class="card p-3">
-                    <canvas id="myChartpie" style="margin-left: auto;
-                    margin-right: auto;"></canvas>
+                    <canvas id="myChartyear"></canvas>
                 </div>
             </div>
             <div class="col-lg-6">
                 <div class="card p-3">
-                    <canvas id="myChartyear"></canvas>
+                    <canvas id="myChartpie" style="margin-left: auto;
+                    margin-right: auto;"></canvas>
                 </div>
             </div>
+
         </div>
-        <h3>Plant electricity consumption in kWh</h3>
+        <h3 class="fw-bold">Plant electricity consumption in kWh</h3>
         <div class=" card">
             @csrf
             <div class="card-header">
@@ -75,6 +76,7 @@
                             <th>Grid Electricity</th>
                             <th>Power Purchase Agreement</th>
                             <th>Captive Power generation</th>
+                            <th>Status</th>
                             {{-- <th>Total Renewable Energy in kWh</th>
                             <th>Renewable Energy %</th> --}}
                             <th>Action</th>
@@ -85,16 +87,39 @@
                         @forelse($data as $data)
                         <tr>
                             <td>{{$data->month}}</td>
-                            <td>{{$data->power_from_diesel_generators}}</td>
-                            <td>{{$data->electricity}}</td>
-                            <td>{{$data->power_purchase_agreement}}</td>
-                            <td>{{$data->captive_power}}</td>
-                            {{-- <td>#</td>
-                            <td>#</td> --}}
+                            <td>{{round($data->power_from_diesel_generators)}}</td>
+                            <td>{{round($data->electricity)}}</td>
+                            <td>{{round($data->power_purchase_agreement)}}</td>
+                            <td>{{round($data->captive_power)}}</td>
+
+                            @switch($data->status)
+                            @case('submitted')
+                            <td> <span class="badge bg-primary"> Submitted </span></td>
+                            @break
+                            @case('saved')
+                            <td> <span class="badge bg-warning"> Draft </span></td>
+                            @break
+                            @case('approved')
+                            <td> <span class="badge bg-success"> Approved </span></td>
+                            @break
+                            @case('rejected')
+                            <td> <span class="badge bg-danger"> Rejected </span></td>
+                            @break
+
+                            @default
+                            <td> <span class="badge bg-secondary"> Not Proceeded </span></td>
+                            @endswitch
+                            {{-- <td>#</td> --}}
                             <td>
                                 <div class="d-flex gap-1">
                                     <a href="{{ route('energy_data.edit', $data->id) }}" class="btn btn-sm btn-warning">
                                         <i class="bi bi-pencil"></i>
+                                    </a>
+                                    <a href="{{ route('energy_data.edit', $data->id) }}" class="btn btn-sm btn-success">
+                                        <i class="bi bi-check-circle"></i>
+                                    </a>
+                                    <a href="{{ route('energy_data.edit', $data->id) }}" class="btn btn-sm btn-danger">
+                                        <i class="bi bi-x-circle"></i>
                                     </a>
 
                                 </div>
@@ -113,10 +138,10 @@
                         @endforelse
                         <tr>
                             <td class="fw-bold">Sub-Total</td>
-                            <td class="fw-bold">{{$power_from_diesel_generators}}</td>
-                            <td class="fw-bold">{{$electricity}}</td>
-                            <td class="fw-bold">{{$power_purchase_agreement}}</td>
-                            <td class="fw-bold">{{$captive_power}}</td>
+                            <td class="fw-bold">{{round($power_from_diesel_generators)}}</td>
+                            <td class="fw-bold">{{round($electricity)}}</td>
+                            <td class="fw-bold">{{round($power_purchase_agreement)}}</td>
+                            <td class="fw-bold">{{round($captive_power)}}</td>
                         </tr>
                     </tbody>
 
@@ -130,11 +155,6 @@
 @endsection
 @section('script')
 <script>
-    var dg = {{$currentyeartotal->dg}};
-    var ecity = {{$currentyeartotal->ecity}};
-    var ppa = {{$currentyeartotal->ppa}};
-    var cap = {{$currentyeartotal->cap}};
-    
     const ctx = document.getElementById('myChart');
     new Chart(ctx, {
         type: 'bar'
@@ -142,39 +162,47 @@
             labels: ['Generation from Diesel Generators', 'Grid Electricity', 'Power Purchase Agreement', 'Captive Power generation']
             , datasets: [{
                 axis: 'y'
-                , label: 'Power source'
-                , data: [dg, ecity, ppa, cap]
+                , data: ['{{round($currentyeartotal->dg)}}', '{{round($currentyeartotal->ecity)}}', '{{round($currentyeartotal->ppa)}}', '{{round($currentyeartotal->cap)}}']
                 , fill: false
                 , backgroundColor: [
-                    'rgba(208, 5, 11, 0.8)'
-                    , 'rgba(255, 159, 64, 0.8)'
-                    , 'rgba(255, 205, 86, 0.9)'
-                    , 'rgba(39, 161, 13, 1)'
-                    , 'rgba(54, 162, 235, 0.2)'
-                    , 'rgba(153, 102, 255, 0.2)'
-                    , 'rgba(201, 203, 207, 0.2)'
+                    'rgba(39, 183, 245, 0.8)'
+                    , 'rgba(208, 5, 11, 0.8)'
+                    , 'rgba(255, 132, 3, 0.91)'
+                    , 'rgba(45, 174, 0, 0.97)'
                 ]
                 , borderColor: [
-                    'rgb(255, 99, 132)'
-                    , 'rgb(255, 159, 64)'
-                    , 'rgb(255, 205, 86)'
-                    , 'rgb(75, 192, 192)'
-                    , 'rgb(54, 162, 235)'
-                    , 'rgb(153, 102, 255)'
-                    , 'rgb(201, 203, 207)'
+                    'rgb(31,146,196)'
+                    , 'rgb(166,4,9)'
+                    , 'rgb(232,120,3)'
+                    , 'rgb(44,169,0)'
                 ]
                 , borderWidth: 1
             }]
         }
         , options: {
-            indexAxis: 'y',
-            plugins: {
-                legend:{
+            indexAxis: 'y'
+            , plugins: {
+                legend: {
                     display: false
                 }
+                , title: {
+                    display: true
+                    , text: 'Energy Consumption by Source'
+                }
             }
-        , }
-
+            , scales: {
+                x: {
+                    grid: {
+                        display: false
+                    , }
+                }
+                , y: {
+                    grid: {
+                        display: false
+                    , }
+                }
+            , }
+        }
 
     });
 
@@ -185,21 +213,26 @@
         type: 'doughnut'
         , data: {
             labels: [
-                'Renewable Energy'
-                , 'Non-Renewable Energy'
+                'Renewable'
+                , 'Non-Renewable'
             , ]
             , datasets: [{
-                label: 'My First Dataset'
-                , data: ['{{$RE_percentage}}', (100-('{{$RE_percentage}}'))]
+                data: ['{{$RE_percentage}}', (100 - ('{{$RE_percentage}}'))]
                 , backgroundColor: [
-                    'rgb(255, 99, 132)'
-                    , 'rgb(54, 162, 235)'
+                    'rgb(44,169,0)'
+                    , 'rgb(247,1,1)'
                 , ]
                 , hoverOffset: 4
             }]
         }
         , options: {
             responsive: true
+            , plugins: {
+                title: {
+                    display: true
+                    , text: 'Energy Mix'
+                }
+            }
         , }
     });
 
@@ -207,43 +240,50 @@
     new Chart(yearbar, {
         type: 'bar'
         , data: {
-            labels: [@foreach ($threeyeartotal as $three)
-                        '{{$three->year}}',
-                    @endforeach]
+            labels: [@foreach($threeyeartotal as $three)
+                '{{$three->year}}'
+                , @endforeach
+            ]
             , datasets: [{
-                label: 'My First Dataset'
-                , data: [
-                    @foreach ($threeyeartotal as $three)
-                        '{{$three->total}}',
-                    @endforeach
+
+                data: [
+                    @foreach($threeyeartotal as $three)
+                    '{{round($three->total)}}'
+                    , @endforeach
                 ]
                 , backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)'
-                    , 'rgba(255, 159, 64, 0.2)'
-                    , 'rgba(255, 205, 86, 0.2)'
-                    , 'rgba(75, 192, 192, 0.2)'
-                    , 'rgba(54, 162, 235, 0.2)'
-                    , 'rgba(153, 102, 255, 0.2)'
-                    , 'rgba(201, 203, 207, 0.2)'
+                    'rgba(208, 5, 11, 0.8)'
                 ]
                 , borderColor: [
-                    'rgb(255, 99, 132)'
-                    , 'rgb(255, 159, 64)'
-                    , 'rgb(255, 205, 86)'
-                    , 'rgb(75, 192, 192)'
-                    , 'rgb(54, 162, 235)'
-                    , 'rgb(153, 102, 255)'
-                    , 'rgb(201, 203, 207)'
+                    'rgb(166,4,9)'
                 ]
                 , borderWidth: 1
             }]
         }
         , options: {
-            scales: {
-                y: {
-                    beginAtZero: false
+
+            plugins: {
+                title: {
+                    display: true
+                    , text: 'Energy Consumption Trend'
                 }
-            }
+                , legend: {
+                    display: false
+                }
+            , }
+            , scales: {
+                x: {
+                    grid: {
+                        display: false
+                    , }
+                }
+                , y: {
+                    beginAtZero: false
+                    , grid: {
+                        display: false
+                    , }
+                }
+            , }
         }
     , });
 
