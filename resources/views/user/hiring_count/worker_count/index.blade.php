@@ -26,11 +26,11 @@
             </div>
 
         </div> --}}
-        <h3 class="fw-bold">Workers Count</h3>
+        <h3 class="fw-bold">Hiring Workers Count</h3>
         <div class=" card">
             @csrf
             <div class="card-header">
-                <form id="formSubmit" action="{{route('employeecount.index')}}" method="GET" onchange="this.submit();">
+                <form id="formSubmit" action="{{route('hiring.workercount.index')}}" method="GET" onchange="this.submit();">
                     <div class=" d-flex justify-content-around">
                         <div class="form-group">
                             <label class="class mb-2" for="for">
@@ -59,27 +59,29 @@
                     </div>
                 </form>
             </div>
-            @php
+            {{-- @php
             $power_from_diesel_generators = 0;
             $power_purchase_agreement = 0;
             $captive_power = 0;
             $electricity = 0;
-            @endphp
+            @endphp --}}
 
             <div class="card-body table-responsive">
                 <table class=" table ">
                     <thead>
                         <tr>
                             <th rowspan="2">Month</th>
-                            <th colspan="3" style="text-align: center;">Permanent </th>
-                            <th colspan="3" style="text-align: center;">Temporary </th>
-                            <th rowspan="2">Status</th>
+                            <th colspan="4" style="text-align: center;">Permanent </th>
+                            <th colspan="4" style="text-align: center;">Temporary </th>
+                            {{-- <th rowspan="2">Status</th> --}}
                             <th rowspan="2">Action</th>
                         </tr>
                         <tr>
+                            <th>Age Group</th>
                             <th>Male</th>
                             <th>Female</th>
                             <th>Other</th>
+                            <th>Age Group</th>
                             <th>Male</th>
                             <th>Female</th>
                             <th>Other</th>
@@ -87,13 +89,18 @@
                     </thead>
                     <tbody>
 
-                        @forelse($data as $data)
+                        @forelse($datas as $data)
+
                         <tr>
                             <td>{{$data->month}}</td>
-                            <td>{{round($data->power_from_diesel_generators)}}</td>
-                            <td>{{round($data->electricity)}}</td>
-                            <td>{{round($data->power_purchase_agreement)}}</td>
-                            <td>{{round($data->captive_power)}}</td>
+                            <td>{{$data->pw_age_group}}</td>
+                            <td>{{$data->pw_male}}</td>
+                            <td>{{$data->pw_female}}</td>
+                            <td>{{$data->pw_other}}</td>
+                            <td>{{$data->tw_age_group}}</td>
+                            <td>{{$data->tw_male}}</td>
+                            <td>{{$data->tw_female}}</td>
+                            <td>{{$data->tw_other}}</td>
                             {{--
                             @switch($data->status)
                             @case('submitted')
@@ -114,7 +121,7 @@
                             @endswitch --}}
                             <td>
                                 <div class="d-flex gap-1">
-                                    <a href="{{ route('energy_data.edit', $data->id) }}" class="btn btn-sm btn-warning">
+                                    <a href="{{ route('hiring.workercount.edit', $data->id) }}" class="btn btn-sm btn-warning">
                                         <i class="bi bi-pencil"></i>
                                     </a>
                                     {{-- <a href="{{ route('energy_data.edit', $data->id) }}" class="btn btn-sm btn-success">

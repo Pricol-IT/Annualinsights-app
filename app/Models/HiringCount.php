@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class HiringCount extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        "year",
+        "loction",
+        "month",
+        
+    ];
 }

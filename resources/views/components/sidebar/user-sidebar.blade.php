@@ -34,12 +34,12 @@
         </a>
         <ul id="icons-nav1" class="nav-content collapse " data-bs-parent="#sidebar-nav">
             <li>
-                <a class="nav-link" href="{{route('employeecount.index')}}">
+                <a class="nav-link" href="{{route('hiring.employeecount.index')}}">
                     <i class="bi bi-circle"></i><span>Employees count</span>
                 </a>
             </li>
             <li>
-                <a href="{{route('workercount.index')}}">
+                <a href="{{route('hiring.workercount.index')}}">
                     <i class="bi bi-circle"></i><span>Workers count</span>
                 </a>
             </li>

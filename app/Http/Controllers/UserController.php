@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\EmployeeWorkerCount;
 use App\Models\EnergyData;
+use App\Models\HiringCount;
 use Carbon\CarbonPeriod;
 use Illuminate\Http\Request;
 
@@ -51,19 +52,25 @@ class UserController extends Controller
             // 'captive_power'=>0
             // ]);
 
-            $employee_worker_count = [
+            // $employee_worker_count = [
+            //     'year' => $request->financialyear,
+            // 'loction'=>$plant,
+            // 'month'=>$month,
+            // ];
+            // $employee_worker_test=EmployeeWorkerCount::create($employee_worker_count);
+            // return $employee_worker_count;
+            $hiring_count = [
                 'year' => $request->financialyear,
             'loction'=>$plant,
             'month'=>$month,
             ];
-            $employee_worker_test=EmployeeWorkerCount::create($employee_worker_count);
-            // return $employee_worker_count;
+            
+            $hiring_test=HiringCount::create($hiring_count);
         
     }
 }
-    // return $energy_data;
-            $employee_worker_test=EmployeeWorkerCount::create($employee_worker_count);
-if('employee_worker_test'){
+    // return $hiring_count;
+if($hiring_count){
     toastr()->success($request->financialyear.' year is generated');
     return view('user.financialyear');
 }else{

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\EmployeeWorkerCountController;
 use App\Http\Controllers\EnergyDataController;
+use App\Http\Controllers\HiringCountController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Auth;
@@ -37,6 +38,15 @@ Route::controller(EmployeeWorkerCountController::class)->group(function(){
     Route::get('/worker_count/index','worker_index')->name('workercount.index');
     Route::get('/worker_count/edit/{id}','worker_edit')->name('workercount.edit');
     Route::patch('/worker_count/update/{id}','worker_update')->name('workercount.update');
+});
+
+Route::controller(HiringCountController::class)->group(function(){
+    Route::get('/hiring/employee_count/index','employee_index')->name('hiring.employeecount.index');
+    Route::get('/hiring/employee_count/edit/{id}','employee_edit')->name('hiring.employeecount.edit');
+    Route::patch('/hiring/employee_count/update/{id}','employee_update')->name('hiring.employeecount.update');
+    Route::get('/hiring/worker_count/index','worker_index')->name('hiring.workercount.index');
+    Route::get('/hiring/worker_count/edit/{id}','worker_edit')->name('hiring.workercount.edit');
+    Route::patch('/hiring/worker_count/update/{id}','worker_update')->name('hiring.workercount.update');
 });
 
 });
