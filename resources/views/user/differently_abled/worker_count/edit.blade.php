@@ -7,7 +7,7 @@
     <div class="content">
         <div class="container-fluid">
 
-            <form action="{{route('turnover.workercount.update',$data->id)}}" method="POST">
+            <form action="{{route('differently_abled.workercount.update',$data->id)}}" method="POST">
                 @csrf
                 @method('patch')
                 <div class="card">
@@ -34,14 +34,7 @@
 
                             <div class="card-body p-4">
                                 <h4 class="p-3 text-center">Permanent Employee</h4>
-                                <div class="form-group row">
-                                    <label class="col-sm-5 col-form-label">
-                                        Age Group<span class="form-label-required text-danger">*</span>
-                                    </label>
-                                    <div class="col-sm-6">
-                                        <input type="text" name="pw_age_group" id="pw_age_group" class="form-control class " value="{{$data->pw_age_group}}" placeholder="Enter no.of.person">
-                                    </div>
-                                </div>
+
                                 <div class="form-group row mt-3">
                                     <label class="col-sm-5 col-form-label">
                                         Male<span class="form-label-required text-danger">*</span>
@@ -59,27 +52,14 @@
                                     </div>
                                 </div>
 
-                                <div class="form-group row mt-3">
-                                    <label class="col-sm-5 col-form-label">Other<span class="form-label-required text-danger">*</span>
-                                    </label>
-                                    <div class="col-sm-6">
-                                        <input type="text" name="pw_other" id="pw_other" class="form-control class " value="{{$data->pw_other}}" placeholder="Enter no.of.person">
-                                    </div>
-                                </div>
+
 
 
                             </div>
 
                             <div class="card-body p-4">
                                 <h4 class="p-3 text-center">Temporary Employee</h4>
-                                <div class="form-group row">
-                                    <label class="col-sm-5 col-form-label">
-                                        Age Group<span class="form-label-required text-danger">*</span>
-                                    </label>
-                                    <div class="col-sm-6">
-                                        <input type="text" name="tw_age_group" id="tw_age_group" class="form-control class " value="{{$data->tw_age_group}}" placeholder="Enter no.of.person">
-                                    </div>
-                                </div>
+
                                 <div class="form-group row mt-3">
                                     <label class="col-sm-5 col-form-label">
                                         Male<span class="form-label-required text-danger">*</span>
@@ -94,14 +74,6 @@
                                     </label>
                                     <div class="col-sm-6">
                                         <input type="text" name="tw_female" id="tw_female" class="form-control class " value="{{$data->tw_female}}" placeholder="Enter no.of.person">
-                                    </div>
-                                </div>
-
-                                <div class="form-group row mt-3">
-                                    <label class="col-sm-5 col-form-label">Other<span class="form-label-required text-danger">*</span>
-                                    </label>
-                                    <div class="col-sm-6">
-                                        <input type="text" name="tw_other" id="tw_other" class="form-control class " value="{{$data->tw_other}}" placeholder="Enter no.of.person">
                                     </div>
                                 </div>
 

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DifferentlyAbledController;
 use App\Http\Controllers\EmployeeWorkerCountController;
 use App\Http\Controllers\EnergyDataController;
 use App\Http\Controllers\HiringCountController;
@@ -57,6 +58,15 @@ Route::controller(TurnOverController::class)->group(function(){
     Route::get('/turnover/worker_count/index','worker_index')->name('turnover.workercount.index');
     Route::get('/turnover/worker_count/edit/{id}','worker_edit')->name('turnover.workercount.edit');
     Route::patch('/turnover/worker_count/update/{id}','worker_update')->name('turnover.workercount.update');
+});
+
+Route::controller(DifferentlyAbledController::class)->group(function(){
+    Route::get('/differently_abled/employee_count/index','employee_index')->name('differently_abled.employeecount.index');
+    Route::get('/differently_abled/employee_count/edit/{id}','employee_edit')->name('differently_abled.employeecount.edit');
+    Route::patch('/differently_abled/employee_count/update/{id}','employee_update')->name('differently_abled.employeecount.update');
+    Route::get('/differently_abled/worker_count/index','worker_index')->name('differently_abled.workercount.index');
+    Route::get('/differently_abled/worker_count/edit/{id}','worker_edit')->name('differently_abled.workercount.edit');
+    Route::patch('/differently_abled/worker_count/update/{id}','worker_update')->name('differently_abled.workercount.update');
 });
 
 });

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\DifferentlyAbled;
 use App\Models\EmployeeWorkerCount;
 use App\Models\EnergyData;
 use App\Models\HiringCount;
@@ -70,17 +71,24 @@ class UserController extends Controller
                 // ];
                 // $hiring_test=HiringCount::create($hiring_count);
 
-                $turnover = [
+                // $turnover = [
+                //     'year' => $request->financialyear,
+                //     'loction' => $plant,
+                //     'month' => $month,
+                // ];
+                // $turnover_test = TurnOver::create($turnover);
+
+                $differentlyabled = [
                     'year' => $request->financialyear,
                     'loction' => $plant,
                     'month' => $month,
                 ];
-                $turnover_test = TurnOver::create($turnover);
+                $differentlyabled_test = DifferentlyAbled::create($differentlyabled);
 
             }
         }
         // return $turnover_test;
-        if ($turnover_test) {
+        if ($differentlyabled_test) {
             toastr()->success($request->financialyear . ' year is generated');
             return view('user.financialyear');
         } else {

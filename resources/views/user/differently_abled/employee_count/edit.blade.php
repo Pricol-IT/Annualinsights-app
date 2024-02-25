@@ -7,7 +7,7 @@
     <div class="content">
         <div class="container-fluid">
 
-            <form action="{{route('turnover.employeecount.update',$data->id)}}" method="POST">
+            <form action="{{route('differently_abled.employeecount.update',$data->id)}}" method="POST">
                 @csrf
                 @method('patch')
                 <div class="card">
@@ -34,14 +34,7 @@
 
                             <div class="card-body p-4">
                                 <h4 class="p-3 text-center">Permanent Employee</h4>
-                                <div class="form-group row">
-                                    <label class="col-sm-5 col-form-label">
-                                        Age Group<span class="form-label-required text-danger">*</span>
-                                    </label>
-                                    <div class="col-sm-6">
-                                        <input type="text" name="pe_age_group" id="pe_age_group" class="form-control class " value="{{$data->pe_age_group}}" placeholder="Enter no.of.person">
-                                    </div>
-                                </div>
+
                                 <div class="form-group row mt-3">
                                     <label class="col-sm-5 col-form-label">
                                         Male<span class="form-label-required text-danger">*</span>
@@ -59,27 +52,13 @@
                                     </div>
                                 </div>
 
-                                <div class="form-group row mt-3">
-                                    <label class="col-sm-5 col-form-label">Other<span class="form-label-required text-danger">*</span>
-                                    </label>
-                                    <div class="col-sm-6">
-                                        <input type="text" name="pe_other" id="pe_other" class="form-control class " value="{{$data->pe_other}}" placeholder="Enter no.of.person">
-                                    </div>
-                                </div>
 
 
                             </div>
 
                             <div class="card-body p-4">
                                 <h4 class="p-3 text-center">Temporary Employee</h4>
-                                <div class="form-group row">
-                                    <label class="col-sm-5 col-form-label">
-                                        Age Group<span class="form-label-required text-danger">*</span>
-                                    </label>
-                                    <div class="col-sm-6">
-                                        <input type="text" name="te_age_group" id="te_age_group" class="form-control class " value="{{$data->te_age_group}}" placeholder="Enter no.of.person">
-                                    </div>
-                                </div>
+
                                 <div class="form-group row mt-3">
                                     <label class="col-sm-5 col-form-label">
                                         Male<span class="form-label-required text-danger">*</span>
@@ -97,13 +76,6 @@
                                     </div>
                                 </div>
 
-                                <div class="form-group row mt-3">
-                                    <label class="col-sm-5 col-form-label">Other<span class="form-label-required text-danger">*</span>
-                                    </label>
-                                    <div class="col-sm-6">
-                                        <input type="text" name="te_other" id="te_other" class="form-control class " value="{{$data->te_other}}" placeholder="Enter no.of.person">
-                                    </div>
-                                </div>
 
 
                             </div>

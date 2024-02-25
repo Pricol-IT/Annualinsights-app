@@ -68,12 +68,12 @@
         </a>
         <ul id="icons-nav3" class="nav-content collapse " data-bs-parent="#sidebar-nav">
             <li>
-                <a class="nav-link" href="{{route('employeecount.index')}}">
+                <a class="nav-link" href="{{route('differently_abled.employeecount.index')}}">
                     <i class="bi bi-circle"></i><span>Employees</span>
                 </a>
             </li>
             <li>
-                <a href="{{route('workercount.index')}}">
+                <a href="{{route('differently_abled.workercount.index')}}">
                     <i class="bi bi-circle"></i><span>Workers</span>
                 </a>
             </li>
