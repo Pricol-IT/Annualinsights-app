@@ -5,6 +5,7 @@ use App\Http\Controllers\EnergyDataController;
 use App\Http\Controllers\HiringCountController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\TurnOverController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -21,13 +22,13 @@ Auth::routes();
 Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'dashboard'])->name('dashboard');
 
 
-Route::prefix('user')->middleware('user')->group(function () { 
+Route::prefix('user')->middleware('user')->group(function () {
     Route::get('/dashboard', [UserController::class,'index'])->name('user.dashboard');
     Route::get('/commuteform', [UserController::class,'commuteform'])->name('user.commuteform');
     Route::get('/financialyear', [UserController::class,'financialyear'])->name('user.financialyear');
     Route::post('/generateyear', [UserController::class,'generatefinancialyear'])->name('user.generateyear');
 
-    
+
     Route::resource('energy_data',EnergyDataController::class);
 Route::post('/addmonth', [EnergyDataController::class,'addmonth'])->name('addmonth');
 
@@ -47,6 +48,15 @@ Route::controller(HiringCountController::class)->group(function(){
     Route::get('/hiring/worker_count/index','worker_index')->name('hiring.workercount.index');
     Route::get('/hiring/worker_count/edit/{id}','worker_edit')->name('hiring.workercount.edit');
     Route::patch('/hiring/worker_count/update/{id}','worker_update')->name('hiring.workercount.update');
+});
+
+Route::controller(TurnOverController::class)->group(function(){
+    Route::get('/turnover/employee_count/index','employee_index')->name('turnover.employeecount.index');
+    Route::get('/turnover/employee_count/edit/{id}','employee_edit')->name('turnover.employeecount.edit');
+    Route::patch('/turnover/employee_count/update/{id}','employee_update')->name('turnover.employeecount.update');
+    Route::get('/turnover/worker_count/index','worker_index')->name('turnover.workercount.index');
+    Route::get('/turnover/worker_count/edit/{id}','worker_edit')->name('turnover.workercount.edit');
+    Route::patch('/turnover/worker_count/update/{id}','worker_update')->name('turnover.workercount.update');
 });
 
 });

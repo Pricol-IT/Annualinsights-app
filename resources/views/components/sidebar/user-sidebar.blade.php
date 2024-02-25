@@ -51,12 +51,12 @@
         </a>
         <ul id="icons-nav2" class="nav-content collapse " data-bs-parent="#sidebar-nav">
             <li>
-                <a class="nav-link" href="{{route('employeecount.index')}}">
+                <a class="nav-link" href="{{route('turnover.employeecount.index')}}">
                     <i class="bi bi-circle"></i><span>Employee Turnover</span>
                 </a>
             </li>
             <li>
-                <a href="{{route('workercount.index')}}">
+                <a href="{{route('turnover.workercount.index')}}">
                     <i class="bi bi-circle"></i><span>Worker Turnover</span>
                 </a>
             </li>
