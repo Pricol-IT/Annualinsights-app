@@ -96,6 +96,7 @@
             </li>
         </ul>
     </li>
+
     <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#icons-nav5" data-bs-toggle="collapse" href="#">
             <i class="bx bx-category"></i><span>Minimum Wages</span><i class="bi bi-chevron-down ms-auto"></i>
@@ -113,6 +114,14 @@
             </li>
         </ul>
     </li>
+
+    <li class="nav-item">
+        <a class="nav-link " href="{{route('parental_leave.index')}}">
+            <i class='bx bxs-calendar'></i>
+            <span>Parental Leave</span>
+        </a>
+    </li>
+
     <li class="nav-item">
         <a class="nav-link " href="{{route('user.financialyear')}}">
             <i class="bi bi-tags-fill"></i>

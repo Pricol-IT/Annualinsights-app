@@ -30,7 +30,7 @@ class MinimumWageController extends Controller
         }
         if(!$request->has('year')  && !$request->has('loction') && !$request->has('benefits'))
         {
-            $query->where('benefits', $uniqueBenefits[0])->latest()->limit(12);
+            $query->where('benefits', 'Minimum_Wage_Earners')->latest()->limit(12);
         }
         $datas = $query->get();
         // return $data;

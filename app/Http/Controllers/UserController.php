@@ -8,6 +8,7 @@ use App\Models\EmployeeWorkerCount;
 use App\Models\EnergyData;
 use App\Models\HiringCount;
 use App\Models\MinimumWage;
+use App\Models\ParentalLeave;
 use App\Models\TurnOver;
 use Carbon\CarbonPeriod;
 use Illuminate\Http\Request;
@@ -93,27 +94,36 @@ class UserController extends Controller
             //         'loction' => $plant,
             //         'month' => $month,
             //         'benefits' => $benefit,
-
             //     ];
             //     $employeeworkerbenefits_test = EmployeeWorkerBenefit::create($employeeworkerbenefits);
             // }
 
-            $conditions= ['Minimum_Wage_Earners','Above_Minimum_Wage_Earners'];
-                foreach ($conditions as $condition){
-                $minimumwage = [
+            // $conditions= ['Minimum_Wage_Earners','Above_Minimum_Wage_Earners'];
+            //     foreach ($conditions as $condition){
+            //     $minimumwage = [
+            //         'year' => $request->financialyear,
+            //         'loction' => $plant,
+            //         'month' => $month,
+            //         'benefits' => $condition,
+            //     ];
+            //     $minimumwage_test = MinimumWage::create($minimumwage);
+            // }
+
+            $leaveconditions= ['Entitled_to_Parental_Leave','Took_Parental_Leave','Returned_to_Work_Post_Leave','Still_Employed_12_Months_Later','Due_to_Return_Soon','Returns_from_Prior_Periods'];
+                foreach ($leaveconditions as $leavecondition){
+                $parentalleave = [
                     'year' => $request->financialyear,
                     'loction' => $plant,
                     'month' => $month,
-                    'benefits' => $condition,
-
+                    'benefits' => $leavecondition,
                 ];
-                $minimumwage_test = MinimumWage::create($minimumwage);
+                $parentalleave_test = ParentalLeave::create($parentalleave);
             }
 
             }
         }
         // return $employeeworkerbenefits_test;
-        if ($minimumwage_test) {
+        if ($parentalleave_test) {
             toastr()->success($request->financialyear . ' year is generated');
             return view('user.financialyear');
         } else {

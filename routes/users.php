@@ -8,6 +8,7 @@ use App\Http\Controllers\HiringCountController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MinimumWageController;
+use App\Http\Controllers\ParentalLeaveController;
 use App\Http\Controllers\TurnOverController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -87,6 +88,13 @@ Route::controller(MinimumWageController::class)->group(function(){
     Route::get('/minimum_wage/worker_count/index','worker_index')->name('minimum_wage.workercount.index');
     Route::get('/minimum_wage/worker_count/edit/{id}','worker_edit')->name('minimum_wage.workercount.edit');
     Route::patch('/minimum_wage/worker_count/update/{id}','worker_update')->name('minimum_wage.workercount.update');
+});
+
+Route::controller(ParentalLeaveController::class)->group(function(){
+    Route::get('/parental_leave/index','index')->name('parental_leave.index');
+    Route::get('/parental_leave/edit/{id}','edit')->name('parental_leave.edit');
+    Route::patch('/parental_leave/update/{id}','update')->name('parental_leave.update');
+
 });
 
 });
