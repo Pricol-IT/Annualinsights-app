@@ -123,6 +123,13 @@
     </li>
 
     <li class="nav-item">
+        <a class="nav-link " href="{{route('retirement_benefits.index')}}">
+            <i class='bx bxs-calendar'></i>
+            <span>Retirement Benefits</span>
+        </a>
+    </li>
+
+    <li class="nav-item">
         <a class="nav-link " href="{{route('user.financialyear')}}">
             <i class="bi bi-tags-fill"></i>
             <span>Generate Financial year</span>

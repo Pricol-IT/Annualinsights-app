@@ -9,6 +9,7 @@ use App\Models\EnergyData;
 use App\Models\HiringCount;
 use App\Models\MinimumWage;
 use App\Models\ParentalLeave;
+use App\Models\RetirementBenefits;
 use App\Models\TurnOver;
 use Carbon\CarbonPeriod;
 use Illuminate\Http\Request;
@@ -109,21 +110,32 @@ class UserController extends Controller
             //     $minimumwage_test = MinimumWage::create($minimumwage);
             // }
 
-            $leaveconditions= ['Entitled_to_Parental_Leave','Took_Parental_Leave','Returned_to_Work_Post_Leave','Still_Employed_12_Months_Later','Due_to_Return_Soon','Returns_from_Prior_Periods'];
-                foreach ($leaveconditions as $leavecondition){
-                $parentalleave = [
-                    'year' => $request->financialyear,
-                    'loction' => $plant,
-                    'month' => $month,
-                    'benefits' => $leavecondition,
-                ];
-                $parentalleave_test = ParentalLeave::create($parentalleave);
-            }
+            // $leaveconditions= ['Entitled_to_Parental_Leave','Took_Parental_Leave','Returned_to_Work_Post_Leave','Still_Employed_12_Months_Later','Due_to_Return_Soon','Returns_from_Prior_Periods'];
+            //     foreach ($leaveconditions as $leavecondition){
+            //     $parentalleave = [
+            //         'year' => $request->financialyear,
+            //         'loction' => $plant,
+            //         'month' => $month,
+            //         'benefits' => $leavecondition,
+            //     ];
+            //     $parentalleave_test = ParentalLeave::create($parentalleave);
+            // }
+
+            $retirementbenefits= ['PF', 'Gratuity', 'ESI'];
+            foreach ($retirementbenefits as $retirementbenefit){
+            $retirementbenefits_data = [
+                'year' => $request->financialyear,
+                'loction' => $plant,
+                'month' => $month,
+                'benefits' => $retirementbenefit,
+            ];
+            $retirementbenefits_test = RetirementBenefits::create($retirementbenefits_data);
+        }
 
             }
         }
         // return $employeeworkerbenefits_test;
-        if ($parentalleave_test) {
+        if ($retirementbenefits_test) {
             toastr()->success($request->financialyear . ' year is generated');
             return view('user.financialyear');
         } else {

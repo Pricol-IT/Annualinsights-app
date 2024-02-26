@@ -9,6 +9,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MinimumWageController;
 use App\Http\Controllers\ParentalLeaveController;
+use App\Http\Controllers\RetirementBenefitsController;
 use App\Http\Controllers\TurnOverController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -94,7 +95,12 @@ Route::controller(ParentalLeaveController::class)->group(function(){
     Route::get('/parental_leave/index','index')->name('parental_leave.index');
     Route::get('/parental_leave/edit/{id}','edit')->name('parental_leave.edit');
     Route::patch('/parental_leave/update/{id}','update')->name('parental_leave.update');
+});
 
+Route::controller(RetirementBenefitsController::class)->group(function(){
+    Route::get('/retirement_benefits/index','index')->name('retirement_benefits.index');
+    Route::get('/retirement_benefits/edit/{id}','edit')->name('retirement_benefits.edit');
+    Route::patch('/retirement_benefits/update/{id}','update')->name('retirement_benefits.update');
 });
 
 });

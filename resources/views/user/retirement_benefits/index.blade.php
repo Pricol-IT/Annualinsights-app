@@ -26,11 +26,11 @@
             </div>
 
         </div> --}}
-        <h3 class="fw-bold">Parental Leave </h3>
+        <h3 class="fw-bold">Retirement Benefits</h3>
         <div class=" card">
             @csrf
             <div class="card-header">
-                <form id="formSubmit" action="{{route('parental_leave.index')}}" method="GET" onchange="this.submit();">
+                <form id="formSubmit" action="{{route('retirement_benefits.index')}}" method="GET" onchange="this.submit();">
                     <div class=" d-flex justify-content-around">
                         <div class="form-group">
                             <label class="class mb-2" for="for">
@@ -54,7 +54,7 @@
                         </div>
                         <div class="form-group">
                             <label class="class mb-2" for="for">
-                                Select Condition:
+                                Select Benefits:
                             </label>
                             <select class="form-control" name="benefits" id="benefits">
                                 @foreach ($uniqueBenefits as $benefits)
@@ -79,18 +79,13 @@
                 <table class=" table ">
                     <thead>
                         <tr>
-                            <th rowspan="2">Month</th>
-                            <th rowspan="2">Parental Leave</th>
-                            <th colspan="2" style="text-align: center;">Employees </th>
-                            <th colspan="2" style="text-align: center;">Workers </th>
+                            <th>Month</th>
+                            <th>Benefits</th>
+                            <th >Total Employees </th>
+                            <th >Total Workers </th>
+                            <th >Remarks </th>
                             {{-- <th rowspan="2">Status</th> --}}
-                            <th rowspan="2">Action</th>
-                        </tr>
-                        <tr>
-                            <th>Male</th>
-                            <th>Female</th>
-                            <th>Male</th>
-                            <th>Female</th>
+                            <th >Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -100,10 +95,9 @@
                         <tr>
                             <td>{{$data->month}}</td>
                             <td>{{$data->benefits}}</td>
-                            <td>{{$data->em_male}}</td>
-                            <td>{{$data->em_female}}</td>
-                            <td>{{$data->wr_male}}</td>
-                            <td>{{$data->wr_female}}</td>
+                            <td>{{$data->total_employees}}</td>
+                            <td>{{$data->total_workers}}</td>
+                            <td>{{$data->remarks}}</td>
                             {{--
                             @switch($data->status)
                             @case('submitted')
@@ -124,7 +118,7 @@
                             @endswitch --}}
                             <td>
                                 <div class="d-flex gap-1">
-                                    <a href="{{ route('parental_leave.edit', $data->id) }}" class="btn btn-sm btn-warning">
+                                    <a href="{{ route('retirement_benefits.edit', $data->id) }}" class="btn btn-sm btn-warning">
                                         <i class="bi bi-pencil"></i>
                                     </a>
                                     {{-- <a href="{{ route('energy_data.edit', $data->id) }}" class="btn btn-sm btn-success">
