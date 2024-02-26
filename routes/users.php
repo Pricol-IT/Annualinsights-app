@@ -5,6 +5,7 @@ use App\Http\Controllers\EmployeeWorkerBenefitController;
 use App\Http\Controllers\EmployeeWorkerCountController;
 use App\Http\Controllers\EnergyDataController;
 use App\Http\Controllers\HiringCountController;
+use App\Http\Controllers\UnionController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MinimumWageController;
@@ -101,6 +102,12 @@ Route::controller(RetirementBenefitsController::class)->group(function(){
     Route::get('/retirement_benefits/index','index')->name('retirement_benefits.index');
     Route::get('/retirement_benefits/edit/{id}','edit')->name('retirement_benefits.edit');
     Route::patch('/retirement_benefits/update/{id}','update')->name('retirement_benefits.update');
+});
+
+Route::controller(UnionController::class)->group(function(){
+    Route::get('/union/index','index')->name('union.index');
+    Route::get('/union/edit/{id}','edit')->name('union.edit');
+    Route::patch('/union/update/{id}','update')->name('union.update');
 });
 
 });

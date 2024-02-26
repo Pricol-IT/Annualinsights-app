@@ -11,6 +11,7 @@ use App\Models\MinimumWage;
 use App\Models\ParentalLeave;
 use App\Models\RetirementBenefits;
 use App\Models\TurnOver;
+use App\Models\Union;
 use Carbon\CarbonPeriod;
 use Illuminate\Http\Request;
 
@@ -121,21 +122,28 @@ class UserController extends Controller
             //     $parentalleave_test = ParentalLeave::create($parentalleave);
             // }
 
-            $retirementbenefits= ['PF', 'Gratuity', 'ESI'];
-            foreach ($retirementbenefits as $retirementbenefit){
-            $retirementbenefits_data = [
+        //     $retirementbenefits= ['PF', 'Gratuity', 'ESI'];
+        //     foreach ($retirementbenefits as $retirementbenefit){
+        //     $retirementbenefits_data = [
+        //         'year' => $request->financialyear,
+        //         'loction' => $plant,
+        //         'month' => $month,
+        //         'benefits' => $retirementbenefit,
+        //     ];
+        //     $retirementbenefits_test = RetirementBenefits::create($retirementbenefits_data);
+        // }
+
+        $union = [
                 'year' => $request->financialyear,
                 'loction' => $plant,
                 'month' => $month,
-                'benefits' => $retirementbenefit,
             ];
-            $retirementbenefits_test = RetirementBenefits::create($retirementbenefits_data);
-        }
+            $union_test = Union::create($union);
 
             }
         }
         // return $employeeworkerbenefits_test;
-        if ($retirementbenefits_test) {
+        if ($union_test) {
             toastr()->success($request->financialyear . ' year is generated');
             return view('user.financialyear');
         } else {

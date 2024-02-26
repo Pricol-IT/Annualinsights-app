@@ -130,6 +130,13 @@
     </li>
 
     <li class="nav-item">
+        <a class="nav-link " href="{{route('union.index')}}">
+            <i class='bx bxs-calendar'></i>
+            <span>Union</span>
+        </a>
+    </li>
+
+    <li class="nav-item">
         <a class="nav-link " href="{{route('user.financialyear')}}">
             <i class="bi bi-tags-fill"></i>
             <span>Generate Financial year</span>
