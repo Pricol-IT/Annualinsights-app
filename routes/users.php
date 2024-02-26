@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DifferentlyAbledController;
+use App\Http\Controllers\EmployeeWorkerBenefitController;
 use App\Http\Controllers\EmployeeWorkerCountController;
 use App\Http\Controllers\EnergyDataController;
 use App\Http\Controllers\HiringCountController;
@@ -67,6 +68,15 @@ Route::controller(DifferentlyAbledController::class)->group(function(){
     Route::get('/differently_abled/worker_count/index','worker_index')->name('differently_abled.workercount.index');
     Route::get('/differently_abled/worker_count/edit/{id}','worker_edit')->name('differently_abled.workercount.edit');
     Route::patch('/differently_abled/worker_count/update/{id}','worker_update')->name('differently_abled.workercount.update');
+});
+
+Route::controller(EmployeeWorkerBenefitController::class)->group(function(){
+    Route::get('/employee_worker_benefits/employee_count/index','employee_index')->name('employee_worker_benefits.employeecount.index');
+    Route::get('/employee_worker_benefits/employee_count/edit/{id}','employee_edit')->name('employee_worker_benefits.employeecount.edit');
+    Route::patch('/employee_worker_benefits/employee_count/update/{id}','employee_update')->name('employee_worker_benefits.employeecount.update');
+    Route::get('/employee_worker_benefits/worker_count/index','worker_index')->name('employee_worker_benefits.workercount.index');
+    Route::get('/employee_worker_benefits/worker_count/edit/{id}','worker_edit')->name('employee_worker_benefits.workercount.edit');
+    Route::patch('/employee_worker_benefits/worker_count/update/{id}','worker_update')->name('employee_worker_benefits.workercount.update');
 });
 
 });

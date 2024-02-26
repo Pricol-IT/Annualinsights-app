@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\DifferentlyAbled;
+use App\Models\EmployeeWorkerBenefit;
 use App\Models\EmployeeWorkerCount;
 use App\Models\EnergyData;
 use App\Models\HiringCount;
@@ -41,7 +42,6 @@ class UserController extends Controller
         foreach ($period as $p) {
             $finYear[] = $p->format('M-y');
         }
-
         // return $finYear;
         $plants = ['Plant-Corporate', 'Plant-1', 'Plant-2', 'Plant-3', 'Plant-5', 'Plant-7', 'Plant-9', 'Plant-10', 'Plant-12'];
         foreach ($plants as $plant) {
@@ -78,17 +78,29 @@ class UserController extends Controller
                 // ];
                 // $turnover_test = TurnOver::create($turnover);
 
-                $differentlyabled = [
+                // $differentlyabled = [
+                //     'year' => $request->financialyear,
+                //     'loction' => $plant,
+                //     'month' => $month,
+                // ];
+                // $differentlyabled_test = DifferentlyAbled::create($differentlyabled);
+                $benefits = ['Health_Insurance','Accident_Insurance','Maternity_Benefits','Paternity_Benefits','Day_care_facilities'];
+                foreach ($benefits as $benefit){
+                $employeeworkerbenefits = [
                     'year' => $request->financialyear,
                     'loction' => $plant,
                     'month' => $month,
+                    'benefits' => $benefit,
+
                 ];
-                $differentlyabled_test = DifferentlyAbled::create($differentlyabled);
+                $employeeworkerbenefits_test = EmployeeWorkerBenefit::create($employeeworkerbenefits);
+                // print_r($employeeworkerbenefits_test);
+            }
 
             }
         }
-        // return $turnover_test;
-        if ($differentlyabled_test) {
+        // return $employeeworkerbenefits_test;
+        if ($employeeworkerbenefits_test) {
             toastr()->success($request->financialyear . ' year is generated');
             return view('user.financialyear');
         } else {
