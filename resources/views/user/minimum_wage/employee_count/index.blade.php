@@ -26,11 +26,11 @@
             </div>
 
         </div> --}}
-        <h3 class="fw-bold">Workers Benefits</h3>
+        <h3 class="fw-bold">Employees minimum wage</h3>
         <div class=" card">
             @csrf
             <div class="card-header">
-                <form id="formSubmit" action="{{route('employee_worker_benefits.workercount.index')}}" method="GET" onchange="this.submit();">
+                <form id="formSubmit" action="{{route('minimum_wage.employeecount.index')}}" method="GET" onchange="this.submit();">
                     <div class=" d-flex justify-content-around">
                         <div class="form-group">
                             <label class="class mb-2" for="for">
@@ -41,7 +41,6 @@
                                 <option value="{{$year}}" {{ request('year')== $year ? 'selected' : ''}}>{{$year}}</option>
                                 @endforeach
                             </select>
-
                         </div>
                         <div class="form-group">
                             <label class="class mb-2" for="for">
@@ -81,7 +80,7 @@
                     <thead>
                         <tr>
                             <th rowspan="2">Month</th>
-<th rowspan="2">Benefits</th>
+                            <th rowspan="2">Benefits</th>
                             <th colspan="3" style="text-align: center;">Permanent </th>
                             <th colspan="3" style="text-align: center;">Temporary </th>
                             {{-- <th rowspan="2">Status</th> --}}
@@ -103,12 +102,12 @@
                         <tr>
                             <td>{{$data->month}}</td>
                             <td>{{$data->benefits}}</td>
-                            <td>{{$data->pw_male}}</td>
-                            <td>{{$data->pw_female}}</td>
-                            <td>{{$data->pw_remark}}</td>
-                            <td>{{$data->tw_male}}</td>
-                            <td>{{$data->tw_female}}</td>
-                            <td>{{$data->tw_remark}}</td>
+                            <td>{{$data->pe_male}}</td>
+                            <td>{{$data->pe_female}}</td>
+                            <td>{{$data->pe_remark}}</td>
+                            <td>{{$data->te_male}}</td>
+                            <td>{{$data->te_female}}</td>
+                            <td>{{$data->te_remark}}</td>
                             {{--
                             @switch($data->status)
                             @case('submitted')
@@ -129,7 +128,7 @@
                             @endswitch --}}
                             <td>
                                 <div class="d-flex gap-1">
-                                    <a href="{{ route('employee_worker_benefits.workercount.edit', $data->id) }}" class="btn btn-sm btn-warning">
+                                    <a href="{{ route('minimum_wage.employeecount.edit', $data->id) }}" class="btn btn-sm btn-warning">
                                         <i class="bi bi-pencil"></i>
                                     </a>
                                     {{-- <a href="{{ route('energy_data.edit', $data->id) }}" class="btn btn-sm btn-success">

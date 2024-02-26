@@ -7,6 +7,7 @@ use App\Models\EmployeeWorkerBenefit;
 use App\Models\EmployeeWorkerCount;
 use App\Models\EnergyData;
 use App\Models\HiringCount;
+use App\Models\MinimumWage;
 use App\Models\TurnOver;
 use Carbon\CarbonPeriod;
 use Illuminate\Http\Request;
@@ -84,23 +85,35 @@ class UserController extends Controller
                 //     'month' => $month,
                 // ];
                 // $differentlyabled_test = DifferentlyAbled::create($differentlyabled);
-                $benefits = ['Health_Insurance','Accident_Insurance','Maternity_Benefits','Paternity_Benefits','Day_care_facilities'];
-                foreach ($benefits as $benefit){
-                $employeeworkerbenefits = [
+
+            //     $benefits = ['Health_Insurance','Accident_Insurance','Maternity_Benefits','Paternity_Benefits','Day_care_facilities'];
+            //     foreach ($benefits as $benefit){
+            //     $employeeworkerbenefits = [
+            //         'year' => $request->financialyear,
+            //         'loction' => $plant,
+            //         'month' => $month,
+            //         'benefits' => $benefit,
+
+            //     ];
+            //     $employeeworkerbenefits_test = EmployeeWorkerBenefit::create($employeeworkerbenefits);
+            // }
+
+            $conditions= ['Minimum_Wage_Earners','Above_Minimum_Wage_Earners'];
+                foreach ($conditions as $condition){
+                $minimumwage = [
                     'year' => $request->financialyear,
                     'loction' => $plant,
                     'month' => $month,
-                    'benefits' => $benefit,
+                    'benefits' => $condition,
 
                 ];
-                $employeeworkerbenefits_test = EmployeeWorkerBenefit::create($employeeworkerbenefits);
-                // print_r($employeeworkerbenefits_test);
+                $minimumwage_test = MinimumWage::create($minimumwage);
             }
 
             }
         }
         // return $employeeworkerbenefits_test;
-        if ($employeeworkerbenefits_test) {
+        if ($minimumwage_test) {
             toastr()->success($request->financialyear . ' year is generated');
             return view('user.financialyear');
         } else {

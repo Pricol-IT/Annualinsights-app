@@ -26,11 +26,11 @@
             </div>
 
         </div> --}}
-        <h3 class="fw-bold">Workers Benefits</h3>
+        <h3 class="fw-bold">Workers minimum wage</h3>
         <div class=" card">
             @csrf
             <div class="card-header">
-                <form id="formSubmit" action="{{route('employee_worker_benefits.workercount.index')}}" method="GET" onchange="this.submit();">
+                <form id="formSubmit" action="{{route('minimum_wage.workercount.index')}}" method="GET" onchange="this.submit();">
                     <div class=" d-flex justify-content-around">
                         <div class="form-group">
                             <label class="class mb-2" for="for">
@@ -129,7 +129,7 @@
                             @endswitch --}}
                             <td>
                                 <div class="d-flex gap-1">
-                                    <a href="{{ route('employee_worker_benefits.workercount.edit', $data->id) }}" class="btn btn-sm btn-warning">
+                                    <a href="{{ route('minimum_wage.workercount.edit', $data->id) }}" class="btn btn-sm btn-warning">
                                         <i class="bi bi-pencil"></i>
                                     </a>
                                     {{-- <a href="{{ route('energy_data.edit', $data->id) }}" class="btn btn-sm btn-success">

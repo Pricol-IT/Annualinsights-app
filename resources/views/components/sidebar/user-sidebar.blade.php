@@ -97,6 +97,23 @@
         </ul>
     </li>
     <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#icons-nav5" data-bs-toggle="collapse" href="#">
+            <i class="bx bx-category"></i><span>Minimum Wages</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="icons-nav5" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+            <li>
+                <a class="nav-link" href="{{route('minimum_wage.employeecount.index')}}">
+                    <i class="bi bi-circle"></i><span>Employees</span>
+                </a>
+            </li>
+            <li>
+                <a href="{{route('minimum_wage.workercount.index')}}">
+                    <i class="bi bi-circle"></i><span>Workers</span>
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li class="nav-item">
         <a class="nav-link " href="{{route('user.financialyear')}}">
             <i class="bi bi-tags-fill"></i>
             <span>Generate Financial year</span>

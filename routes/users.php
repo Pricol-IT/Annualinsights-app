@@ -7,6 +7,7 @@ use App\Http\Controllers\EnergyDataController;
 use App\Http\Controllers\HiringCountController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MinimumWageController;
 use App\Http\Controllers\TurnOverController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -77,6 +78,15 @@ Route::controller(EmployeeWorkerBenefitController::class)->group(function(){
     Route::get('/employee_worker_benefits/worker_count/index','worker_index')->name('employee_worker_benefits.workercount.index');
     Route::get('/employee_worker_benefits/worker_count/edit/{id}','worker_edit')->name('employee_worker_benefits.workercount.edit');
     Route::patch('/employee_worker_benefits/worker_count/update/{id}','worker_update')->name('employee_worker_benefits.workercount.update');
+});
+
+Route::controller(MinimumWageController::class)->group(function(){
+    Route::get('/minimum_wage/employee_count/index','employee_index')->name('minimum_wage.employeecount.index');
+    Route::get('/minimum_wage/employee_count/edit/{id}','employee_edit')->name('minimum_wage.employeecount.edit');
+    Route::patch('/minimum_wage/employee_count/update/{id}','employee_update')->name('minimum_wage.employeecount.update');
+    Route::get('/minimum_wage/worker_count/index','worker_index')->name('minimum_wage.workercount.index');
+    Route::get('/minimum_wage/worker_count/edit/{id}','worker_edit')->name('minimum_wage.workercount.edit');
+    Route::patch('/minimum_wage/worker_count/update/{id}','worker_update')->name('minimum_wage.workercount.update');
 });
 
 });
