@@ -9,6 +9,7 @@ use App\Http\Controllers\UnionController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MinimumWageController;
+use App\Http\Controllers\MobileCombustionController;
 use App\Http\Controllers\ParentalLeaveController;
 use App\Http\Controllers\RetirementBenefitsController;
 use App\Http\Controllers\StationaryCombustionController;
@@ -117,6 +118,14 @@ Route::controller(StationaryCombustionController::class)->group(function(){
     Route::post('/stationary_combustion/store','store')->name('stationary_combustion.store');
     Route::get('/stationary_combustion/edit/{id}','edit')->name('stationary_combustion.edit');
     Route::patch('/stationary_combustion/update/{id}','update')->name('stationary_combustion.update');
+});
+
+Route::controller(MobileCombustionController::class)->group(function(){
+    Route::get('/mobile_combustion/index','index')->name('mobile_combustion.index');
+    Route::post('/mobile_combustion/create','create')->name('mobile_combustion.create');
+    Route::post('/mobile_combustion/store','store')->name('mobile_combustion.store');
+    Route::get('/mobile_combustion/edit/{id}','edit')->name('mobile_combustion.edit');
+    Route::patch('/mobile_combustion/update/{id}','update')->name('mobile_combustion.update');
 });
 
 });

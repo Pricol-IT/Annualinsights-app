@@ -142,6 +142,12 @@
             <span>Stationary Combustion</span>
         </a>
     </li>
+    <li class="nav-item">
+        <a class="nav-link " href="{{route('mobile_combustion.index')}}">
+            <i class='bx bxs-calendar'></i>
+            <span>Mobile Combustion</span>
+        </a>
+    </li>
 
     <li class="nav-item">
         <a class="nav-link " href="{{route('user.financialyear')}}">

@@ -27,11 +27,12 @@
 
         </div> --}}
         <h3 class="fw-bold">
-            Stationary Combustion</h3>
+
+Mobile Combustion</h3>
         <div class=" card">
             @csrf
             <div class="card-header">
-                <form id="formSubmit" action="{{route('stationary_combustion.index')}}" method="GET" onchange="this.submit();">
+                <form id="formSubmit" action="{{route('mobile_combustion.index')}}" method="GET" onchange="this.submit();">
                     <div class=" d-flex justify-content-around">
                         <div class="form-group">
                             <label class="class mb-2" for="for">
@@ -80,9 +81,10 @@
                     <thead>
                         <tr>
                             <th>s.no</th>
-                            <th>Equipment</th>
+                            <th>Vehicle Type </th>
                             <th>Fuel Type </th>
-                            <th>Total Consumption </th>
+                            <th>Fuel Consumed  </th>
+                            <th>Total distance</th>
                             <th>Action</th>
                         </tr>
 
@@ -93,9 +95,10 @@
 
                         <tr>
                             <td>{{$loop->iteration}}</td>
-                            <td>{{$data->equipment}}</td>
-                            <td>{{($data->fueltype != 'Other') ? $data->fueltype.' in '.$data->unit : $data->fueltype_other.' in '.$data->unit}}</td>
-                            <td>{{$data->total_comsumption}}</td>
+                            <td>{{($data->vehicletype != 'Other' ) ? $data->vehicletype : $data->vehicletype_other}}</td>
+                            <td>{{$data->fueltype.' in '.$data->unit}}</td>
+                            <td>{{$data->fuelconsumed}}</td>
+                            <td>{{$data->Total_distance}}</td>
                             {{--
                             @switch($data->status)
                             @case('submitted')
@@ -116,7 +119,7 @@
                             @endswitch --}}
                             <td>
                                 <div class="d-flex gap-1">
-                                    <a href="{{ route('stationary_combustion.edit', $data->id) }}" class="btn btn-sm btn-warning">
+                                    <a href="{{ route('mobile_combustion.edit', $data->id) }}" class="btn btn-sm btn-warning">
                                         <i class="bi bi-pencil"></i>
                                     </a>
                                     {{-- <a href="{{ route('energy_data.edit', $data->id) }}" class="btn btn-sm btn-success">
@@ -142,7 +145,7 @@
                         </tr>
                         @endforelse
                         <tr>
-                            <form id="formSubmit" action="{{route('stationary_combustion.create')}}" method="POST">
+                            <form id="formSubmit" action="{{route('mobile_combustion.create')}}" method="POST">
                                 @csrf
                                 <input type="hidden" name="year" value="{{request('year') ? request('year') : ($uniqueYears[0] ? $uniqueYears[0] : '') }}">
                                 <input type="hidden"  name="loction" value="{{request('loction') ? request('loction') : ($uniqueLocations[0] ? $uniqueLocations[0] : '') }}">
