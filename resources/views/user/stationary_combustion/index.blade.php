@@ -26,11 +26,12 @@
             </div>
 
         </div> --}}
-        <h3 class="fw-bold">Employees Turnover</h3>
+        <h3 class="fw-bold">
+            Stationary Combustion</h3>
         <div class=" card">
             @csrf
             <div class="card-header">
-                <form id="formSubmit" action="{{route('turnover.employeecount.index')}}" method="GET" onchange="this.submit();">
+                <form id="formSubmit" action="{{route('stationary_combustion.index')}}" method="GET" onchange="this.submit();">
                     <div class=" d-flex justify-content-around">
                         <div class="form-group">
                             <label class="class mb-2" for="for">
@@ -41,7 +42,16 @@
                                 <option value="{{$year}}" {{ request('year')== $year ? 'selected' : ''}}>{{$year}}</option>
                                 @endforeach
                             </select>
-
+                        </div>
+                        <div class="form-group">
+                            <label class="class mb-2" for="for">
+                                Select Month:
+                            </label>
+                            <select class="form-control" name="month" id="month">
+                                @foreach ($monthsArray as $month)
+                                <option value={{$month}} {{ request('month')== $month ? 'selected' : ''}}>{{$month}}</option>
+                                @endforeach
+                            </select>
                         </div>
                         <div class="form-group">
                             <label class="class mb-2" for="for">
@@ -52,8 +62,8 @@
                                 <option value={{$location}} {{ request('loction')== $location ? 'selected' : ''}}>{{$location}}</option>
                                 @endforeach
                             </select>
-
                         </div>
+
 
                     </div>
                 </form>
@@ -69,37 +79,23 @@
                 <table class=" table ">
                     <thead>
                         <tr>
-                            <th rowspan="2">Month</th>
-                            <th colspan="4" style="text-align: center;">Permanent </th>
-                            <th colspan="4" style="text-align: center;">Temporary </th>
-                            {{-- <th rowspan="2">Status</th> --}}
-                            <th rowspan="2">Action</th>
+                            <th>s.no</th>
+                            <th>Equipment</th>
+                            <th>Fuel Type </th>
+                            <th>Total Consumption </th>
+                            <th>Action</th>
                         </tr>
-                        <tr>
-                            <th>Age Group</th>
-                            <th>Male</th>
-                            <th>Female</th>
-                            <th>Other</th>
-                            <th>Age Group</th>
-                            <th>Male</th>
-                            <th>Female</th>
-                            <th>Other</th>
-                        </tr>
+
                     </thead>
                     <tbody>
 
                         @forelse($datas as $data)
 
                         <tr>
-                            <td>{{$data->month}}</td>
-                            <td>{{$data->pe_age_group}}</td>
-                            <td>{{$data->pe_male}}</td>
-                            <td>{{$data->pe_female}}</td>
-                            <td>{{$data->pe_other}}</td>
-                            <td>{{$data->te_age_group}}</td>
-                            <td>{{$data->te_male}}</td>
-                            <td>{{$data->te_female}}</td>
-                            <td>{{$data->te_other}}</td>
+                            <td>{{$loop->iteration}}</td>
+                            <td>{{$data->equipment}}</td>
+                            <td>{{$data->fueltype ? $data->fueltype.' in '.$data->unit : $data->fueltype_other.$data->unit}}</td>
+                            <td>{{$data->total_comsumption}}</td>
                             {{--
                             @switch($data->status)
                             @case('submitted')
@@ -120,7 +116,7 @@
                             @endswitch --}}
                             <td>
                                 <div class="d-flex gap-1">
-                                    <a href="{{ route('turnover.employeecount.edit', $data->id) }}" class="btn btn-sm btn-warning">
+                                    <a href="{{ route('stationary_combustion.edit', $data->id) }}" class="btn btn-sm btn-warning">
                                         <i class="bi bi-pencil"></i>
                                     </a>
                                     {{-- <a href="{{ route('energy_data.edit', $data->id) }}" class="btn btn-sm btn-success">
@@ -139,11 +135,21 @@
                         $captive_power += $data->captive_power;
                         $electricity += $data->electricity;
                         @endphp --}}
+
                         @empty
                         <tr>
                             <td colspan="9" class="text-center">record not found</td>
                         </tr>
                         @endforelse
+                        <tr>
+                            <form id="formSubmit" action="{{route('stationary_combustion.create')}}" method="POST">
+                                @csrf
+                                <input type="hidden" name="year" value="{{request('year') ? request('year') : ($uniqueYears[0] ? $uniqueYears[0] : '') }}">
+                                <input type="hidden"  name="loction" value="{{request('loction') ? request('loction') : ($uniqueLocations[0] ? $uniqueLocations[0] : '') }}">
+                                <input type="hidden"  name="month" value="{{request('month') ? request('month') : $monthsArray[0] }}">
+                                <td colspan="9" class="text-center"><input class="btn btn-primary" type="submit" value="Add item"></td>
+                            </form>
+                        </tr>
                         {{-- <tr>
                             <td class="fw-bold">Sub-Total</td>
                             <td class="fw-bold">{{round($power_from_diesel_generators)}}</td>

@@ -11,6 +11,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MinimumWageController;
 use App\Http\Controllers\ParentalLeaveController;
 use App\Http\Controllers\RetirementBenefitsController;
+use App\Http\Controllers\StationaryCombustionController;
 use App\Http\Controllers\TurnOverController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -108,6 +109,14 @@ Route::controller(UnionController::class)->group(function(){
     Route::get('/union/index','index')->name('union.index');
     Route::get('/union/edit/{id}','edit')->name('union.edit');
     Route::patch('/union/update/{id}','update')->name('union.update');
+});
+
+Route::controller(StationaryCombustionController::class)->group(function(){
+    Route::get('/stationary_combustion/index','index')->name('stationary_combustion.index');
+    Route::post('/stationary_combustion/create','create')->name('stationary_combustion.create');
+    Route::post('/stationary_combustion/store','store')->name('stationary_combustion.store');
+    Route::get('/stationary_combustion/edit/{id}','edit')->name('stationary_combustion.edit');
+    Route::patch('/stationary_combustion/update/{id}','update')->name('stationary_combustion.update');
 });
 
 });

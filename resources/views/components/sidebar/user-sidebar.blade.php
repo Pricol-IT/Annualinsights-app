@@ -137,6 +137,13 @@
     </li>
 
     <li class="nav-item">
+        <a class="nav-link " href="{{route('stationary_combustion.index')}}">
+            <i class='bx bxs-calendar'></i>
+            <span>Stationary Combustion</span>
+        </a>
+    </li>
+
+    <li class="nav-item">
         <a class="nav-link " href="{{route('user.financialyear')}}">
             <i class="bi bi-tags-fill"></i>
             <span>Generate Financial year</span>
