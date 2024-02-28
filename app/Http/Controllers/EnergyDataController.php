@@ -29,7 +29,7 @@ class EnergyDataController extends Controller
         }
         $data = $query->get();
         $uniqueYears = EnergyData::distinct()->orderBy('year',"asc")->pluck('year');
-        $uniqueLocations = EnergyData::orderBy('id',"asc")->distinct()->pluck('loction');
+        $uniqueLocations = EnergyData::distinct()->orderBy('id',"asc")->pluck('loction');
         // return $uniqueYears;
 
         $currentyeartotal=DB::table('energy_data')->selectRaw('SUM(power_from_diesel_generators) as dg')

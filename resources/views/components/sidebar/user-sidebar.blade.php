@@ -157,6 +157,13 @@
     </li>
 
     <li class="nav-item">
+        <a class="nav-link " href="{{route('process_emission.index')}}">
+            <i class='bx bxs-calendar'></i>
+            <span>Process Emission</span>
+        </a>
+    </li>
+
+    <li class="nav-item">
         <a class="nav-link " href="{{route('user.financialyear')}}">
             <i class="bi bi-tags-fill"></i>
             <span>Generate Financial year</span>
