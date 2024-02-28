@@ -150,6 +150,13 @@
     </li>
 
     <li class="nav-item">
+        <a class="nav-link " href="{{route('fugitive_emission.index')}}">
+            <i class='bx bxs-calendar'></i>
+            <span>Fugitive Emission</span>
+        </a>
+    </li>
+
+    <li class="nav-item">
         <a class="nav-link " href="{{route('user.financialyear')}}">
             <i class="bi bi-tags-fill"></i>
             <span>Generate Financial year</span>

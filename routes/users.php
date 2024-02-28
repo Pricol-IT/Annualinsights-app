@@ -4,6 +4,7 @@ use App\Http\Controllers\DifferentlyAbledController;
 use App\Http\Controllers\EmployeeWorkerBenefitController;
 use App\Http\Controllers\EmployeeWorkerCountController;
 use App\Http\Controllers\EnergyDataController;
+use App\Http\Controllers\FugitiveEmissionController;
 use App\Http\Controllers\HiringCountController;
 use App\Http\Controllers\UnionController;
 use App\Http\Controllers\UserController;
@@ -126,6 +127,14 @@ Route::controller(MobileCombustionController::class)->group(function(){
     Route::post('/mobile_combustion/store','store')->name('mobile_combustion.store');
     Route::get('/mobile_combustion/edit/{id}','edit')->name('mobile_combustion.edit');
     Route::patch('/mobile_combustion/update/{id}','update')->name('mobile_combustion.update');
+});
+
+Route::controller(FugitiveEmissionController::class)->group(function(){
+    Route::get('/fugitive_emission/index','index')->name('fugitive_emission.index');
+    Route::post('/fugitive_emission/create','create')->name('fugitive_emission.create');
+    Route::post('/fugitive_emission/store','store')->name('fugitive_emission.store');
+    Route::get('/fugitive_emission/edit/{id}','edit')->name('fugitive_emission.edit');
+    Route::patch('/fugitive_emission/update/{id}','update')->name('fugitive_emission.update');
 });
 
 });
