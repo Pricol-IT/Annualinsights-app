@@ -25,19 +25,19 @@ class EmployeeWorkerCountController extends Controller
         }
         $datas = $query->get();
         // return $data;
-        $uniqueYears = EmployeeWorkerCount::distinct()->orderBy('year',"asc")->pluck('year');
-        $uniqueLocations = EmployeeWorkerCount::orderBy('id',"asc")->distinct()->pluck('loction');
+        $uniqueYears = EmployeeWorkerCount::orderBy('year',"asc")->pluck('year');
+        $uniqueLocations = EmployeeWorkerCount::orderBy('id',"asc")->pluck('loction');
         return view('user.employee_worker_count.employee_count.index',compact('datas','uniqueYears','uniqueLocations'));
     }
 
-    
+
 
     public function employee_edit(string $id){
         $data=EmployeeWorkerCount::find($id);
         return view('user.employee_worker_count.employee_count.edit',compact('data'));
     }
     public function employee_update(Request $request, $id){
-    
+
         $data =[
             'year'=>$request->year,
             'loction'=>$request->loction,
@@ -58,7 +58,7 @@ class EmployeeWorkerCountController extends Controller
             return back();
         }
 
-    
+
     }
 
     public function worker_index( Request $request)
@@ -88,7 +88,7 @@ class EmployeeWorkerCountController extends Controller
     }
 
     public function worker_update(Request $request, $id){
-    
+
         $data =[
             'year'=>$request->year,
             'loction'=>$request->loction,
@@ -109,6 +109,6 @@ class EmployeeWorkerCountController extends Controller
             return back();
         }
 
-    
+
     }
 }
