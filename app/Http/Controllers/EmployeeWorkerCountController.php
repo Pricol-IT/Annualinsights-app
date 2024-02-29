@@ -79,7 +79,7 @@ class EmployeeWorkerCountController extends Controller
         }
         $datas = $query->get();
         $uniqueYears = EmployeeWorkerCount::distinct()->orderBy('year',"asc")->pluck('year');
-        $uniqueLocations = EmployeeWorkerCount::orderBy('id',"asc")->distinct()->pluck('loction');
+        $uniqueLocations = EmployeeWorkerCount::groupBy('loction')->pluck('loction');
         return view('user.employee_worker_count.worker_count.index',compact('datas','uniqueYears','uniqueLocations'));
     }
     public function worker_edit(string $id){

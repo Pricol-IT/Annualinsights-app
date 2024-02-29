@@ -10,7 +10,7 @@ class UnionController extends Controller
     public function index( Request $request)
     {
         $uniqueYears = Union::distinct()->orderBy('year',"asc")->pluck('year');
-        $uniqueLocations = Union::orderBy('id',"asc")->distinct()->pluck('loction');
+        $uniqueLocations = Union::groupBy('loction')->pluck('loction');
 
         // return $uniqueBenefits[0];
         $query = Union::orderBy('id',"asc");

@@ -26,7 +26,7 @@ class TurnOverController extends Controller
         $datas = $query->get();
         // return $data;
         $uniqueYears = TurnOver::distinct()->orderBy('year',"asc")->pluck('year');
-        $uniqueLocations = TurnOver::orderBy('id',"asc")->distinct()->pluck('loction');
+        $uniqueLocations = TurnOver::groupBy('loction')->pluck('loction');
         return view('user.turnover.employee_count.index',compact('datas','uniqueYears','uniqueLocations'));
     }
 
@@ -81,7 +81,7 @@ class TurnOverController extends Controller
         }
         $datas = $query->get();
         $uniqueYears = TurnOver::distinct()->orderBy('year',"asc")->pluck('year');
-        $uniqueLocations = TurnOver::orderBy('id',"asc")->distinct()->pluck('loction');
+        $uniqueLocations = TurnOver::groupBy('loction')->pluck('loction');
         return view('user.turnover.worker_count.index',compact('datas','uniqueYears','uniqueLocations'));
     }
     public function worker_edit(string $id){

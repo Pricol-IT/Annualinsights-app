@@ -26,7 +26,7 @@ class DifferentlyAbledController extends Controller
         $datas = $query->get();
         // return $data;
         $uniqueYears = DifferentlyAbled::distinct()->orderBy('year',"asc")->pluck('year');
-        $uniqueLocations = DifferentlyAbled::orderBy('id',"asc")->distinct()->pluck('loction');
+        $uniqueLocations = DifferentlyAbled::groupBy('loction')->pluck('loction');
         return view('user.differently_abled.employee_count.index',compact('datas','uniqueYears','uniqueLocations'));
     }
 
@@ -77,7 +77,7 @@ class DifferentlyAbledController extends Controller
         }
         $datas = $query->get();
         $uniqueYears = DifferentlyAbled::distinct()->orderBy('year',"asc")->pluck('year');
-        $uniqueLocations = DifferentlyAbled::orderBy('id',"asc")->distinct()->pluck('loction');
+        $uniqueLocations = DifferentlyAbled::groupBy('loction')->pluck('loction');
         return view('user.differently_abled.worker_count.index',compact('datas','uniqueYears','uniqueLocations'));
     }
     public function worker_edit(string $id){

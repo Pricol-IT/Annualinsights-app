@@ -26,18 +26,18 @@ class HiringCountController extends Controller
         $datas = $query->get();
         // return $data;
         $uniqueYears = HiringCount::distinct()->orderBy('year',"asc")->pluck('year');
-        $uniqueLocations = HiringCount::orderBy('id',"asc")->distinct()->pluck('loction');
+        $uniqueLocations = HiringCount::groupBy('loction')->pluck('loction');
         return view('user.hiring_count.employee_count.index',compact('datas','uniqueYears','uniqueLocations'));
     }
 
-    
+
 
     public function employee_edit(string $id){
         $data=HiringCount::find($id);
         return view('user.hiring_count.employee_count.edit',compact('data'));
     }
     public function employee_update(Request $request, $id){
-    
+
         $data =[
             'year'=>$request->year,
             'loction'=>$request->loction,
@@ -60,7 +60,7 @@ class HiringCountController extends Controller
             return back();
         }
 
-    
+
     }
 
     public function worker_index( Request $request)
@@ -81,7 +81,7 @@ class HiringCountController extends Controller
         }
         $datas = $query->get();
         $uniqueYears = HiringCount::distinct()->orderBy('year',"asc")->pluck('year');
-        $uniqueLocations = HiringCount::orderBy('id',"asc")->distinct()->pluck('loction');
+        $uniqueLocations = HiringCount::groupBy('loction')->pluck('loction');
         return view('user.hiring_count.worker_count.index',compact('datas','uniqueYears','uniqueLocations'));
     }
     public function worker_edit(string $id){
@@ -90,7 +90,7 @@ class HiringCountController extends Controller
     }
 
     public function worker_update(Request $request, $id){
-    
+
         $data =[
             'year'=>$request->year,
             'loction'=>$request->loction,
@@ -113,6 +113,6 @@ class HiringCountController extends Controller
             return back();
         }
 
-    
+
     }
 }

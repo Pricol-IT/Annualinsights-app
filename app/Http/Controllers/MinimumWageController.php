@@ -10,7 +10,7 @@ class MinimumWageController extends Controller
     public function employee_index( Request $request)
     {
         $uniqueYears = MinimumWage::distinct()->orderBy('year',"asc")->pluck('year');
-        $uniqueLocations = MinimumWage::orderBy('id',"asc")->distinct()->pluck('loction');
+        $uniqueLocations = MinimumWage::groupBy('loction')->pluck('loction');
         $uniqueBenefits = MinimumWage::orderBy('id',"asc")->distinct()->pluck('benefits');
 
         // return $uniqueBenefits[0];
@@ -70,7 +70,7 @@ class MinimumWageController extends Controller
     public function worker_index( Request $request)
     {
         $uniqueYears = MinimumWage::distinct()->orderBy('year',"asc")->pluck('year');
-        $uniqueLocations = MinimumWage::orderBy('id',"asc")->distinct()->pluck('loction');
+        $uniqueLocations = MinimumWage::groupBy('loction')->pluck('loction');
         $uniqueBenefits = MinimumWage::orderBy('id',"asc")->distinct()->pluck('benefits');
         $query = MinimumWage::orderBy('id',"asc");
 

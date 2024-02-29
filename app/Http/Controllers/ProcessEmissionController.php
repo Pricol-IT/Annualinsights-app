@@ -12,7 +12,7 @@ class ProcessEmissionController extends Controller
     public function index(Request $request)
     {
         $uniqueYears = Union::distinct()->orderBy('year', "asc")->pluck('year');
-        $uniqueLocations = Union::orderBy('id', "asc")->distinct()->pluck('loction');
+        $uniqueLocations = Union::groupBy('loction')->pluck('loction');
         $monthsArray = [];
         for ($month = 1; $month <= 12; $month++) {
             $firstDayOfMonth = Carbon::create(null, $month, 1, 0, 0, 0);
