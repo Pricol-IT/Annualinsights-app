@@ -29,8 +29,8 @@ class EnergyDataController extends Controller
         }
         $data = $query->get();
         $uniqueYears = EnergyData::distinct()->orderBy('year',"asc")->pluck('year');
-        $uniqueLocations = EnergyData::orderBy('id',"asc")->pluck('loction');
-        // return $uniqueYears;
+        $uniqueLocations = EnergyData::groupBy('loction')->pluck('loction');
+        // return $uniqueLocations;
 
         $currentyeartotal=DB::table('energy_data')->selectRaw('SUM(power_from_diesel_generators) as dg')
         ->selectRaw('SUM(electricity) as ecity')->selectRaw('SUM(power_purchase_agreement) as ppa')->selectRaw('SUM(captive_power) as cap')->where('year',$uniqueYears->last())->first();
