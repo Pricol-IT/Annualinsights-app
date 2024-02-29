@@ -11,9 +11,9 @@ class RetirementBenefitsController extends Controller
     {
         $uniqueYears = RetirementBenefits::distinct()->orderBy('year',"asc")->pluck('year');
         $uniqueLocations = RetirementBenefits::groupBy('loction')->pluck('loction');
-        $uniqueBenefits = RetirementBenefits::orderBy('id',"asc")->distinct()->pluck('benefits');
+        $uniqueBenefits = RetirementBenefits::groupBy('benefits')->pluck('benefits');
 
-        // return $uniqueBenefits[0];
+        // return $uniqueBenefits;
         $query = RetirementBenefits::orderBy('id',"asc");
 
         if($request->has('year')  && $request->year != '')

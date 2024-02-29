@@ -31,7 +31,7 @@ class EmployeeWorkerBenefitController extends Controller
         // return $data;
         $uniqueYears = EmployeeWorkerBenefit::distinct()->orderBy('year',"asc")->pluck('year');
         $uniqueLocations = EmployeeWorkerBenefit::groupBy('loction')->pluck('loction');
-        $uniqueBenefits = EmployeeWorkerBenefit::distinct()->pluck('benefits');
+        $uniqueBenefits = EmployeeWorkerBenefit::groupBy('benefits')->pluck('benefits');
         // print($uniqueYears);
         // print($uniqueLocations);
         // return($uniqueBenefits);
@@ -93,7 +93,7 @@ class EmployeeWorkerBenefitController extends Controller
         $datas = $query->get();
         $uniqueYears = EmployeeWorkerBenefit::distinct()->orderBy('year',"asc")->pluck('year');
         $uniqueLocations = EmployeeWorkerBenefit::groupBy('loction')->pluck('loction');
-        $uniqueBenefits = EmployeeWorkerBenefit::orderBy('id',"asc")->distinct()->pluck('benefits');
+        $uniqueBenefits = EmployeeWorkerBenefit::groupBy('benefits')->pluck('benefits');
         return view('user.employee_worker_benefits.worker_count.index',compact('datas','uniqueYears','uniqueLocations','uniqueBenefits'));
     }
     public function worker_edit(string $id){

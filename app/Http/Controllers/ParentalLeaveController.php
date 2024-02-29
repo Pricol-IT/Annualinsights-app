@@ -11,7 +11,7 @@ class ParentalLeaveController extends Controller
     {
         $uniqueYears = ParentalLeave::distinct()->orderBy('year',"asc")->pluck('year');
         $uniqueLocations = ParentalLeave::groupBy('loction')->pluck('loction');
-        $uniqueBenefits = ParentalLeave::orderBy('id',"asc")->distinct()->pluck('benefits');
+        $uniqueBenefits = ParentalLeave::groupBy('benefits')->pluck('benefits');
 
         // return $uniqueBenefits[0];
         $query = ParentalLeave::orderBy('id',"asc");
