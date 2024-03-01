@@ -117,7 +117,7 @@
                             @endswitch --}}
                             <td>
                                 <div class="d-flex gap-1">
-                                    <a href="{{ route('employeecount.edit', $data->id) }}" class="btn btn-sm btn-warning">
+                                    <a href="{{ route('employeecount.edit', $data->id) }}" class="btn btn-sm btn-light">
                                         <i class="bi bi-pencil"></i>
                                     </a>
                                     {{-- <a href="{{ route('energy_data.edit', $data->id) }}" class="btn btn-sm btn-success">
