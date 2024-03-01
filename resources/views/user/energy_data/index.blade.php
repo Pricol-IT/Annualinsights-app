@@ -145,7 +145,7 @@
                         @endphp
                         @empty
                         <tr>
-                            <td colspan="4" class="text-center">record not found</td>
+                            <td colspan="7" class="text-center">record not found</td>
                         </tr>
                         @endforelse
                         <tr>
@@ -153,7 +153,7 @@
                             <td class="fw-bold">{{round($power_from_diesel_generators)}}</td>
                             <td class="fw-bold">{{round($electricity)}}</td>
                             <td class="fw-bold">{{round($power_purchase_agreement)}}</td>
-                            <td class="fw-bold">{{round($captive_power)}}</td>
+                            <td class="fw-bold" colspan="3">{{round($captive_power)}}</td>
                         </tr>
                     </tbody>
 

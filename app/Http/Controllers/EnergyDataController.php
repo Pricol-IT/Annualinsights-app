@@ -40,7 +40,16 @@ class EnergyDataController extends Controller
         ->groupBy('year')->orderBy('year','desc')->limit(3)->get();
 
         $piecharttotal=DB::table('energy_data')->selectRaw('SUM(power_from_diesel_generators + electricity + power_purchase_agreement + captive_power) as totalkWh')->selectRaw('SUM( power_purchase_agreement + captive_power) as RE')->where('year',$uniqueYears->last())->first();
-        $RE_percentage=(($piecharttotal->RE)/($piecharttotal->totalkWh))*100;
+        // return $piecharttotal;
+        // if($piecharttotal->RE){
+        //     $RE_percentage=(($piecharttotal->RE)/($piecharttotal->totalkWh))*100;
+        // } else {
+        //     $RE_percentage=0;
+        // }
+
+        $RE_percentage=((($piecharttotal->RE!=Null) ?$piecharttotal->RE:1 )/(($piecharttotal->totalkWh!=Null) ?$piecharttotal->totalkWh:1))*100;
+
+
         // return $RE_percentage;
         return view('user.energy_data.index', compact('data','uniqueYears','uniqueLocations','currentyeartotal','threeyeartotal','RE_percentage'));
     }
