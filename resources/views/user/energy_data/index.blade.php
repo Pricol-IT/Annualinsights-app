@@ -56,7 +56,6 @@
 
                         </div>
 
-
                     </div>
                 </form>
             </div>
@@ -111,7 +110,7 @@
                             @endswitch
                             {{-- <td>#</td> --}}
                             <td>
-                                <div class="d-flex gap-1">
+                                {{-- <div class="d-flex gap-1">
                                     <a href="{{ route('energy_data.edit', $data->id) }}" class="btn btn-sm btn-warning">
                                         <i class="bi bi-pencil"></i>
                                     </a>
@@ -120,6 +119,19 @@
                                     </a>
                                     <a href="{{ route('energy_data.edit', $data->id) }}" class="btn btn-sm btn-danger">
                                         <i class="bi bi-x-circle"></i>
+                                    </a>
+
+                                </div> --}}
+
+                                <div class="d-flex gap-1">
+                                    <a href="{{ route('energy_data.edit', $data->id) }}" class="btn btn-sm btn-light">
+                                        <i class="bi bi-pencil"></i>
+                                    </a>
+                                    <a href="{{ route('energy_data.edit', $data->id) }}" class="btn btn-sm btn-light">
+                                        <i class="bi bi-check2"></i>
+                                    </a>
+                                    <a href="{{ route('energy_data.edit', $data->id) }}" class="btn btn-sm btn-light">
+                                        <i class="bi bi-x-lg"></i>
                                     </a>
 
                                 </div>

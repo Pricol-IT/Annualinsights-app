@@ -58,7 +58,7 @@
                             </label>
                             <select class="form-control" name="benefits" id="benefits">
                                 @foreach ($uniqueBenefits as $benefits)
-                                <option value={{$benefits}} {{ request('benefits')== $benefits ? 'selected' : ''}}>{{$benefits}}</option>
+                                <option value={{$benefits}} {{ request('benefits')== $benefits ? 'selected' : ''}}>{{str_replace('_', ' ',$benefits)}}</option>
                                 @endforeach
                             </select>
 
@@ -101,7 +101,7 @@
 
                         <tr>
                             <td>{{$data->month}}</td>
-                            <td>{{$data->benefits}}</td>
+                            <td>{{str_replace('_', ' ',$data->benefits)}}</td>
                             <td>{{$data->pe_male}}</td>
                             <td>{{$data->pe_female}}</td>
                             <td>{{$data->pe_remark}}</td>
