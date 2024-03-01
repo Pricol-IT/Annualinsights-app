@@ -25,8 +25,8 @@ class EmployeeWorkerCountController extends Controller
         }
         $datas = $query->get();
         // return $data;
-        $uniqueYears = EmployeeWorkerCount::orderBy('year',"asc")->pluck('year');
-        $uniqueLocations = EmployeeWorkerCount::orderBy('id',"asc")->pluck('loction');
+        $uniqueYears = EmployeeWorkerCount::orderBy('year',"asc")->groupBy('year')->pluck('year');
+        $uniqueLocations = EmployeeWorkerCount::groupBy('loction')->pluck('loction');
         return view('user.employee_worker_count.employee_count.index',compact('datas','uniqueYears','uniqueLocations'));
     }
 
@@ -45,9 +45,9 @@ class EmployeeWorkerCountController extends Controller
             'pe_male'=>$request->pe_male,
             'pe_female'=>$request->pe_female,
             'pe_other'=>$request->pe_other,
-            'te_male'=>$request->pe_male,
-            'te_female'=>$request->pe_female,
-            'te_other'=>$request->pe_other,
+            'te_male'=>$request->te_male,
+            'te_female'=>$request->te_female,
+            'te_other'=>$request->te_other,
         ];
         $test=EmployeeWorkerCount::where('id',$id)->update($data);
         if ($test){
