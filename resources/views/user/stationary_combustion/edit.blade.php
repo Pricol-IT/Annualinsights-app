@@ -87,7 +87,7 @@
                                     <label class="col-sm-5 col-form-label">Total consumption
                                     </label>
                                     <div class="col-sm-6">
-                                        <input type="text" name="total_comsumption" id="total_comsumption" class="form-control class " placeholder="" value={{$data->total_comsumption}}>
+                                        <input type="number" name="total_comsumption" id="total_comsumption" class="form-control class " placeholder="" value={{$data->total_comsumption}}>
                                     </div>
                                 </div>
                             </div>

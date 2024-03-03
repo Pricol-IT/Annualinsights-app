@@ -52,7 +52,7 @@
                                     <label class="col-sm-5 col-form-label">If Other
                                     </label>
                                     <div class="col-sm-6">
-                                        <input type="text" name="vehicletype_other" id="vehicletype_other" class="form-control class " placeholder=""  value={{$data->vehicletype_other}}>
+                                        <input type="text" name="vehicletype_other" id="vehicletype_other" class="form-control class " placeholder="" value={{$data->vehicletype_other}}>
                                     </div>
                                 </div>
 
@@ -88,7 +88,7 @@
                                     <label class="col-sm-5 col-form-label">Fuel Consumed
                                     </label>
                                     <div class="col-sm-6">
-                                        <input type="text" name="fuelconsumed" id="fuelconsumed" class="form-control class " placeholder="" value={{$data->fuelconsumed}}>
+                                        <input type="number" name="fuelconsumed" id="fuelconsumed" class="form-control class " placeholder="" value={{$data->fuelconsumed}}>
                                     </div>
                                 </div>
 
@@ -96,7 +96,7 @@
                                     <label class="col-sm-5 col-form-label">Total distance travelled (Km)
                                     </label>
                                     <div class="col-sm-6">
-                                        <input type="text" name="Total_distance" id="Total_distance" class="form-control class " placeholder="" value={{$data->Total_distance}}>
+                                        <input type="number" name="Total_distance" id="Total_distance" class="form-control class " placeholder="" value={{$data->Total_distance}}>
                                     </div>
                                 </div>
 

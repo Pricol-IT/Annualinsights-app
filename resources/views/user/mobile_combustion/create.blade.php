@@ -40,6 +40,7 @@
                                     </label>
                                     <div class="col-sm-6">
                                         <select class="form-control" name="vehicletype" id="vehicletype">
+                                            
                                             @foreach ($vehicletypes as $vehicletype)
                                             <option value={{$vehicletype}}>{{$vehicletype}}</option>
                                             @endforeach
@@ -87,7 +88,7 @@
                                     <label class="col-sm-5 col-form-label">Fuel Consumed
                                     </label>
                                     <div class="col-sm-6">
-                                        <input type="text" name="fuelconsumed" id="fuelconsumed" class="form-control class " placeholder="">
+                                        <input type="number" name="fuelconsumed" id="fuelconsumed" class="form-control class " placeholder="">
                                     </div>
                                 </div>
 
@@ -95,7 +96,7 @@
                                     <label class="col-sm-5 col-form-label">Total distance travelled (Km)
                                     </label>
                                     <div class="col-sm-6">
-                                        <input type="text" name="Total_distance" id="Total_distance" class="form-control class " placeholder="">
+                                        <input type="number" name="Total_distance" id="Total_distance" class="form-control class " placeholder="">
                                     </div>
                                 </div>
 

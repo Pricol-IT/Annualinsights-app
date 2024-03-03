@@ -11,7 +11,7 @@
                 @csrf
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="card-title p-0">Fill the 
+                        <h4 class="card-title p-0">Fill the
                             Stationary Combustion values</h4>
                     </div>
                 </div>
@@ -40,6 +40,7 @@
                                     </label>
                                     <div class="col-sm-6">
                                         <select class="form-control" name="equipment" id="equipment">
+                                            <option value=" "></option>
                                             @foreach ($equipments as $equipment)
                                             <option value={{$equipment}}>{{$equipment}}</option>
                                             @endforeach
@@ -53,6 +54,7 @@
                                     </label>
                                     <div class="col-sm-6">
                                         <select class="form-control" name="fueltype" id="fueltype">
+                                            <option value=" "></option>
                                             @foreach ($fueltypes as $fueltype)
                                             <option value={{$fueltype}}>{{$fueltype}}</option>
                                             @endforeach
@@ -64,7 +66,7 @@
                                     <label class="col-sm-5 col-form-label">If Other
                                     </label>
                                     <div class="col-sm-6">
-                                        <input type="text" name="fueltype_other" id="fueltype_other" class="form-control class " placeholder="" >
+                                        <input type="text" name="fueltype_other" id="fueltype_other" class="form-control class " placeholder="">
                                     </div>
                                 </div>
 
@@ -74,6 +76,7 @@
                                     </label>
                                     <div class="col-sm-6">
                                         <select class="form-control" name="unit" id="unit">
+                                            <option value=" "></option>
                                             @foreach ($units as $unit)
                                             <option value={{$unit}}>{{$unit}}</option>
                                             @endforeach
@@ -85,7 +88,7 @@
                                     <label class="col-sm-5 col-form-label">Total consumption
                                     </label>
                                     <div class="col-sm-6">
-                                        <input type="text" name="total_comsumption" id="total_comsumption" class="form-control class " placeholder="">
+                                        <input type="number" name="total_comsumption" id="total_comsumption" class="form-control class " placeholder="">
                                     </div>
                                 </div>
 

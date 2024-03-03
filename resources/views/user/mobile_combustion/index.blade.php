@@ -28,7 +28,7 @@
         </div> --}}
         <h3 class="fw-bold">
 
-Mobile Combustion</h3>
+            Mobile Combustion</h3>
         <div class=" card">
             @csrf
             <div class="card-header">
@@ -83,7 +83,7 @@ Mobile Combustion</h3>
                             <th>s.no</th>
                             <th>Vehicle Type </th>
                             <th>Fuel Type </th>
-                            <th>Fuel Consumed  </th>
+                            <th>Fuel Consumed </th>
                             <th>Total distance</th>
                             <th>Action</th>
                         </tr>
@@ -119,7 +119,7 @@ Mobile Combustion</h3>
                             @endswitch --}}
                             <td>
                                 <div class="d-flex gap-1">
-                                    <a href="{{ route('mobile_combustion.edit', $data->id) }}" class="btn btn-sm btn-warning">
+                                    <a href="{{ route('mobile_combustion.edit', $data->id) }}" class="btn btn-sm btn-light">
                                         <i class="bi bi-pencil"></i>
                                     </a>
                                     {{-- <a href="{{ route('energy_data.edit', $data->id) }}" class="btn btn-sm btn-success">
@@ -148,8 +148,8 @@ Mobile Combustion</h3>
                             <form id="formSubmit" action="{{route('mobile_combustion.create')}}" method="POST">
                                 @csrf
                                 <input type="hidden" name="year" value="{{request('year') ? request('year') : ($uniqueYears[0] ? $uniqueYears[0] : '') }}">
-                                <input type="hidden"  name="loction" value="{{request('loction') ? request('loction') : ($uniqueLocations[0] ? $uniqueLocations[0] : '') }}">
-                                <input type="hidden"  name="month" value="{{request('month') ? request('month') : $monthsArray[0] }}">
+                                <input type="hidden" name="loction" value="{{request('loction') ? request('loction') : ($uniqueLocations[0] ? $uniqueLocations[0] : '') }}">
+                                <input type="hidden" name="month" value="{{request('month') ? request('month') : $monthsArray[0] }}">
                                 <td colspan="9" class="text-center"><input class="btn btn-primary" type="submit" value="Add item"></td>
                             </form>
                         </tr>
