@@ -58,7 +58,7 @@
                             </label>
                             <select class="form-control" name="benefits" id="benefits">
                                 @foreach ($uniqueBenefits as $benefits)
-                                <option value={{$benefits}} {{ request('benefits')== $benefits ? 'selected' : ''}}>{{$benefits}}</option>
+                                <option value={{$benefits}} {{ request('benefits')== $benefits ? 'selected' : ''}}>{{str_replace('_', ' ',$benefits)}}</option>
                                 @endforeach
                             </select>
 
@@ -99,7 +99,7 @@
 
                         <tr>
                             <td>{{$data->month}}</td>
-                            <td>{{$data->benefits}}</td>
+                            <td>{{str_replace('_', ' ',$data->benefits)}}</td>
                             <td>{{$data->em_male}}</td>
                             <td>{{$data->em_female}}</td>
                             <td>{{$data->wr_male}}</td>
@@ -124,7 +124,7 @@
                             @endswitch --}}
                             <td>
                                 <div class="d-flex gap-1">
-                                    <a href="{{ route('parental_leave.edit', $data->id) }}" class="btn btn-sm btn-warning">
+                                    <a href="{{ route('parental_leave.edit', $data->id) }}" class="btn btn-sm btn-light">
                                         <i class="bi bi-pencil"></i>
                                     </a>
                                     {{-- <a href="{{ route('energy_data.edit', $data->id) }}" class="btn btn-sm btn-success">
