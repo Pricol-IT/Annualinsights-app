@@ -70,17 +70,15 @@
                     <thead>
                         <tr>
                             <th rowspan="2">Month</th>
-                            <th colspan="4" style="text-align: center;">Permanent </th>
-                            <th colspan="4" style="text-align: center;">Temporary </th>
+                            <th colspan="3" style="text-align: center;">Permanent </th>
+                            <th colspan="3" style="text-align: center;">Temporary </th>
                             {{-- <th rowspan="2">Status</th> --}}
                             <th rowspan="2">Action</th>
                         </tr>
                         <tr>
-                            <th>Age Group</th>
                             <th>Male</th>
                             <th>Female</th>
                             <th>Other</th>
-                            <th>Age Group</th>
                             <th>Male</th>
                             <th>Female</th>
                             <th>Other</th>
@@ -92,11 +90,9 @@
 
                         <tr>
                             <td>{{$data->month}}</td>
-                            <td>{{$data->pe_age_group}}</td>
                             <td>{{$data->pe_male}}</td>
                             <td>{{$data->pe_female}}</td>
                             <td>{{$data->pe_other}}</td>
-                            <td>{{$data->te_age_group}}</td>
                             <td>{{$data->te_male}}</td>
                             <td>{{$data->te_female}}</td>
                             <td>{{$data->te_other}}</td>
@@ -120,7 +116,7 @@
                             @endswitch --}}
                             <td>
                                 <div class="d-flex gap-1">
-                                    <a href="{{ route('turnover.employeecount.edit', $data->id) }}" class="btn btn-sm btn-warning">
+                                    <a href="{{ route('turnover.employeecount.edit', $data->id) }}" class="btn btn-sm btn-light">
                                         <i class="bi bi-pencil"></i>
                                     </a>
                                     {{-- <a href="{{ route('energy_data.edit', $data->id) }}" class="btn btn-sm btn-success">

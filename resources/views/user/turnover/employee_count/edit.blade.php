@@ -12,7 +12,7 @@
                 @method('patch')
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="card-title p-0">Fill Employee Count</h4>
+                        <h4 class="card-title p-0">Fill Employees Count</h4>
                     </div>
                 </div>
 
@@ -33,15 +33,15 @@
                             </div>
 
                             <div class="card-body p-4">
-                                <h4 class="p-3 text-center">Permanent Employee</h4>
-                                <div class="form-group row">
+                                <h4 class="p-3 text-center">Permanent Employees</h4>
+                                {{-- <div class="form-group row">
                                     <label class="col-sm-5 col-form-label">
                                         Age Group<span class="form-label-required text-danger">*</span>
                                     </label>
-                                    <div class="col-sm-6">
-                                        <input type="text" name="pe_age_group" id="pe_age_group" class="form-control class " value="{{$data->pe_age_group}}" placeholder="Enter no.of.person">
-                                    </div>
-                                </div>
+                                    <div class="col-sm-6"> --}}
+                                <input type="hidden" name="pe_age_group" id="pe_age_group" class="form-control class " value="{{$data->pe_age_group}}" placeholder="Enter no.of.person">
+                                {{-- </div>
+                                </div> --}}
                                 <div class="form-group row mt-3">
                                     <label class="col-sm-5 col-form-label">
                                         Male<span class="form-label-required text-danger">*</span>
@@ -71,15 +71,15 @@
                             </div>
 
                             <div class="card-body p-4">
-                                <h4 class="p-3 text-center">Temporary Employee</h4>
-                                <div class="form-group row">
+                                <h4 class="p-3 text-center">Temporary Employees</h4>
+                                {{-- <div class="form-group row">
                                     <label class="col-sm-5 col-form-label">
                                         Age Group<span class="form-label-required text-danger">*</span>
                                     </label>
-                                    <div class="col-sm-6">
-                                        <input type="text" name="te_age_group" id="te_age_group" class="form-control class " value="{{$data->te_age_group}}" placeholder="Enter no.of.person">
-                                    </div>
-                                </div>
+                                    <div class="col-sm-6"> --}}
+                                <input type="hidden" name="te_age_group" id="te_age_group" class="form-control class " value="{{$data->te_age_group}}" placeholder="Enter no.of.person">
+                                {{-- </div>
+                                </div> --}}
                                 <div class="form-group row mt-3">
                                     <label class="col-sm-5 col-form-label">
                                         Male<span class="form-label-required text-danger">*</span>

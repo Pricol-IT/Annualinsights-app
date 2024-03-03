@@ -18,4 +18,3 @@ Route::get('/', function () {
     return redirect()->route('login');
 });
 
-Auth::routes();
