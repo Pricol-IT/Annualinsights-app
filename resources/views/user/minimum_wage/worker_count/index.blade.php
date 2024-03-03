@@ -59,7 +59,7 @@
                             </label>
                             <select class="form-control" name="benefits" id="benefits">
                                 @foreach ($uniqueBenefits as $benefits)
-                                <option value={{$benefits}} {{ request('benefits')== $benefits ? 'selected' : ''}}>{{$benefits}}</option>
+                                <option value={{$benefits}} {{ request('benefits')== $benefits ? 'selected' : ''}}>{{str_replace('_', ' ',$benefits)}}</option>
                                 @endforeach
                             </select>
 
@@ -81,19 +81,17 @@
                     <thead>
                         <tr>
                             <th rowspan="2">Month</th>
-<th rowspan="2">Benefits</th>
-                            <th colspan="3" style="text-align: center;">Permanent </th>
-                            <th colspan="3" style="text-align: center;">Temporary </th>
+                            <th rowspan="2">Benefits</th>
+                            <th colspan="2" style="text-align: center;">Permanent </th>
+                            <th colspan="2" style="text-align: center;">Temporary </th>
                             {{-- <th rowspan="2">Status</th> --}}
                             <th rowspan="2">Action</th>
                         </tr>
                         <tr>
                             <th>Male</th>
                             <th>Female</th>
-                            <th>Remarks</th>
                             <th>Male</th>
                             <th>Female</th>
-                            <th>Remarks</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -102,13 +100,11 @@
 
                         <tr>
                             <td>{{$data->month}}</td>
-                            <td>{{$data->benefits}}</td>
+                            <td>{{str_replace('_', ' ',$data->benefits)}}</td>
                             <td>{{$data->pw_male}}</td>
                             <td>{{$data->pw_female}}</td>
-                            <td>{{$data->pw_remark}}</td>
                             <td>{{$data->tw_male}}</td>
                             <td>{{$data->tw_female}}</td>
-                            <td>{{$data->tw_remark}}</td>
                             {{--
                             @switch($data->status)
                             @case('submitted')
@@ -129,7 +125,7 @@
                             @endswitch --}}
                             <td>
                                 <div class="d-flex gap-1">
-                                    <a href="{{ route('minimum_wage.workercount.edit', $data->id) }}" class="btn btn-sm btn-warning">
+                                    <a href="{{ route('minimum_wage.workercount.edit', $data->id) }}" class="btn btn-sm btn-light">
                                         <i class="bi bi-pencil"></i>
                                     </a>
                                     {{-- <a href="{{ route('energy_data.edit', $data->id) }}" class="btn btn-sm btn-success">
