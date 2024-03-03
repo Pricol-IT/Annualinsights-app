@@ -81,11 +81,11 @@
                         <tr>
                             <th>Month</th>
                             <th>Benefits</th>
-                            <th >Total Employees </th>
-                            <th >Total Workers </th>
-                            <th >Remarks </th>
+                            <th>Total Employees </th>
+                            <th>Total Workers </th>
+                            <th>Remarks </th>
                             {{-- <th rowspan="2">Status</th> --}}
-                            <th >Action</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -118,7 +118,7 @@
                             @endswitch --}}
                             <td>
                                 <div class="d-flex gap-1">
-                                    <a href="{{ route('retirement_benefits.edit', $data->id) }}" class="btn btn-sm btn-warning">
+                                    <a href="{{ route('retirement_benefits.edit', $data->id) }}" class="btn btn-sm btn-light">
                                         <i class="bi bi-pencil"></i>
                                     </a>
                                     {{-- <a href="{{ route('energy_data.edit', $data->id) }}" class="btn btn-sm btn-success">

@@ -41,7 +41,7 @@
                                         Total Employees<span class="form-label-required text-danger">*</span>
                                     </label>
                                     <div class="col-sm-6">
-                                        <input type="text" name="total_employees" id="total_employees" class="form-control class " value="{{$data->total_employees}}" placeholder="Enter no.of.person">
+                                        <input type="number" name="total_employees" id="total_employees" class="form-control class " value="{{$data->total_employees}}" placeholder="Enter no.of.person">
                                     </div>
                                 </div>
 
@@ -49,7 +49,7 @@
                                     <label class="col-sm-5 col-form-label">Total workers<span class="form-label-required text-danger">*</span>
                                     </label>
                                     <div class="col-sm-6">
-                                        <input type="text" name="total_workers" id="total_workers" class="form-control class " value="{{$data->total_workers}}" placeholder="Enter no.of.person">
+                                        <input type="number" name="total_workers" id="total_workers" class="form-control class " value="{{$data->total_workers}}" placeholder="Enter no.of.person">
                                     </div>
                                 </div>
 

@@ -12,7 +12,7 @@
                 @method('patch')
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="card-title p-0">Fill Employee Count</h4>
+                        <h4 class="card-title p-0">Fill Union Count</h4>
                     </div>
                 </div>
 
@@ -40,7 +40,7 @@
                                         Male<span class="form-label-required text-danger">*</span>
                                     </label>
                                     <div class="col-sm-6">
-                                        <input type="text" name="em_male" id="em_male" class="form-control class " value="{{$data->em_male}}" placeholder="Enter no.of.person">
+                                        <input type="number" name="em_male" id="em_male" class="form-control class " value="{{$data->em_male}}" placeholder="Enter no.of.person">
                                     </div>
                                 </div>
 
@@ -48,7 +48,7 @@
                                     <label class="col-sm-5 col-form-label">Female<span class="form-label-required text-danger">*</span>
                                     </label>
                                     <div class="col-sm-6">
-                                        <input type="text" name="em_female" id="em_female" class="form-control class " value="{{$data->em_female}}" placeholder="Enter no.of.person">
+                                        <input type="number" name="em_female" id="em_female" class="form-control class " value="{{$data->em_female}}" placeholder="Enter no.of.person">
                                     </div>
                                 </div>
 
@@ -61,7 +61,7 @@
                                         Male<span class="form-label-required text-danger">*</span>
                                     </label>
                                     <div class="col-sm-6">
-                                        <input type="text" name="wr_male" id="wr_male" class="form-control class " value="{{$data->wr_male}}" placeholder="Enter no.of.person">
+                                        <input type="number" name="wr_male" id="wr_male" class="form-control class " value="{{$data->wr_male}}" placeholder="Enter no.of.person">
                                     </div>
                                 </div>
 
@@ -69,7 +69,7 @@
                                     <label class="col-sm-5 col-form-label">Female<span class="form-label-required text-danger">*</span>
                                     </label>
                                     <div class="col-sm-6">
-                                        <input type="text" name="wr_female" id="wr_female" class="form-control class " value="{{$data->wr_female}}" placeholder="Enter no.of.person">
+                                        <input type="number" name="wr_female" id="wr_female" class="form-control class " value="{{$data->wr_female}}" placeholder="Enter no.of.person">
                                     </div>
                                 </div>
 
