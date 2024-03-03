@@ -82,9 +82,9 @@
                     <thead>
                         <tr>
                             <th>s.no</th>
-                            <th>Activity Type  </th>
+                            <th>Activity Type </th>
                             <th>Gas Type </th>
-                            <th>Total  Amount Consumed </th>
+                            <th>Total Amount Consumed </th>
                             <th>Action</th>
                         </tr>
 
@@ -118,7 +118,7 @@
                             @endswitch --}}
                             <td>
                                 <div class="d-flex gap-1">
-                                    <a href="{{ route('fugitive_emission.edit', $data->id) }}" class="btn btn-sm btn-warning">
+                                    <a href="{{ route('fugitive_emission.edit', $data->id) }}" class="btn btn-sm btn-light">
                                         <i class="bi bi-pencil"></i>
                                     </a>
                                     {{-- <a href="{{ route('energy_data.edit', $data->id) }}" class="btn btn-sm btn-success">
@@ -147,8 +147,8 @@
                             <form id="formSubmit" action="{{route('fugitive_emission.create')}}" method="POST">
                                 @csrf
                                 <input type="hidden" name="year" value="{{request('year') ? request('year') : ($uniqueYears[0] ? $uniqueYears[0] : '') }}">
-                                <input type="hidden"  name="loction" value="{{request('loction') ? request('loction') : ($uniqueLocations[0] ? $uniqueLocations[0] : '') }}">
-                                <input type="hidden"  name="month" value="{{request('month') ? request('month') : $monthsArray[0] }}">
+                                <input type="hidden" name="loction" value="{{request('loction') ? request('loction') : ($uniqueLocations[0] ? $uniqueLocations[0] : '') }}">
+                                <input type="hidden" name="month" value="{{request('month') ? request('month') : $monthsArray[0] }}">
                                 <td colspan="9" class="text-center"><input class="btn btn-primary" type="submit" value="Add item"></td>
                             </form>
                         </tr>

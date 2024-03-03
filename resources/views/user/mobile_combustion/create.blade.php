@@ -12,7 +12,7 @@
                 <div class="card">
                     <div class="card-header">
                         <h4 class="card-title p-0">Fill the
-                            Stationary Combustion values</h4>
+                            Mobile Combustion values</h4>
                     </div>
                 </div>
 
@@ -40,7 +40,7 @@
                                     </label>
                                     <div class="col-sm-6">
                                         <select class="form-control" name="vehicletype" id="vehicletype">
-                                            
+                                            <option value=" "></option>
                                             @foreach ($vehicletypes as $vehicletype)
                                             <option value={{$vehicletype}}>{{$vehicletype}}</option>
                                             @endforeach
@@ -62,6 +62,7 @@
                                     </label>
                                     <div class="col-sm-6">
                                         <select class="form-control" name="fueltype" id="fueltype">
+                                            <option value=" "></option>
                                             @foreach ($fueltypes as $fueltype)
                                             <option value={{$fueltype}}>{{$fueltype}}</option>
                                             @endforeach
@@ -77,6 +78,7 @@
                                     </label>
                                     <div class="col-sm-6">
                                         <select class="form-control" name="unit" id="unit">
+                                            <option value=" "></option>
                                             @foreach ($units as $unit)
                                             <option value={{$unit}}>{{$unit}}</option>
                                             @endforeach

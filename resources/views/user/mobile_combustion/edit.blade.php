@@ -13,7 +13,7 @@
                 <div class="card">
                     <div class="card-header">
                         <h4 class="card-title p-0">Fill the
-                            Stationary Combustion values</h4>
+                            Mobile Combustion values</h4>
                     </div>
                 </div>
 

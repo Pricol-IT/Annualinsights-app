@@ -13,7 +13,7 @@
                 <div class="card">
                     <div class="card-header">
                         <h4 class="card-title p-0">Fill the
-                            Stationary Combustion values</h4>
+                            Fugitive Emission values</h4>
                     </div>
                 </div>
 
@@ -87,10 +87,10 @@
 
 
                                 <div class="form-group row mt-3">
-                                    <label class="col-sm-5 col-form-label">Total  Amount Consumed
+                                    <label class="col-sm-5 col-form-label">Total Amount Consumed
                                     </label>
                                     <div class="col-sm-6">
-                                        <input type="text" name="Total_consumed" id="Total_consumed" class="form-control class " placeholder="" value={{$data->Total_consumed}}>
+                                        <input type="number" name="Total_consumed" id="Total_consumed" class="form-control class " placeholder="" value={{$data->Total_consumed}}>
                                     </div>
                                 </div>
 
