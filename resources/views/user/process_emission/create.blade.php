@@ -12,7 +12,7 @@
                 <div class="card">
                     <div class="card-header">
                         <h4 class="card-title p-0">Fill the
-                            Stationary Combustion values</h4>
+                            Process Emission values</h4>
                     </div>
                 </div>
 
@@ -40,6 +40,7 @@
                                     </label>
                                     <div class="col-sm-6">
                                         <select class="form-control" name="processtype" id="processtype">
+                                            <option value=""></option>
                                             @foreach ($processtypes as $processtype)
                                             <option value={{$processtype}}>{{$processtype}}</option>
                                             @endforeach
@@ -58,7 +59,7 @@
                                 </div>
 
                                 <div class="form-group row mt-3">
-                                    <label class="col-sm-5 col-form-label">Name of Input Material
+                                    <label class="col-sm-5 col-form-label">Name of Input Material<span class="form-label-required text-danger">*</span>
                                     </label>
                                     <div class="col-sm-6">
                                         <input type="text" name="input" id="input" class="form-control class " placeholder="">
@@ -66,10 +67,10 @@
                                 </div>
 
                                 <div class="form-group row mt-3">
-                                    <label class="col-sm-5 col-form-label">Annual Amount Consumed
+                                    <label class="col-sm-5 col-form-label">Annual Amount Consumed<span class="form-label-required text-danger">*</span>
                                     </label>
                                     <div class="col-sm-6">
-                                        <input type="text" name="input_total_amount" id="input_total_amount" class="form-control class " placeholder="">
+                                        <input type="number" name="input_total_amount" id="input_total_amount" class="form-control class " placeholder="">
                                     </div>
                                 </div>
 
@@ -79,6 +80,7 @@
                                     </label>
                                     <div class="col-sm-6">
                                         <select class="form-control" name="input_unit" id="input_unit">
+                                            <option value=""></option>
                                             @foreach ($units as $unit)
                                             <option value={{$unit}}>{{$unit}}</option>
                                             @endforeach
@@ -87,7 +89,7 @@
                                 </div>
 
                                 <div class="form-group row mt-3">
-                                    <label class="col-sm-5 col-form-label">Name of Output Material
+                                    <label class="col-sm-5 col-form-label">Name of Output Material<span class="form-label-required text-danger">*</span>
                                     </label>
                                     <div class="col-sm-6">
                                         <input type="text" name="output" id="output" class="form-control class " placeholder="">
@@ -95,10 +97,10 @@
                                 </div>
 
                                 <div class="form-group row mt-3">
-                                    <label class="col-sm-5 col-form-label">Annual Amount Produced
+                                    <label class="col-sm-5 col-form-label">Annual Amount Produced<span class="form-label-required text-danger">*</span>
                                     </label>
                                     <div class="col-sm-6">
-                                        <input type="text" name="output_total_amount" id="output_total_amount" class="form-control class " placeholder="">
+                                        <input type="number" name="output_total_amount" id="output_total_amount" class="form-control class " placeholder="">
                                     </div>
                                 </div>
 
@@ -108,6 +110,7 @@
                                     </label>
                                     <div class="col-sm-6">
                                         <select class="form-control" name="output_unit" id="output_unit">
+                                            <option value=""></option>
                                             @foreach ($units as $unit)
                                             <option value={{$unit}}>{{$unit}}</option>
                                             @endforeach

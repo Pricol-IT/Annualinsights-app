@@ -98,7 +98,7 @@
                             <td>{{($data->processtype != 'Other' ) ? $data->processtype : $data->processtype_other}}</td>
                             <td>{{$data->input}}</td>
                             <td>{{$data->input_total_amount.' in '.$data->input_unit}}</td>
-                            <td>{{$data->output	}}</td>
+                            <td>{{$data->output }}</td>
                             <td>{{$data->output_total_amount.' in '.$data->output_unit}}</td>
                             {{--
                             @switch($data->status)
@@ -120,7 +120,7 @@
                             @endswitch --}}
                             <td>
                                 <div class="d-flex gap-1">
-                                    <a href="{{ route('process_emission.edit', $data->id) }}" class="btn btn-sm btn-warning">
+                                    <a href="{{ route('process_emission.edit', $data->id) }}" class="btn btn-sm btn-light">
                                         <i class="bi bi-pencil"></i>
                                     </a>
                                     {{-- <a href="{{ route('energy_data.edit', $data->id) }}" class="btn btn-sm btn-success">

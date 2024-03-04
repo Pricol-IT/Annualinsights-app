@@ -13,7 +13,7 @@
                 <div class="card">
                     <div class="card-header">
                         <h4 class="card-title p-0">Fill the
-                            Stationary Combustion values</h4>
+                            Process Emission values</h4>
                     </div>
                 </div>
 
@@ -37,37 +37,41 @@
                             <div class="card-body p-4">
                                 <div class="form-group row mt-3">
                                     <label class="col-sm-5 col-form-label">
-                                        Activity Type <span class="form-label-required text-danger">*</span>
+                                        Process type <span class="form-label-required text-danger">*</span>
                                     </label>
                                     <div class="col-sm-6">
-                                        <select class="form-control" name="activitytype" id="activitytype">
-                                            @foreach ($activitytypes as $activitytype)
-                                            <option value={{$activitytype}} {{$data->activitytype == $activitytype ? 'selected': ''}}>{{$activitytype}}</option>
+                                        <select class="form-control" name="processtype" id="processtype">
+                                            <option value=""></option>
+                                            @foreach ($processtypes as $processtype)
+                                            <option value={{$processtype}} {{$data->processtype == $processtype ? 'selected': ''}}>{{$processtype}}</option>
                                             @endforeach
                                         </select>
                                     </div>
                                 </div>
 
 
-
-                                <div class="form-group row mt-3">
-                                    <label class="col-sm-5 col-form-label">
-                                        Gases Type<span class="form-label-required text-danger">*</span>
-                                    </label>
-                                    <div class="col-sm-6">
-                                        <select class="form-control" name="gastype" id="gastype">
-                                            @foreach ($gastypes as $gastype)
-                                            <option value={{$gastype}} {{$data->gastype == $gastype ? 'selected': ''}}>{{$gastype}}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>
 
                                 <div class="form-group row mt-3">
                                     <label class="col-sm-5 col-form-label">If Other
                                     </label>
                                     <div class="col-sm-6">
-                                        <input type="text" name="gastype_other" id="gastype_other" class="form-control class " placeholder="" value={{$data->gastype_other}}>
+                                        <input type="text" name="processtype_other" id="processtype_other" class="form-control class " placeholder="" value={{$data->processtype_other}}>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row mt-3">
+                                    <label class="col-sm-5 col-form-label">Name of Input Material<span class="form-label-required text-danger">*</span>
+                                    </label>
+                                    <div class="col-sm-6">
+                                        <input type="text" name="input" id="input" class="form-control class " placeholder="" value={{$data->input}}>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row mt-3">
+                                    <label class="col-sm-5 col-form-label">Annual Amount Consumed<span class="form-label-required text-danger">*</span>
+                                    </label>
+                                    <div class="col-sm-6">
+                                        <input type="number" name="input_total_amount" id="input_total_amount" class="form-control class " placeholder="" value={{$data->input_total_amount}}>
                                     </div>
                                 </div>
 
@@ -76,21 +80,42 @@
                                         Unit<span class="form-label-required text-danger">*</span>
                                     </label>
                                     <div class="col-sm-6">
-                                        <select class="form-control" name="unit" id="unit">
+                                        <select class="form-control" name="input_unit" id="input_unit">
+                                            <option value=""></option>
                                             @foreach ($units as $unit)
-                                            <option value={{$unit}} {{$data->unit == $unit ? 'selected': ''}}>{{$unit}}</option>
+                                            <option value={{$unit}} {{$data->input_unit == $unit ? 'selected': ''}}>{{$unit}}</option>
                                             @endforeach
                                         </select>
                                     </div>
                                 </div>
 
-
-
                                 <div class="form-group row mt-3">
-                                    <label class="col-sm-5 col-form-label">Total  Amount Consumed
+                                    <label class="col-sm-5 col-form-label">Name of Output Material<span class="form-label-required text-danger">*</span>
                                     </label>
                                     <div class="col-sm-6">
-                                        <input type="text" name="Total_consumed" id="Total_consumed" class="form-control class " placeholder="" value={{$data->Total_consumed}}>
+                                        <input type="text" name="output" id="output" class="form-control class " placeholder="" value={{$data->output}}>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row mt-3">
+                                    <label class="col-sm-5 col-form-label">Annual Amount Produced<span class="form-label-required text-danger">*</span>
+                                    </label>
+                                    <div class="col-sm-6">
+                                        <input type="number" name="output_total_amount" id="output_total_amount" class="form-control class " placeholder="" value={{$data->output_total_amount}}>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row mt-3">
+                                    <label class="col-sm-5 col-form-label">
+                                        Unit<span class="form-label-required text-danger">*</span>
+                                    </label>
+                                    <div class="col-sm-6">
+                                        <select class="form-control" name="output_unit" id="output_unit">
+                                            <option value=""></option>
+                                            @foreach ($units as $unit)
+                                            <option value={{$unit}} {{$data->output_unit == $unit ? 'selected': ''}}>{{$unit}}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
                                 </div>
 
