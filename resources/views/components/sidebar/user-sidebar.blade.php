@@ -1,11 +1,11 @@
 <div>
+
     <li class="nav-item">
-        <a class="nav-link " href="{{route('user.commuteform')}}">
+        <a class="nav-link " href="{{route('dashboard')}}">
             <i class='bx bxs-calendar'></i>
-            <span>Employee Commute form </span>
+            <span>Dashboard </span>
         </a>
     </li>
-
 
     <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#icons-nav" data-bs-toggle="collapse" href="#icons-nav">
@@ -52,6 +52,20 @@
                     <li>
                         <a class="nav-link" href="{{route('energy_data.index')}}">
                             <i class="bi bi-dash"></i><span> Energy data </span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li>
+                <a class="nav-link collapsed" data-bs-target="#icons-nav-sub2" data-bs-toggle="collapse" href="#icons-nav-sub">
+                    <i class="bi bi-circle"></i><span> Scope 3</span><i class="bi bi-chevron-down ms-auto"></i>
+                </a>
+
+                <ul id="icons-nav-sub2" class="nav-content collapse" data-bs-parent="#icons-nav">
+                    <li>
+                        <a class="nav-link" href="{{route('user.commuteform')}}">
+                            <i class="bi bi-dash"></i><span> Employee Commute form </span>
                         </a>
                     </li>
                 </ul>
@@ -127,7 +141,7 @@
                     </li>
                     <li>
                         <a class="nav-link" href="{{route('hiring.workercount.index')}}">
-                            <i class="bi bi-dash"></i><span>  New Worker Hires</span>
+                            <i class="bi bi-dash"></i><span> New Worker Hires</span>
                         </a>
                     </li>
                     <li>
@@ -148,178 +162,29 @@
 
                     <li>
                         <a class="nav-link" href="{{route('parental_leave.index')}}">
-                            <i class="bi bi-dash"></i><span>  Parental Leave</span>
+                            <i class="bi bi-dash"></i><span> Parental Leave</span>
                         </a>
                     </li>
-
-                    </li>
                 </ul>
-            </li>
 
-
-
-
-        </ul>
-    </li>
-
-{{--
-    <li class="nav-item">
-        <a class="nav-link " href="{{route('energy_data.index')}}">
-            <i class='bx bxs-calendar'></i>
-            <span>Energy Data </span>
-        </a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#icons-nav" data-bs-toggle="collapse" href="#">
-            <i class="bx bx-category"></i><span>Employees/workers count</span><i class="bi bi-chevron-down ms-auto"></i>
-        </a>
-        <ul id="icons-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-            <li>
-                <a class="nav-link" href="{{route('employeecount.index')}}">
-                    <i class="bi bi-circle"></i><span>Employees count</span>
-                </a>
-            </li>
-            <li>
-                <a href="{{route('workercount.index')}}">
-                    <i class="bi bi-circle"></i><span>Workers count</span>
-                </a>
-            </li>
-        </ul>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#icons-nav1" data-bs-toggle="collapse" href="#">
-            <i class="bx bx-category"></i><span>Hiring count</span><i class="bi bi-chevron-down ms-auto"></i>
-        </a>
-        <ul id="icons-nav1" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-            <li>
-                <a class="nav-link" href="{{route('hiring.employeecount.index')}}">
-                    <i class="bi bi-circle"></i><span>Employees count</span>
-                </a>
-            </li>
-            <li>
-                <a href="{{route('hiring.workercount.index')}}">
-                    <i class="bi bi-circle"></i><span>Workers count</span>
-                </a>
-            </li>
-        </ul>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#icons-nav2" data-bs-toggle="collapse" href="#">
-            <i class="bx bx-category"></i><span>Turn Over</span><i class="bi bi-chevron-down ms-auto"></i>
-        </a>
-        <ul id="icons-nav2" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-            <li>
-                <a class="nav-link" href="{{route('turnover.employeecount.index')}}">
-                    <i class="bi bi-circle"></i><span>Employee Turnover</span>
-                </a>
-            </li>
-            <li>
-                <a href="{{route('turnover.workercount.index')}}">
-                    <i class="bi bi-circle"></i><span>Worker Turnover</span>
-                </a>
-            </li>
-        </ul>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#icons-nav3" data-bs-toggle="collapse" href="#">
-            <i class="bx bx-category"></i><span>Differently Abled</span><i class="bi bi-chevron-down ms-auto"></i>
-        </a>
-        <ul id="icons-nav3" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-            <li>
-                <a class="nav-link" href="{{route('differently_abled.employeecount.index')}}">
-                    <i class="bi bi-circle"></i><span>Employees</span>
-                </a>
-            </li>
-            <li>
-                <a href="{{route('differently_abled.workercount.index')}}">
-                    <i class="bi bi-circle"></i><span>Workers</span>
-                </a>
-            </li>
-        </ul>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#icons-nav4" data-bs-toggle="collapse" href="#">
-            <i class="bx bx-category"></i><span>Employee Worker Benefits</span><i class="bi bi-chevron-down ms-auto"></i>
-        </a>
-        <ul id="icons-nav4" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-            <li>
-                <a class="nav-link" href="{{route('employee_worker_benefits.employeecount.index')}}">
-                    <i class="bi bi-circle"></i><span>Employees</span>
-                </a>
-            </li>
-            <li>
-                <a href="{{route('employee_worker_benefits.workercount.index')}}">
-                    <i class="bi bi-circle"></i><span>Workers</span>
-                </a>
             </li>
         </ul>
     </li>
 
-    <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#icons-nav5" data-bs-toggle="collapse" href="#">
-            <i class="bx bx-category"></i><span>Minimum Wages</span><i class="bi bi-chevron-down ms-auto"></i>
-        </a>
-        <ul id="icons-nav5" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-            <li>
-                <a class="nav-link" href="{{route('minimum_wage.employeecount.index')}}">
-                    <i class="bi bi-circle"></i><span>Employees</span>
-                </a>
-            </li>
-            <li>
-                <a href="{{route('minimum_wage.workercount.index')}}">
-                    <i class="bi bi-circle"></i><span>Workers</span>
-                </a>
-            </li>
-        </ul>
-    </li>
+
 
     <li class="nav-item">
-        <a class="nav-link " href="{{route('parental_leave.index')}}">
-            <i class='bx bxs-calendar'></i>
-            <span>Parental Leave</span>
-        </a>
-    </li>
-
-    <li class="nav-item">
-        <a class="nav-link " href="{{route('retirement_benefits.index')}}">
-            <i class='bx bxs-calendar'></i>
-            <span>Retirement Benefits</span>
-        </a>
-    </li>
-
-    <li class="nav-item">
-        <a class="nav-link " href="{{route('union.index')}}">
-            <i class='bx bxs-calendar'></i>
-            <span>Union</span>
-        </a>
-    </li>
-
-    <li class="nav-item">
-        <a class="nav-link " href="{{route('stationary_combustion.index')}}">
-            <i class='bx bxs-calendar'></i>
-            <span>Stationary Combustion</span>
+        <a class="nav-link " href="#">
+            <i class="bx bxs-calendar"></i>
+            <span>Entry Status Report</span>
         </a>
     </li>
     <li class="nav-item">
-        <a class="nav-link " href="{{route('mobile_combustion.index')}}">
-            <i class='bx bxs-calendar'></i>
-            <span>Mobile Combustion</span>
+        <a class="nav-link " href="#">
+            <i class="bx bxs-calendar"></i>
+            <span>Download Report</span>
         </a>
     </li>
-
-    <li class="nav-item">
-        <a class="nav-link " href="{{route('fugitive_emission.index')}}">
-            <i class='bx bxs-calendar'></i>
-            <span>Fugitive Emission</span>
-        </a>
-    </li>
-
-    <li class="nav-item">
-        <a class="nav-link " href="{{route('process_emission.index')}}">
-            <i class='bx bxs-calendar'></i>
-            <span>Process Emission</span>
-        </a>
-    </li> --}}
 
     <li class="nav-item">
         <a class="nav-link " href="{{route('user.financialyear')}}">
