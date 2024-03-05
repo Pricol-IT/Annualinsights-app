@@ -72,7 +72,7 @@
                 <ul id="icons-nav-sub2" class="nav-content collapse" data-bs-parent="#icons-nav">
                     <li>
                         <a class="nav-link" href="{{route('waste_management.index')}}">
-                            <i class="bi bi-dash"></i><span>  Waste Generation </span>
+                            <i class="bi bi-dash"></i><span> Waste Generation </span>
                         </a>
                     </li>
                 </ul>
@@ -173,34 +173,37 @@
                         </a>
                     </li>
 
-                    <li>
-                        <a class="nav-link" href="#">
-                            <i class="bi bi-dash"></i><span> Trainings</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="nav-link" href="#">
-                            <i class="bi bi-dash"></i><span> Occupational Health</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="nav-link" href="#">
-                            <i class="bi bi-dash"></i><span> Diversity, Equity & Inclusion</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="nav-link" href="#">
-                            <i class="bi bi-dash"></i><span> Human Rights</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="nav-link" href="#">
-                            <i class="bi bi-dash"></i><span> Customers & Market</span>
-                        </a>
-                    </li>
+                   
 
                 </ul>
 
+
+
+            </li>
+            <li>
+                <a class="nav-link collapsed" data-bs-target="#icons-nav-sub4" data-bs-toggle="collapse" href="#icons-nav-sub">
+                    <i class="bi bi-circle"></i><span> Trainings</span><i class="bi bi-chevron-down ms-auto"></i>
+                </a>
+            </li>
+            <li>
+                <a class="nav-link collapsed" data-bs-target="#icons-nav-sub4" data-bs-toggle="collapse" href="#icons-nav-sub">
+                    <i class="bi bi-circle"></i><span> Occupational Health</span><i class="bi bi-chevron-down ms-auto"></i>
+                </a>
+            </li>
+            <li>
+                <a class="nav-link collapsed" data-bs-target="#icons-nav-sub4" data-bs-toggle="collapse" href="#icons-nav-sub">
+                    <i class="bi bi-circle"></i><span> Diversity, Equity & Inclusion</span><i class="bi bi-chevron-down ms-auto"></i>
+                </a>
+            </li>
+            <li>
+                <a class="nav-link collapsed" data-bs-target="#icons-nav-sub4" data-bs-toggle="collapse" href="#icons-nav-sub">
+                    <i class="bi bi-circle"></i><span> Human Rights</span><i class="bi bi-chevron-down ms-auto"></i>
+                </a>
+            </li>
+            <li>
+                <a class="nav-link collapsed" data-bs-target="#icons-nav-sub4" data-bs-toggle="collapse" href="#icons-nav-sub">
+                    <i class="bi bi-circle"></i><span> Customers & Market</span><i class="bi bi-chevron-down ms-auto"></i>
+                </a>
             </li>
         </ul>
     </li>
