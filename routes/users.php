@@ -17,6 +17,7 @@ use App\Http\Controllers\RetirementBenefitsController;
 use App\Http\Controllers\StationaryCombustionController;
 use App\Http\Controllers\TurnOverController;
 use App\Http\Controllers\WasteManagementController;
+use App\Http\Controllers\WaterManagementController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -153,6 +154,14 @@ Route::prefix('user')->middleware('user')->group(function () {
         Route::post('/waste_management/store', 'store')->name('waste_management.store');
         Route::get('/waste_management/edit/{id}', 'edit')->name('waste_management.edit');
         Route::patch('/waste_management/update/{id}', 'update')->name('waste_management.update');
+    });
+
+    Route::controller(WaterManagementController::class)->group(function () {
+        Route::get('/water_management/index', 'index')->name('water_management.index');
+        Route::post('/water_management/create', 'create')->name('water_management.create');
+        Route::post('/water_management/store', 'store')->name('water_management.store');
+        Route::get('/water_management/edit/{id}', 'edit')->name('water_management.edit');
+        Route::patch('/water_management/update/{id}', 'update')->name('water_management.update');
     });
 
 });
