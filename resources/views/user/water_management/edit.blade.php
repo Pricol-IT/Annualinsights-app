@@ -44,7 +44,7 @@
                                         <select class="form-control" name="watersource" id="watersource">
                                             <option value=" "></option>
                                             @foreach ($watersources as $watersource)
-                                            <option value={{$watersource}} >{{$watersource}}</option>
+                                            <option value="{{$watersource}}" {{$data->watersource == $watersource ? 'selected': ''}}>{{$watersource}}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -54,7 +54,7 @@
                                     <label class="col-sm-5 col-form-label">If Other
                                     </label>
                                     <div class="col-sm-6">
-                                        <input type="text" name="watersource_other" id="watersource_other" class="form-control class " placeholder="" >
+                                        <input type="text" name="watersource_other" id="watersource_other" class="form-control class " placeholder="" value={{$data->watersource_other}} >
                                     </div>
                                 </div>
 
@@ -62,7 +62,7 @@
                                     <label class="col-sm-5 col-form-label">Total Water generated
                                     </label>
                                     <div class="col-sm-6">
-                                        <input type="number" name="watergenerated" id="watergenerated" class="form-control class " placeholder="" >
+                                        <input type="number" name="watergenerated" id="watergenerated" class="form-control class " placeholder="" value={{$data->watergenerated}}>
                                     </div>
                                 </div>
 
@@ -74,7 +74,7 @@
                                         <select class="form-control" name="watergenerated_unit" id="watergenerated_unit">
                                             <option value=" "></option>
                                             @foreach ($units as $unit)
-                                            <option value={{$unit}} {{$data->disposaltype == $disposaltype ? 'selected': ''}}>{{$unit}}</option>
+                                            <option value={{$unit}} {{$data->watergenerated_unit == $unit ? 'selected': ''}}>{{$unit}}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -84,7 +84,7 @@
                                     <label class="col-sm-5 col-form-label">Total Waste generated
                                     </label>
                                     <div class="col-sm-6">
-                                        <input type="number" name="wastegenerated" id="wastegenerated" class="form-control class " placeholder="" >
+                                        <input type="number" name="wastegenerated" id="wastegenerated" class="form-control class " placeholder="" value={{$data->wastegenerated}}>
                                     </div>
                                 </div>
 
@@ -96,7 +96,7 @@
                                         <select class="form-control" name="wastegenerated_unit" id="wastegenerated_unit">
                                             <option value=" "></option>
                                             @foreach ($units as $unit)
-                                            <option value={{$unit}} {{$data->disposaltype == $disposaltype ? 'selected': ''}}>{{$unit}}</option>
+                                            <option value={{$unit}} {{$data->wastegenerated_unit == $unit ? 'selected': ''}}>{{$unit}}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -108,9 +108,8 @@
                                     </label>
                                     <div class="col-sm-6">
                                         <select class="form-control" name="conservation_method" id="conservation_method">
-                                            <option value=" "></option>
                                             @foreach ($conservation_methods as $conservation_method)
-                                            <option value={{$conservation_method}} {{$data->disposaltype == $disposaltype ? 'selected': ''}}>{{$conservation_method}}</option>
+                                            <option value="{{$conservation_method}}" {{$data->conservation_method == $conservation_method ? 'selected': ''}}>{{$conservation_method}}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -120,7 +119,7 @@
                                     <label class="col-sm-5 col-form-label">If Other
                                     </label>
                                     <div class="col-sm-6">
-                                        <input type="text" name="conservation_other" id="conservation_other" class="form-control class " placeholder="" >
+                                        <input type="text" name="conservation_other" id="conservation_other" class="form-control class " placeholder="" value={{$data->conservation_other}}>
                                     </div>
                                 </div>
 
@@ -128,7 +127,7 @@
                                     <label class="col-sm-5 col-form-label">Total water conserved
                                     </label>
                                     <div class="col-sm-6">
-                                        <input type="number" name="conserved" id="conserved" class="form-control class " placeholder="" >
+                                        <input type="number" name="conserved" id="conserved" class="form-control class " placeholder="" value={{$data->conserved}}>
                                     </div>
                                 </div>
 
@@ -140,7 +139,7 @@
                                         <select class="form-control" name="conserved_unit" id="conserved_unit">
                                             <option value=" "></option>
                                             @foreach ($units as $unit)
-                                            <option value={{$unit}} {{$data->disposaltype == $disposaltype ? 'selected': ''}}>{{$unit}}</option>
+                                            <option value={{$unit}} {{$data->conserved_unit == $unit ? 'selected': ''}}>{{$unit}}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -152,9 +151,8 @@
                                     </label>
                                     <div class="col-sm-6">
                                         <select class="form-control" name="disposal_method" id="disposal_method">
-                                            <option value=" "></option>
                                             @foreach ($disposal_methods as $disposal_method)
-                                            <option value={{$disposal_method}} {{$data->disposaltype == $disposaltype ? 'selected': ''}}>{{$disposal_method}}</option>
+                                            <option value="{{$disposal_method}}" {{$data->disposal_method == $disposal_method ? 'selected': ''}}>{{$disposal_method}}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -164,7 +162,7 @@
                                     <label class="col-sm-5 col-form-label">If Other
                                     </label>
                                     <div class="col-sm-6">
-                                        <input type="text" name="disposal_other" id="disposal_other" class="form-control class " placeholder="" >
+                                        <input type="text" name="disposal_other" id="disposal_other" class="form-control class " placeholder="" value={{$data->disposal_other}}>
                                     </div>
                                 </div>
 
@@ -172,7 +170,7 @@
                                     <label class="col-sm-5 col-form-label">Total water Disposed
                                     </label>
                                     <div class="col-sm-6">
-                                        <input type="number" name="discharged" id="discharged" class="form-control class " placeholder="" >
+                                        <input type="number" name="discharged" id="discharged" class="form-control class " placeholder="" value={{$data->discharged}}>
                                     </div>
                                 </div>
 
@@ -184,7 +182,7 @@
                                         <select class="form-control" name="discharged_unit" id="discharged_unit">
                                             <option value=" "></option>
                                             @foreach ($units as $unit)
-                                            <option value={{$unit}} {{$data->disposaltype == $disposaltype ? 'selected': ''}}>{{$unit}}</option>
+                                            <option value={{$unit}} {{$data->discharged_unit == $unit ? 'selected': ''}}>{{$unit}}</option>
                                             @endforeach
                                         </select>
                                     </div>
