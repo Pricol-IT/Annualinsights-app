@@ -172,6 +172,33 @@
                             <i class="bi bi-dash"></i><span> Parental Leave</span>
                         </a>
                     </li>
+
+                    <li>
+                        <a class="nav-link" href="#">
+                            <i class="bi bi-dash"></i><span> Trainings</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="#">
+                            <i class="bi bi-dash"></i><span> Occupational Health</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="#">
+                            <i class="bi bi-dash"></i><span> Diversity, Equity & Inclusion</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="#">
+                            <i class="bi bi-dash"></i><span> Human Rights</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="#">
+                            <i class="bi bi-dash"></i><span> Customers & Market</span>
+                        </a>
+                    </li>
+
                 </ul>
 
             </li>
