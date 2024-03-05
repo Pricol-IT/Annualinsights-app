@@ -69,6 +69,13 @@
                         </a>
                     </li>
                 </ul>
+                <ul id="icons-nav-sub2" class="nav-content collapse" data-bs-parent="#icons-nav">
+                    <li>
+                        <a class="nav-link" href="{{route('waste_management.index')}}">
+                            <i class="bi bi-dash"></i><span>  Waste Generation </span>
+                        </a>
+                    </li>
+                </ul>
             </li>
 
 

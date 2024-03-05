@@ -16,6 +16,7 @@ use App\Http\Controllers\ProcessEmissionController;
 use App\Http\Controllers\RetirementBenefitsController;
 use App\Http\Controllers\StationaryCombustionController;
 use App\Http\Controllers\TurnOverController;
+use App\Http\Controllers\WasteManagementController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -144,6 +145,14 @@ Route::prefix('user')->middleware('user')->group(function () {
         Route::post('/process_emission/store', 'store')->name('process_emission.store');
         Route::get('/process_emission/edit/{id}', 'edit')->name('process_emission.edit');
         Route::patch('/process_emission/update/{id}', 'update')->name('process_emission.update');
+    });
+
+    Route::controller(WasteManagementController::class)->group(function () {
+        Route::get('/waste_management/index', 'index')->name('waste_management.index');
+        Route::post('/waste_management/create', 'create')->name('waste_management.create');
+        Route::post('/waste_management/store', 'store')->name('waste_management.store');
+        Route::get('/waste_management/edit/{id}', 'edit')->name('waste_management.edit');
+        Route::patch('/waste_management/update/{id}', 'update')->name('waste_management.update');
     });
 
 });
