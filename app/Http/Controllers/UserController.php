@@ -10,6 +10,7 @@ use App\Models\HiringCount;
 use App\Models\MinimumWage;
 use App\Models\ParentalLeave;
 use App\Models\RetirementBenefits;
+use App\Models\SafetyData;
 use App\Models\TurnOver;
 use App\Models\Union;
 use Carbon\CarbonPeriod;
@@ -61,89 +62,96 @@ class UserController extends Controller
                 'captive_power'=>0
                 ]);
 
-                $employee_worker_count = [
-                    'year' => $request->financialyear,
-                'loction'=>$plant,
-                'month'=>$month,
-                ];
-                $employee_worker_test=EmployeeWorkerCount::create($employee_worker_count);
+        //         $employee_worker_count = [
+        //             'year' => $request->financialyear,
+        //         'loction'=>$plant,
+        //         'month'=>$month,
+        //         ];
+        //         $employee_worker_test=EmployeeWorkerCount::create($employee_worker_count);
 
-                $hiring_count = [
-                    'year' => $request->financialyear,
-                'loction'=>$plant,
-                'month'=>$month,
-                ];
-                $hiring_test=HiringCount::create($hiring_count);
+        //         $hiring_count = [
+        //             'year' => $request->financialyear,
+        //         'loction'=>$plant,
+        //         'month'=>$month,
+        //         ];
+        //         $hiring_test=HiringCount::create($hiring_count);
 
-                $turnover = [
-                    'year' => $request->financialyear,
-                    'loction' => $plant,
-                    'month' => $month,
-                ];
-                $turnover_test = TurnOver::create($turnover);
+        //         $turnover = [
+        //             'year' => $request->financialyear,
+        //             'loction' => $plant,
+        //             'month' => $month,
+        //         ];
+        //         $turnover_test = TurnOver::create($turnover);
 
-                $differentlyabled = [
-                    'year' => $request->financialyear,
-                    'loction' => $plant,
-                    'month' => $month,
-                ];
-                $differentlyabled_test = DifferentlyAbled::create($differentlyabled);
+        //         $differentlyabled = [
+        //             'year' => $request->financialyear,
+        //             'loction' => $plant,
+        //             'month' => $month,
+        //         ];
+        //         $differentlyabled_test = DifferentlyAbled::create($differentlyabled);
 
-                $benefits = ['Health_Insurance','Accident_Insurance','Maternity_Benefits','Paternity_Benefits','Day_care_facilities'];
-                foreach ($benefits as $benefit){
-                $employeeworkerbenefits = [
-                    'year' => $request->financialyear,
-                    'loction' => $plant,
-                    'month' => $month,
-                    'benefits' => $benefit,
-                ];
-                $employeeworkerbenefits_test = EmployeeWorkerBenefit::create($employeeworkerbenefits);
-            }
+        //         $benefits = ['Health_Insurance','Accident_Insurance','Maternity_Benefits','Paternity_Benefits','Day_care_facilities'];
+        //         foreach ($benefits as $benefit){
+        //         $employeeworkerbenefits = [
+        //             'year' => $request->financialyear,
+        //             'loction' => $plant,
+        //             'month' => $month,
+        //             'benefits' => $benefit,
+        //         ];
+        //         $employeeworkerbenefits_test = EmployeeWorkerBenefit::create($employeeworkerbenefits);
+        //     }
 
-            $conditions= ['Minimum_Wage_Earners','Above_Minimum_Wage_Earners'];
-                foreach ($conditions as $condition){
-                $minimumwage = [
-                    'year' => $request->financialyear,
-                    'loction' => $plant,
-                    'month' => $month,
-                    'benefits' => $condition,
-                ];
-                $minimumwage_test = MinimumWage::create($minimumwage);
-            }
+        //     $conditions= ['Minimum_Wage_Earners','Above_Minimum_Wage_Earners'];
+        //         foreach ($conditions as $condition){
+        //         $minimumwage = [
+        //             'year' => $request->financialyear,
+        //             'loction' => $plant,
+        //             'month' => $month,
+        //             'benefits' => $condition,
+        //         ];
+        //         $minimumwage_test = MinimumWage::create($minimumwage);
+        //     }
 
-            $leaveconditions= ['Entitled_to_Parental_Leave','Took_Parental_Leave','Returned_to_Work_Post_Leave','Still_Employed_12_Months_Later','Due_to_Return_Soon','Returns_from_Prior_Periods'];
-                foreach ($leaveconditions as $leavecondition){
-                $parentalleave = [
-                    'year' => $request->financialyear,
-                    'loction' => $plant,
-                    'month' => $month,
-                    'benefits' => $leavecondition,
-                ];
-                $parentalleave_test = ParentalLeave::create($parentalleave);
-            }
+        //     $leaveconditions= ['Entitled_to_Parental_Leave','Took_Parental_Leave','Returned_to_Work_Post_Leave','Still_Employed_12_Months_Later','Due_to_Return_Soon','Returns_from_Prior_Periods'];
+        //         foreach ($leaveconditions as $leavecondition){
+        //         $parentalleave = [
+        //             'year' => $request->financialyear,
+        //             'loction' => $plant,
+        //             'month' => $month,
+        //             'benefits' => $leavecondition,
+        //         ];
+        //         $parentalleave_test = ParentalLeave::create($parentalleave);
+        //     }
 
-            $retirementbenefits= ['PF', 'Gratuity', 'ESI'];
-            foreach ($retirementbenefits as $retirementbenefit){
-            $retirementbenefits_data = [
+        //     $retirementbenefits= ['PF', 'Gratuity', 'ESI'];
+        //     foreach ($retirementbenefits as $retirementbenefit){
+        //     $retirementbenefits_data = [
+        //         'year' => $request->financialyear,
+        //         'loction' => $plant,
+        //         'month' => $month,
+        //         'benefits' => $retirementbenefit,
+        //     ];
+        //     $retirementbenefits_test = RetirementBenefits::create($retirementbenefits_data);
+        // }
+
+        // $union = [
+        //         'year' => $request->financialyear,
+        //         'loction' => $plant,
+        //         'month' => $month,
+        //     ];
+        //     $union_test = Union::create($union);
+
+            $saftey_data = [
                 'year' => $request->financialyear,
                 'loction' => $plant,
                 'month' => $month,
-                'benefits' => $retirementbenefit,
             ];
-            $retirementbenefits_test = RetirementBenefits::create($retirementbenefits_data);
-        }
-
-        $union = [
-                'year' => $request->financialyear,
-                'loction' => $plant,
-                'month' => $month,
-            ];
-            $union_test = Union::create($union);
+            $saftey_data_test = SafetyData::create($saftey_data);
 
             }
         }
         // return $employeeworkerbenefits_test;
-        if ($union_test) {
+        if ($saftey_data_test) {
             toastr()->success($request->financialyear . ' year is generated');
             return view('user.financialyear');
         } else {

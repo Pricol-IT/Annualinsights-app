@@ -14,6 +14,7 @@ use App\Http\Controllers\MobileCombustionController;
 use App\Http\Controllers\ParentalLeaveController;
 use App\Http\Controllers\ProcessEmissionController;
 use App\Http\Controllers\RetirementBenefitsController;
+use App\Http\Controllers\SafetyDataController;
 use App\Http\Controllers\StationaryCombustionController;
 use App\Http\Controllers\TurnOverController;
 use App\Http\Controllers\WasteManagementController;
@@ -162,6 +163,12 @@ Route::prefix('user')->middleware('user')->group(function () {
         Route::post('/water_management/store', 'store')->name('water_management.store');
         Route::get('/water_management/edit/{id}', 'edit')->name('water_management.edit');
         Route::patch('/water_management/update/{id}', 'update')->name('water_management.update');
+    });
+
+    Route::controller(SafetyDataController::class)->group(function () {
+        Route::get('/safety_data/index', 'index')->name('safety_data.index');
+        Route::get('/safety_data/edit/{id}', 'edit')->name('safety_data.edit');
+        Route::patch('/safety_data/update/{id}', 'update')->name('safety_data.update');
     });
 
 });

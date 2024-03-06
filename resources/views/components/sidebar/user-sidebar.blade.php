@@ -87,6 +87,14 @@
 
             </li>
 
+            <li>
+
+                <a class="nav-link" href="{{route('safety_data.index')}}">
+                    <i class="bi bi-dash"></i><span>Safety Data </span>
+                </a>
+
+            </li>
+
 
         </ul>
     </li>
