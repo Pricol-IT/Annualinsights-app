@@ -52,7 +52,7 @@
                                 </div>
 
                                 <div class="form-group row mt-3">
-                                    <label class="col-sm-5 col-form-label">Other<span class="form-label-required text-danger">*</span>
+                                    <label class="col-sm-5 col-form-label">Third Gender<span class="form-label-required text-danger">*</span>
                                     </label>
                                     <div class="col-sm-6">
                                         <input type="text" name="pw_other" id="pw_other" class="form-control class " value="{{$data->pw_other}}" placeholder="Enter no.of.person">
@@ -82,7 +82,7 @@
                                 </div>
 
                                 <div class="form-group row mt-3">
-                                    <label class="col-sm-5 col-form-label">Other<span class="form-label-required text-danger">*</span>
+                                    <label class="col-sm-5 col-form-label">Third Gender<span class="form-label-required text-danger">*</span>
                                     </label>
                                     <div class="col-sm-6">
                                         <input type="text" name="tw_other" id="tw_other" class="form-control class " value="{{$data->tw_other}}" placeholder="Enter no.of.person">

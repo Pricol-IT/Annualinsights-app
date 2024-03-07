@@ -81,7 +81,7 @@
                 <table class=" table ">
                     <thead>
                         <tr>
-                            <th>s.no</th>
+                            <th>S.No.</th>
                             <th>Activity Type </th>
                             <th>Gas Type </th>
                             <th>Total Amount Consumed </th>

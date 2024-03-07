@@ -80,7 +80,7 @@
                 <table class=" table ">
                     <thead>
                         <tr>
-                            <th>s.no</th>
+                            <th>S.No.</th>
                             <th>Vehicle Type </th>
                             <th>Fuel Type </th>
                             <th>Fuel Consumed </th>

@@ -81,7 +81,7 @@
                 <table class=" table ">
                     <thead>
                         <tr>
-                            <th>s.no</th>
+                            <th>S.No.</th>
                             <th>Attendees</th>
                             <th>Training Topics</th>
                             <th>No. of Trainings</th>

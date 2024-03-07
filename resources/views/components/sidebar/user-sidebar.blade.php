@@ -9,7 +9,7 @@
 
     <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#icons-nav" data-bs-toggle="collapse" href="#icons-nav">
-            <i class="bx bx-category"></i><span>Environment</span><i class="bi bi-chevron-down ms-auto"></i>
+            <i class='bx bx-leaf'></i><span>Environment</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
 
         <ul id="icons-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
@@ -82,26 +82,17 @@
             <li>
 
                 <a class="nav-link" href="{{route('water_management.index')}}">
-                    <i class="bi bi-dash"></i><span>Water Generation </span>
+                    <i class="bi bi-circle"></i><span>Water Management</span>
                 </a>
 
             </li>
-
-            <li>
-
-                <a class="nav-link" href="{{route('safety_data.index')}}">
-                    <i class="bi bi-dash"></i><span>Safety Data </span>
-                </a>
-
-            </li>
-
 
         </ul>
     </li>
 
     <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#icons-nav1" data-bs-toggle="collapse" href="#icons-nav">
-            <i class="bx bx-category"></i><span>Social</span><i class="bi bi-chevron-down ms-auto"></i>
+            <i class="bi bi-people-fill"></i><span>Social</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
 
         <ul id="icons-nav1" class="nav-content collapse" data-bs-parent="#sidebar-nav">
@@ -189,9 +180,6 @@
                             <i class="bi bi-dash"></i><span> Parental Leave</span>
                         </a>
                     </li>
-
-
-
                 </ul>
 
 
@@ -199,14 +187,23 @@
             </li>
             <li>
                 <a class="nav-link" href="{{route('training.index')}}">
-                    <i class="bi bi-dash"></i><span> Trainings</span>
+                    <i class="bi bi-circle"></i><span> Trainings</span>
                 </a>
 
             </li>
+
             <li>
                 <a class="nav-link collapsed" data-bs-target="#icons-nav-sub4" data-bs-toggle="collapse" href="#icons-nav-sub">
                     <i class="bi bi-circle"></i><span> Occupational Health</span><i class="bi bi-chevron-down ms-auto"></i>
                 </a>
+
+                <ul id="icons-nav-sub4" class="nav-content collapse" data-bs-parent="#icons-nav">
+                    <li>
+                        <a class="nav-link" href="{{route('safety_data.index')}}">
+                            <i class="bi bi-dash"></i><span> Safety Data </span>
+                        </a>
+                    </li>
+                </ul>
             </li>
             <li>
                 <a class="nav-link collapsed" data-bs-target="#icons-nav-sub4" data-bs-toggle="collapse" href="#icons-nav-sub">
@@ -226,17 +223,22 @@
         </ul>
     </li>
 
-
+    <li class="nav-item">
+        <a class="nav-link " href="#">
+            <i class='bx bx-book-reader' ></i>
+            <span>Governance</span>
+        </a>
+    </li>
 
     <li class="nav-item">
         <a class="nav-link " href="#">
-            <i class="bx bxs-calendar"></i>
+            <i class="bi bi-clipboard-data"></i>
             <span>Entry Status Report</span>
         </a>
     </li>
     <li class="nav-item">
         <a class="nav-link " href="#">
-            <i class="bx bxs-calendar"></i>
+            <i class="bi bi-file-earmark-arrow-down"></i>
             <span>Download Report</span>
         </a>
     </li>

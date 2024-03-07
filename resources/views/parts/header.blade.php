@@ -1,11 +1,15 @@
 <header id="header" class="header fixed-top d-flex align-items-center">
 
-    <div class="d-flex align-items-center justify-content-between">
+    <div class="d-flex align-items-center justify-content-around">
         <i class="bi bi-list toggle-sidebar-btn"></i>
         <a href="#" class="px-1 logo d-flex align-items-center">
             <img src="{{asset('assets/img/logo.png')}}" alt="logo">
 
         </a>
+
+        <img src="{{asset('assets/img/ESGimpact_logo.png')}}" alt="logo" width="150px">
+
+
     </div><!-- End Logo -->
 
     <nav class="header-nav ms-auto">

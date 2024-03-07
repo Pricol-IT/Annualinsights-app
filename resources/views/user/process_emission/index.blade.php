@@ -79,7 +79,7 @@
                 <table class=" table ">
                     <thead>
                         <tr>
-                            <th>s.no</th>
+                            <th>S.No.</th>
                             <th>Process type </th>
                             <th>Name of Input Material </th>
                             <th>Amount Consumed </th>

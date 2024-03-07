@@ -79,10 +79,10 @@
                         <tr>
                             <th>Male</th>
                             <th>Female</th>
-                            <th>Other</th>
+                            <th>Third Gender</th>
                             <th>Male</th>
                             <th>Female</th>
-                            <th>Other</th>
+                            <th>Third Gender</th>
                         </tr>
                     </thead>
                     <tbody>
