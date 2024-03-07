@@ -198,9 +198,10 @@
 
             </li>
             <li>
-                <a class="nav-link collapsed" data-bs-target="#icons-nav-sub4" data-bs-toggle="collapse" href="#icons-nav-sub">
-                    <i class="bi bi-circle"></i><span> Trainings</span><i class="bi bi-chevron-down ms-auto"></i>
+                <a class="nav-link" href="{{route('training.index')}}">
+                    <i class="bi bi-dash"></i><span> Trainings</span>
                 </a>
+
             </li>
             <li>
                 <a class="nav-link collapsed" data-bs-target="#icons-nav-sub4" data-bs-toggle="collapse" href="#icons-nav-sub">

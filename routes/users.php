@@ -16,6 +16,7 @@ use App\Http\Controllers\ProcessEmissionController;
 use App\Http\Controllers\RetirementBenefitsController;
 use App\Http\Controllers\SafetyDataController;
 use App\Http\Controllers\StationaryCombustionController;
+use App\Http\Controllers\TrainingController;
 use App\Http\Controllers\TurnOverController;
 use App\Http\Controllers\WasteManagementController;
 use App\Http\Controllers\WaterManagementController;
@@ -169,6 +170,14 @@ Route::prefix('user')->middleware('user')->group(function () {
         Route::get('/safety_data/index', 'index')->name('safety_data.index');
         Route::get('/safety_data/edit/{id}', 'edit')->name('safety_data.edit');
         Route::patch('/safety_data/update/{id}', 'update')->name('safety_data.update');
+    });
+
+    Route::controller(TrainingController::class)->group(function () {
+        Route::get('/training/index', 'index')->name('training.index');
+        Route::post('/training/create', 'create')->name('training.create');
+        Route::post('/training/store', 'store')->name('training.store');
+        Route::get('/training/edit/{id}', 'edit')->name('training.edit');
+        Route::patch('/training/update/{id}', 'update')->name('training.update');
     });
 
 });
