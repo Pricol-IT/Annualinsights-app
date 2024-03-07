@@ -80,7 +80,7 @@
                 <table class=" table ">
                     <thead>
                         <tr>
-                            <th>s.no</th>
+                            <th>S.No.</th>
                             <th>Type of Water Consumption </th>
                             <th>Total Water Consumption </th>
                             <th>Total Waste Consumption </th>

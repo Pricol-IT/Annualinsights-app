@@ -80,11 +80,11 @@
                 <table class=" table ">
                     <thead>
                         <tr>
-                            <th>s.no</th>
+                            <th>S.No.</th>
                             <th>Waste Type </th>
                             <th>Waste generated </th>
-                            <th>disposal type </th>
-                            <th>total Disposed</th>
+                            <th>Disposal type </th>
+                            <th>Total Disposed</th>
                             <th>Action</th>
                         </tr>
 

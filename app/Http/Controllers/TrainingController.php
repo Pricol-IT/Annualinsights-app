@@ -54,7 +54,7 @@ class TrainingController extends Controller
             'Security Personnel'
         ];
         $training_topics = [
-            'Health & Safety',
+            'Environment, Health & Safety',
             'Anti-Corruption Policies & Procedures',
             'Anti-Bribery',
             'Human Rights',
@@ -110,7 +110,7 @@ class TrainingController extends Controller
             'Security Personnel'
         ];
         $training_topics = [
-            'Health & Safety',
+            'Environment, Health & Safety',
             'Anti-Corruption Policies & Procedures',
             'Anti-Bribery',
             'Human Rights',
