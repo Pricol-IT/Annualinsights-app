@@ -90,16 +90,16 @@ class UserController extends Controller
         //         ];
         //         $differentlyabled_test = DifferentlyAbled::create($differentlyabled);
 
-        //         $benefits = ['Health_Insurance','Accident_Insurance','Maternity_Benefits','Paternity_Benefits','Day_care_facilities'];
-        //         foreach ($benefits as $benefit){
-        //         $employeeworkerbenefits = [
-        //             'year' => $request->financialyear,
-        //             'loction' => $plant,
-        //             'month' => $month,
-        //             'benefits' => $benefit,
-        //         ];
-        //         $employeeworkerbenefits_test = EmployeeWorkerBenefit::create($employeeworkerbenefits);
-        //     }
+            //     $benefits = ['Health_Insurance','Accident_Insurance','Maternity_Benefits','Paternity_Benefits','Day_care_facilities','ESIC','WC'];
+            //     foreach ($benefits as $benefit){
+            //     $employeeworkerbenefits = [
+            //         'year' => $request->financialyear,
+            //         'loction' => $plant,
+            //         'month' => $month,
+            //         'benefits' => $benefit,
+            //     ];
+            //     $employeeworkerbenefits_test = EmployeeWorkerBenefit::create($employeeworkerbenefits);
+            // }
 
         //     $conditions= ['Minimum_Wage_Earners','Above_Minimum_Wage_Earners'];
         //         foreach ($conditions as $condition){

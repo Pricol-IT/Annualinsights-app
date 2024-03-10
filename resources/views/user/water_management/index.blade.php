@@ -128,12 +128,12 @@
                                     <a href="{{ route('water_management.edit', $data->id) }}" class="btn btn-sm btn-light">
                                         <i class="bi bi-pencil"></i>
                                     </a>
-                                    {{-- <a href="{{ route('energy_data.edit', $data->id) }}" class="btn btn-sm btn-success">
-                                    <i class="bi bi-check-circle"></i>
+                                    <a href="{{ route('water_management.edit', $data->id) }}" class="btn btn-sm btn-light">
+                                    <i class="bi bi-check2"></i>
                                     </a>
-                                    <a href="{{ route('energy_data.edit', $data->id) }}" class="btn btn-sm btn-danger">
-                                        <i class="bi bi-x-circle"></i>
-                                    </a> --}}
+                                    <a href="{{ route('water_management.edit', $data->id) }}" class="btn btn-sm btn-light">
+                                        <i class="bi bi-x-lg"></i>
+                                    </a>
 
                                 </div>
                             </td>
