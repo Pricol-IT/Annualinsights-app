@@ -211,23 +211,68 @@
                 </a>
             </li>
             <li>
-                <a class="nav-link collapsed" data-bs-target="#icons-nav-sub4" data-bs-toggle="collapse" href="#icons-nav-sub">
+                <a class="nav-link collapsed" data-bs-target="#icons-nav-sub" data-bs-toggle="collapse" href="#icons-nav-sub">
                     <i class="bi bi-circle"></i><span> Human Rights</span><i class="bi bi-chevron-down ms-auto"></i>
                 </a>
             </li>
             <li>
-                <a class="nav-link collapsed" data-bs-target="#icons-nav-sub4" data-bs-toggle="collapse" href="#icons-nav-sub">
+                <a class="nav-link collapsed" data-bs-target="#icons-nav-sub" data-bs-toggle="collapse" href="#icons-nav-sub">
                     <i class="bi bi-circle"></i><span> Customers & Market</span><i class="bi bi-chevron-down ms-auto"></i>
+                </a>
+            </li>
+            <li>
+                <a class="nav-link collapsed" data-bs-target="#icons-nav-sub" data-bs-toggle="collapse" href="#icons-nav-sub">
+                    <i class="bi bi-circle"></i><span> CSR Initiatives</span><i class="bi bi-chevron-down ms-auto"></i>
                 </a>
             </li>
         </ul>
     </li>
 
+
     <li class="nav-item">
-        <a class="nav-link " href="#">
-            <i class='bx bx-book-reader' ></i>
-            <span>Governance</span>
+        <a class="nav-link collapsed" data-bs-target="#icons-nav2" data-bs-toggle="collapse" href="#icons-nav">
+            <i class='bx bx-book-reader'></i>
+            <span>Governance</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
+
+        <ul id="icons-nav2" class="nav-content collapse" data-bs-parent="#sidebar-nav">
+
+            <li>
+
+                <a class="nav-link" href="#">
+                    <i class="bi bi-circle"></i><span>Compliance Status</span>
+                </a>
+
+            </li>
+            <li>
+
+                <a class="nav-link" href="#">
+                    <i class="bi bi-circle"></i><span>Policies & Procedures</span>
+                </a>
+
+            </li>
+            <li>
+
+                <a class="nav-link" href="#">
+                    <i class="bi bi-circle"></i><span>ESG Organization Structure</span>
+                </a>
+
+            </li>
+            <li>
+
+                <a class="nav-link" href="#">
+                    <i class="bi bi-circle"></i><span>Awards & Recognition</span>
+                </a>
+
+            </li>
+            <li>
+                <a class="nav-link" href="#">
+                    <i class="bi bi-circle"></i><span>Risks & Opportunities</span>
+                </a>
+
+            </li>
+
+        </ul>
     </li>
 
     <li class="nav-item">
