@@ -103,7 +103,7 @@
                 </div>
                 <div>
                     <center>
-                        <input type="submit" class="btn btn-success" value='Send for Approval'>
+                        <input type="submit"  class="btn btn-success" value='Send for Approval'>
                         <input type="submit" class="btn btn-primary" value='Save'>
                         <a href="{{ url()->previous() }}" class="btn btn-danger">Cancel</a>
                     </center>

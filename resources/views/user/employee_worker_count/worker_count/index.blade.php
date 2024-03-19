@@ -120,12 +120,14 @@
                                     <a href="{{ route('workercount.edit', $data->id) }}" class="btn btn-sm btn-light">
                                         <i class="bi bi-pencil"></i>
                                     </a>
+                                    @if (authUser()->role != 'user')
                                     <a href="{{ route('workercount.edit', $data->id) }}" class="btn btn-sm btn-light">
                                     <i class="bi bi-check2"></i>
                                     </a>
                                     <a href="{{ route('workercount.edit', $data->id) }}" class="btn btn-sm btn-light">
                                         <i class="bi bi-x-lg"></i>
                                     </a>
+                                    @endif
 
                                 </div>
                             </td>

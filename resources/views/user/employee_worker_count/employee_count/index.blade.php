@@ -73,7 +73,7 @@
                             <th rowspan="2">Month</th>
                             <th colspan="3" style="text-align: center;">Permanent </th>
                             <th colspan="3" style="text-align: center;">Temporary </th>
-                            {{-- <th rowspan="2">Status</th> --}}
+                            <th rowspan="2">Status</th>
                             <th rowspan="2">Action</th>
                         </tr>
                         <tr>
@@ -97,8 +97,24 @@
                             <td>{{$data->te_male}}</td>
                             <td>{{$data->te_female}}</td>
                             <td>{{$data->te_other}}</td>
-                            {{--
-                            @switch($data->status)
+
+
+                            <form action="{{route('employeecount.update',$data->id)}}" method="POST">
+                                @csrf
+                                @method('post')
+                                <input type="hidden" name="year" value="{{$data->year}}">
+                                <input type="hidden" name="loction" value="{{$data->loction}}">
+                                <input type="hidden" name="month" value="{{$data->month}}">
+                                <input type="hidden" name="pe_male" value="{{$data->pe_male}}">
+                                <input type="hidden" name="pe_female" value="{{$data->pe_female}}">
+                                <input type="hidden" name="pe_other" value="{{$data->pe_other}}">
+                                <input type="hidden" name="te_male" value="{{$data->te_male}}">
+                                <input type="hidden" name="te_female" value="{{$data->te_female}}">
+                                <input type="hidden" name="te_other" value="{{$data->te_other}}">
+
+
+
+                            @switch($data->employee_status)
                             @case('submitted')
                             <td> <span class="badge bg-primary"> Submitted </span></td>
                             @break
@@ -114,21 +130,41 @@
 
                             @default
                             <td> <span class="badge bg-secondary"> Not Proceeded </span></td>
-                            @endswitch --}}
+                            @endswitch
                             <td>
                                 <div class="d-flex gap-1">
+                                    @if ((authUser()->role == 'user'))
+                                    @if ( ($data->employee_status == 'approved') || ($data->employee_status == 'submitted'))
+                                    <span class="badge bg-success"> Added </span>
+                                    @else
                                     <a href="{{ route('employeecount.edit', $data->id) }}" class="btn btn-sm btn-light">
                                         <i class="bi bi-pencil"></i>
                                     </a>
-                                    <a href="{{ route('employeecount.edit', $data->id) }}" class="btn btn-sm btn-light">
-                                    <i class="bi bi-check2"></i>
-                                    </a>
-                                    <a href="{{ route('employeecount.edit', $data->id) }}" class="btn btn-sm btn-light">
-                                        <i class="bi bi-x-lg"></i>
-                                    </a>
+                                    @endif
+                                    @endif
 
+
+                                    @if (authUser()->role != 'user')
+                                    @if ( ($data->employee_status == 'approved') || ($data->employee_status == 'rejected'))
+                                    <span class="badge bg-success"> Updated </span>
+                                    @elseif(($data->employee_status == 'not proceeded') || ($data->employee_status == 'saved') )
+                                    <span class="badge bg-warning"> Waiting </span>
+                                    @else
+
+                                        <button type="submit" class="btn btn-sm btn-light" name="submit" value="approved">
+                                            <i class="bi bi-check2"></i>
+                                        </button>
+                                        <button type="submit" class="btn btn-sm btn-light" name="submit" value="rejected">
+                                            <i class="bi bi-x-lg"></i>
+                                        </button>
+
+
+                                    @endif
+
+                                    @endif
                                 </div>
                             </td>
+                        </form>
                         </tr>
                         {{-- @php
                         $power_from_diesel_generators += $data->power_from_diesel_generators;

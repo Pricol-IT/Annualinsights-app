@@ -30,7 +30,9 @@ class HomeController extends Controller
     {
         if (auth('user')->check() && authUser()->role == 'user') {
             return redirect()->route('user.dashboard');
-        } 
+        } else if (auth('user')->check() && authUser()->role == 'approver') {
+            return redirect()->route('approver.dashboard');
+        }
 
         return redirect('login');
     }

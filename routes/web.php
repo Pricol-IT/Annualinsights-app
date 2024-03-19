@@ -1,7 +1,28 @@
 <?php
 
+use App\Http\Controllers\DifferentlyAbledController;
+use App\Http\Controllers\EmployeeWorkerBenefitController;
+use App\Http\Controllers\EmployeeWorkerCountController;
+use App\Http\Controllers\EnergyDataController;
+use App\Http\Controllers\FugitiveEmissionController;
+use App\Http\Controllers\HiringCountController;
+use App\Http\Controllers\UnionController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MinimumWageController;
+use App\Http\Controllers\MobileCombustionController;
+use App\Http\Controllers\ParentalLeaveController;
+use App\Http\Controllers\ProcessEmissionController;
+use App\Http\Controllers\RetirementBenefitsController;
+use App\Http\Controllers\SafetyDataController;
+use App\Http\Controllers\StationaryCombustionController;
+use App\Http\Controllers\TrainingController;
+use App\Http\Controllers\TurnOverController;
+use App\Http\Controllers\WasteManagementController;
+use App\Http\Controllers\WaterManagementController;
 use Illuminate\Support\Facades\Route;
 include base_path('routes/users.php');
+include base_path('routes/approvers.php');
 
 /*
 |--------------------------------------------------------------------------
@@ -18,3 +39,141 @@ Route::get('/', function () {
     return redirect()->route('login');
 });
 
+Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'dashboard'])->name('dashboard');
+
+Route::resource('energy_data', EnergyDataController::class);
+    Route::post('/addmonth', [EnergyDataController::class, 'addmonth'])->name('addmonth');
+
+    Route::controller(EmployeeWorkerCountController::class)->group(function () {
+        Route::get('/employee_count/index', 'employee_index')->name('employeecount.index');
+        Route::get('/employee_count/edit/{id}', 'employee_edit')->name('employeecount.edit');
+        Route::post('/employee_count/update/{id}', 'employee_update')->name('employeecount.update');
+        Route::get('/worker_count/index', 'worker_index')->name('workercount.index');
+        Route::get('/worker_count/edit/{id}', 'worker_edit')->name('workercount.edit');
+        Route::patch('/worker_count/update/{id}', 'worker_update')->name('workercount.update');
+    });
+
+    Route::controller(HiringCountController::class)->group(function () {
+        Route::get('/hiring/employee_count/index', 'employee_index')->name('hiring.employeecount.index');
+        Route::get('/hiring/employee_count/edit/{id}', 'employee_edit')->name('hiring.employeecount.edit');
+        Route::patch('/hiring/employee_count/update/{id}', 'employee_update')->name('hiring.employeecount.update');
+        Route::get('/hiring/worker_count/index', 'worker_index')->name('hiring.workercount.index');
+        Route::get('/hiring/worker_count/edit/{id}', 'worker_edit')->name('hiring.workercount.edit');
+        Route::patch('/hiring/worker_count/update/{id}', 'worker_update')->name('hiring.workercount.update');
+    });
+
+    Route::controller(TurnOverController::class)->group(function () {
+        Route::get('/turnover/employee_count/index', 'employee_index')->name('turnover.employeecount.index');
+        Route::get('/turnover/employee_count/edit/{id}', 'employee_edit')->name('turnover.employeecount.edit');
+        Route::patch('/turnover/employee_count/update/{id}', 'employee_update')->name('turnover.employeecount.update');
+        Route::get('/turnover/worker_count/index', 'worker_index')->name('turnover.workercount.index');
+        Route::get('/turnover/worker_count/edit/{id}', 'worker_edit')->name('turnover.workercount.edit');
+        Route::patch('/turnover/worker_count/update/{id}', 'worker_update')->name('turnover.workercount.update');
+    });
+
+    Route::controller(DifferentlyAbledController::class)->group(function () {
+        Route::get('/differently_abled/employee_count/index', 'employee_index')->name('differently_abled.employeecount.index');
+        Route::get('/differently_abled/employee_count/edit/{id}', 'employee_edit')->name('differently_abled.employeecount.edit');
+        Route::patch('/differently_abled/employee_count/update/{id}', 'employee_update')->name('differently_abled.employeecount.update');
+        Route::get('/differently_abled/worker_count/index', 'worker_index')->name('differently_abled.workercount.index');
+        Route::get('/differently_abled/worker_count/edit/{id}', 'worker_edit')->name('differently_abled.workercount.edit');
+        Route::patch('/differently_abled/worker_count/update/{id}', 'worker_update')->name('differently_abled.workercount.update');
+    });
+
+    Route::controller(EmployeeWorkerBenefitController::class)->group(function () {
+        Route::get('/employee_worker_benefits/employee_count/index', 'employee_index')->name('employee_worker_benefits.employeecount.index');
+        Route::get('/employee_worker_benefits/employee_count/edit/{id}', 'employee_edit')->name('employee_worker_benefits.employeecount.edit');
+        Route::patch('/employee_worker_benefits/employee_count/update/{id}', 'employee_update')->name('employee_worker_benefits.employeecount.update');
+        Route::get('/employee_worker_benefits/worker_count/index', 'worker_index')->name('employee_worker_benefits.workercount.index');
+        Route::get('/employee_worker_benefits/worker_count/edit/{id}', 'worker_edit')->name('employee_worker_benefits.workercount.edit');
+        Route::patch('/employee_worker_benefits/worker_count/update/{id}', 'worker_update')->name('employee_worker_benefits.workercount.update');
+    });
+
+    Route::controller(MinimumWageController::class)->group(function () {
+        Route::get('/minimum_wage/employee_count/index', 'employee_index')->name('minimum_wage.employeecount.index');
+        Route::get('/minimum_wage/employee_count/edit/{id}', 'employee_edit')->name('minimum_wage.employeecount.edit');
+        Route::patch('/minimum_wage/employee_count/update/{id}', 'employee_update')->name('minimum_wage.employeecount.update');
+        Route::get('/minimum_wage/worker_count/index', 'worker_index')->name('minimum_wage.workercount.index');
+        Route::get('/minimum_wage/worker_count/edit/{id}', 'worker_edit')->name('minimum_wage.workercount.edit');
+        Route::patch('/minimum_wage/worker_count/update/{id}', 'worker_update')->name('minimum_wage.workercount.update');
+    });
+
+    Route::controller(ParentalLeaveController::class)->group(function () {
+        Route::get('/parental_leave/index', 'index')->name('parental_leave.index');
+        Route::get('/parental_leave/edit/{id}', 'edit')->name('parental_leave.edit');
+        Route::patch('/parental_leave/update/{id}', 'update')->name('parental_leave.update');
+    });
+
+    Route::controller(RetirementBenefitsController::class)->group(function () {
+        Route::get('/retirement_benefits/index', 'index')->name('retirement_benefits.index');
+        Route::get('/retirement_benefits/edit/{id}', 'edit')->name('retirement_benefits.edit');
+        Route::patch('/retirement_benefits/update/{id}', 'update')->name('retirement_benefits.update');
+    });
+
+    Route::controller(UnionController::class)->group(function () {
+        Route::get('/union/index', 'index')->name('union.index');
+        Route::get('/union/edit/{id}', 'edit')->name('union.edit');
+        Route::patch('/union/update/{id}', 'update')->name('union.update');
+    });
+
+    Route::controller(StationaryCombustionController::class)->group(function () {
+        Route::get('/stationary_combustion/index', 'index')->name('stationary_combustion.index');
+        Route::post('/stationary_combustion/create', 'create')->name('stationary_combustion.create');
+        Route::post('/stationary_combustion/store', 'store')->name('stationary_combustion.store');
+        Route::get('/stationary_combustion/edit/{id}', 'edit')->name('stationary_combustion.edit');
+        Route::patch('/stationary_combustion/update/{id}', 'update')->name('stationary_combustion.update');
+    });
+
+    Route::controller(MobileCombustionController::class)->group(function () {
+        Route::get('/mobile_combustion/index', 'index')->name('mobile_combustion.index');
+        Route::post('/mobile_combustion/create', 'create')->name('mobile_combustion.create');
+        Route::post('/mobile_combustion/store', 'store')->name('mobile_combustion.store');
+        Route::get('/mobile_combustion/edit/{id}', 'edit')->name('mobile_combustion.edit');
+        Route::patch('/mobile_combustion/update/{id}', 'update')->name('mobile_combustion.update');
+    });
+
+    Route::controller(FugitiveEmissionController::class)->group(function () {
+        Route::get('/fugitive_emission/index', 'index')->name('fugitive_emission.index');
+        Route::post('/fugitive_emission/create', 'create')->name('fugitive_emission.create');
+        Route::post('/fugitive_emission/store', 'store')->name('fugitive_emission.store');
+        Route::get('/fugitive_emission/edit/{id}', 'edit')->name('fugitive_emission.edit');
+        Route::patch('/fugitive_emission/update/{id}', 'update')->name('fugitive_emission.update');
+    });
+
+    Route::controller(ProcessEmissionController::class)->group(function () {
+        Route::get('/process_emission/index', 'index')->name('process_emission.index');
+        Route::post('/process_emission/create', 'create')->name('process_emission.create');
+        Route::post('/process_emission/store', 'store')->name('process_emission.store');
+        Route::get('/process_emission/edit/{id}', 'edit')->name('process_emission.edit');
+        Route::patch('/process_emission/update/{id}', 'update')->name('process_emission.update');
+    });
+
+    Route::controller(WasteManagementController::class)->group(function () {
+        Route::get('/waste_management/index', 'index')->name('waste_management.index');
+        Route::post('/waste_management/create', 'create')->name('waste_management.create');
+        Route::post('/waste_management/store', 'store')->name('waste_management.store');
+        Route::get('/waste_management/edit/{id}', 'edit')->name('waste_management.edit');
+        Route::patch('/waste_management/update/{id}', 'update')->name('waste_management.update');
+    });
+
+    Route::controller(WaterManagementController::class)->group(function () {
+        Route::get('/water_management/index', 'index')->name('water_management.index');
+        Route::post('/water_management/create', 'create')->name('water_management.create');
+        Route::post('/water_management/store', 'store')->name('water_management.store');
+        Route::get('/water_management/edit/{id}', 'edit')->name('water_management.edit');
+        Route::patch('/water_management/update/{id}', 'update')->name('water_management.update');
+    });
+
+    Route::controller(SafetyDataController::class)->group(function () {
+        Route::get('/safety_data/index', 'index')->name('safety_data.index');
+        Route::get('/safety_data/edit/{id}', 'edit')->name('safety_data.edit');
+        Route::patch('/safety_data/update/{id}', 'update')->name('safety_data.update');
+    });
+
+    Route::controller(TrainingController::class)->group(function () {
+        Route::get('/training/index', 'index')->name('training.index');
+        Route::post('/training/create', 'create')->name('training.create');
+        Route::post('/training/store', 'store')->name('training.store');
+        Route::get('/training/edit/{id}', 'edit')->name('training.edit');
+        Route::patch('/training/update/{id}', 'update')->name('training.update');
+    });

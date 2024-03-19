@@ -9,7 +9,7 @@
 
             <form action="{{route('employeecount.update',$data->id)}}" method="POST">
                 @csrf
-                @method('patch')
+                @method('post')
                 <div class="card">
                     <div class="card-header">
                         <h4 class="card-title p-0">Fill Employee Count</h4>
@@ -104,8 +104,8 @@
                 </div>
                 <div>
                     <center>
-                        <input type="submit" class="btn btn-success" value='Send for Approval'>
-                        <input type="submit" class="btn btn-primary" value='Save'>
+                        <input type="submit" name="submit" class="btn btn-success" value='Send for Approval'>
+                        <input type="submit" name="submit" class="btn btn-primary" value='Save'>
                         <a href="{{ url()->previous() }}" class="btn btn-danger">Cancel</a>
                     </center>
                 </div>
