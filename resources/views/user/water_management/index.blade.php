@@ -81,13 +81,14 @@
                     <thead>
                         <tr>
                             <th>S.No.</th>
-                            <th>Type of Water Consumption </th>
+                            <th>Water Source</th>
                             <th>Total Water Consumption </th>
-                            <th>Total Waste Consumption </th>
-                            <th>Conservation method</th>
-                            <th>Total Waste Conserved </th>
-                            <th>Disposal method</th>
-                            <th>Total Water discharged </th>
+                            <th>Total Wastewater Generation </th>
+                            <th>Conservation Method</th>
+                            <th>Total Water Conserved </th>
+                            <th>Discharge Method</th>
+                            <th>Total Water Discharged </th>
+                            <th>Total Rainwater Harvested</th>
                             <th>Action</th>
                         </tr>
 
