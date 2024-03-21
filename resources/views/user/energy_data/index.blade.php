@@ -90,9 +90,9 @@
                             <td>{{round($data->electricity)}}</td>
                             <td>{{round($data->power_purchase_agreement)}}</td>
                             <td>{{round($data->captive_power)}}</td>
-                            <x-status.actionStatus :status="$data->status" :id="$data->id" :edit="'energy_data.edit'"/>
+                            <x-status.action-status :status="$data->status" :id="$data->id" :edit="'energy_data.edit'"/>
 
-                            
+
                         </tr>
                         @php
                         $power_from_diesel_generators += $data->power_from_diesel_generators;

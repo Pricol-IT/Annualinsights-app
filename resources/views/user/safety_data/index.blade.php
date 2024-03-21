@@ -100,7 +100,7 @@
                             <td>{{$data->near_miss}}</td>
                             <td>{{$data->no_of_kaizen}}</td>
                             <td>{{$data->ehs_training}}</td>
-                            <x-status.actionStatus :status="$data->status" :id="$data->id" :edit="'safety_data.edit'"/>
+                            <x-status.action-status :status="$data->status" :id="$data->id" :edit="'safety_data.edit'"/>
 
                         @empty
                         <tr>

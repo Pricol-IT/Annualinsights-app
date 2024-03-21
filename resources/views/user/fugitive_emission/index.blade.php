@@ -99,7 +99,7 @@
                             <td>{{$data->activitytype}}</td>
                             <td>{{($data->gastype != 'Other' ) ? $data->gastype.' in '.$data->unit : $data->gastype_other.' in '.$data->unit}}</td>
                             <td>{{$data->Total_consumed}}</td>
-                            <x-status.actionStatus :status="$data->status" :id="$data->id" :edit="'fugitive_emission.edit'"/>
+                            <x-status.action-status :status="$data->status" :id="$data->id" :edit="'fugitive_emission.edit'"/>
 
                         </tr>
                         {{-- @php

@@ -98,7 +98,7 @@
                             <td>{{$data->total_employees}}</td>
                             <td>{{$data->total_workers}}</td>
                             <td>{{$data->remarks}}</td>
-                            <x-status.actionStatus :status="$data->status" :id="$data->id" :edit="'retirement_benefits.edit'"/>
+                            <x-status.action-status :status="$data->status" :id="$data->id" :edit="'retirement_benefits.edit'"/>
 
                         @empty
                         <tr>

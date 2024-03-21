@@ -101,7 +101,7 @@
                             <td>{{$data->input_total_amount.' in '.$data->input_unit}}</td>
                             <td>{{$data->output }}</td>
                             <td>{{$data->output_total_amount.' in '.$data->output_unit}}</td>
-                            <x-status.actionStatus :status="$data->status" :id="$data->id" :edit="'process_emission.edit'"/>
+                            <x-status.action-status :status="$data->status" :id="$data->id" :edit="'process_emission.edit'"/>
 
 
 

@@ -105,7 +105,7 @@
                             <td>{{$data->no_of_participants}}</td>
                             <td>{{$data->total_days}}</td>
                             <td>{{$data->total_personnel_covered}}</td>
-                            <x-status.actionStatus :status="$data->status" :id="$data->id" :edit="'training.edit'"/>
+                            <x-status.action-status :status="$data->status" :id="$data->id" :edit="'training.edit'"/>
 
                         @empty
                         <tr>

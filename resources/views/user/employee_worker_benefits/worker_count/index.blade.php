@@ -109,7 +109,7 @@
                             <td>{{$data->tw_male}}</td>
                             <td>{{$data->tw_female}}</td>
                             <td>{{$data->tw_remark}}</td>
-                            <x-status.actionStatus :status="$data->worker_status" :id="$data->id" :edit="'employee_worker_benefits.workercount.edit'"/>
+                            <x-status.action-status :status="$data->worker_status" :id="$data->id" :edit="'employee_worker_benefits.workercount.edit'"/>
 
                         @empty
                         <tr>

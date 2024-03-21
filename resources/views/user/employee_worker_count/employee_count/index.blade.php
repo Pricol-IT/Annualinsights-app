@@ -113,7 +113,7 @@
                                 <input type="hidden" name="te_other" value="{{$data->te_other}}">
 
 
-                                <x-status.actionStatus :status="$data->employee_status" :id="$data->id" :edit="'employeecount.edit'"/>
+                                <x-status.action-status :status="$data->employee_status" :id="$data->id" :edit="'employeecount.edit'"/>
                             {{-- @switch($data->employee_status)
                             @case('submitted')
                             <td> <span class="badge bg-primary"> Submitted </span></td>

@@ -104,7 +104,7 @@
                             <td>{{$data->em_female}}</td>
                             <td>{{$data->wr_male}}</td>
                             <td>{{$data->wr_female}}</td>
-                            <x-status.actionStatus :status="$data->status" :id="$data->id" :edit="'parental_leave.edit'"/>
+                            <x-status.action-status :status="$data->status" :id="$data->id" :edit="'parental_leave.edit'"/>
 
                         @empty
                         <tr>

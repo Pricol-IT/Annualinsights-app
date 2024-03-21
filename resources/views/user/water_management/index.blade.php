@@ -107,7 +107,7 @@
                             <td>{{$data->conserved.' in '.$data->conserved_unit}}</td>
                             <td>{{($data->disposal_method != 'Other' ) ? $data->disposal_method : $data->disposal_other}}</td>
                             <td>{{$data->discharged.' in '.$data->discharged_unit}}</td>
-                            <x-status.actionStatus :status="$data->status" :id="$data->id" :edit="'water_management.edit'"/>
+                            <x-status.action-status :status="$data->status" :id="$data->id" :edit="'water_management.edit'"/>
 
                         @empty
                         <tr>

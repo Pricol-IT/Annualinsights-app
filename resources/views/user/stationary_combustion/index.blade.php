@@ -97,8 +97,8 @@
                             <td>{{$data->equipment}}</td>
                             <td>{{($data->fueltype != 'Other') ? $data->fueltype.' in '.$data->unit : $data->fueltype_other.' in '.$data->unit}}</td>
                             <td>{{$data->total_comsumption}}</td>
-                            <x-status.actionStatus :status="$data->status" :id="$data->id" :edit="'stationary_combustion.edit'"/>
-                           
+                            <x-status.action-status :status="$data->status" :id="$data->id" :edit="'stationary_combustion.edit'"/>
+
 
                         @empty
                         <tr>

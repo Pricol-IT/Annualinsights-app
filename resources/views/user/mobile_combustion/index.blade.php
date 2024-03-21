@@ -100,7 +100,7 @@
                             <td>{{$data->fueltype.' in '.$data->unit}}</td>
                             <td>{{$data->fuelconsumed}}</td>
                             <td>{{$data->Total_distance}}</td>
-                            <x-status.actionStatus :status="$data->status" :id="$data->id" :edit="'mobile_combustion.edit'"/>
+                            <x-status.action-status :status="$data->status" :id="$data->id" :edit="'mobile_combustion.edit'"/>
 
                         @empty
                         <tr>

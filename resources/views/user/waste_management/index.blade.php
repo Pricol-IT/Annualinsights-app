@@ -100,7 +100,7 @@
                             <td>{{$data->generated.' in '.$data->generated_unit}}</td>
                             <td>{{$data->disposaltype}}</td>
                             <td>{{$data->disposed.' in '.$data->disposed_unit}}</td>
-                            <x-status.actionStatus :status="$data->status" :id="$data->id" :edit="'waste_management.edit'"/>
+                            <x-status.action-status :status="$data->status" :id="$data->id" :edit="'waste_management.edit'"/>
 
 
                         @empty

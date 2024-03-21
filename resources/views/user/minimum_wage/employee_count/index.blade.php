@@ -104,7 +104,7 @@
                             <td>{{$data->pe_female}}</td>
                             <td>{{$data->te_male}}</td>
                             <td>{{$data->te_female}}</td>
-                            <x-status.actionStatus :status="$data->employee_status" :id="$data->id" :edit="'minimum_wage.employeecount.edit'"/>
+                            <x-status.action-status :status="$data->employee_status" :id="$data->id" :edit="'minimum_wage.employeecount.edit'"/>
 
                         @empty
                         <tr>
