@@ -72,8 +72,8 @@
                             <th rowspan="2">Month</th>
                             <th colspan="2" style="text-align: center;">Employees </th>
                             <th colspan="2" style="text-align: center;">Workers </th>
-                            {{-- <th rowspan="2">Status</th> --}}
                             <th rowspan="2">Remarks</th>
+                            <th rowspan="2">Status</th>
                             <th rowspan="2">Action</th>
                         </tr>
                         <tr>
@@ -94,45 +94,8 @@
                             <td>{{$data->wr_male}}</td>
                             <td>{{$data->wr_female}}</td>
                             <td>{{$data->remarks}}</td>
-                            {{--
-                            @switch($data->status)
-                            @case('submitted')
-                            <td> <span class="badge bg-primary"> Submitted </span></td>
-                            @break
-                            @case('saved')
-                            <td> <span class="badge bg-warning"> Draft </span></td>
-                            @break
-                            @case('approved')
-                            <td> <span class="badge bg-success"> Approved </span></td>
-                            @break
-                            @case('rejected')
-                            <td> <span class="badge bg-danger"> Rejected </span></td>
-                            @break
+                            <x-status.actionStatus :status="$data->status" :id="$data->id" :edit="'union.edit'"/>
 
-                            @default
-                            <td> <span class="badge bg-secondary"> Not Proceeded </span></td>
-                            @endswitch --}}
-                            <td>
-                                <div class="d-flex gap-1">
-                                    <a href="{{ route('union.edit', $data->id) }}" class="btn btn-sm btn-light">
-                                        <i class="bi bi-pencil"></i>
-                                    </a>
-                                    <a href="{{ route('union.edit', $data->id) }}" class="btn btn-sm btn-light">
-                                    <i class="bi bi-check2"></i>
-                                    </a>
-                                    <a href="{{ route('union.edit', $data->id) }}" class="btn btn-sm btn-light">
-                                        <i class="bi bi-x-lg"></i>
-                                    </a>
-
-                                </div>
-                            </td>
-                        </tr>
-                        {{-- @php
-                        $power_from_diesel_generators += $data->power_from_diesel_generators;
-                        $power_purchase_agreement += $data->power_purchase_agreement;
-                        $captive_power += $data->captive_power;
-                        $electricity += $data->electricity;
-                        @endphp --}}
                         @empty
                         <tr>
                             <td colspan="9" class="text-center">record not found</td>

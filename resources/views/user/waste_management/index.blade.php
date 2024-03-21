@@ -85,6 +85,7 @@
                             <th>Waste generated </th>
                             <th>Disposal type </th>
                             <th>Total Disposed</th>
+                            <th>Status</th>
                             <th>Action</th>
                         </tr>
 
@@ -99,45 +100,8 @@
                             <td>{{$data->generated.' in '.$data->generated_unit}}</td>
                             <td>{{$data->disposaltype}}</td>
                             <td>{{$data->disposed.' in '.$data->disposed_unit}}</td>
-                            {{--
-                            @switch($data->status)
-                            @case('submitted')
-                            <td> <span class="badge bg-primary"> Submitted </span></td>
-                            @break
-                            @case('saved')
-                            <td> <span class="badge bg-warning"> Draft </span></td>
-                            @break
-                            @case('approved')
-                            <td> <span class="badge bg-success"> Approved </span></td>
-                            @break
-                            @case('rejected')
-                            <td> <span class="badge bg-danger"> Rejected </span></td>
-                            @break
+                            <x-status.actionStatus :status="$data->status" :id="$data->id" :edit="'waste_management.edit'"/>
 
-                            @default
-                            <td> <span class="badge bg-secondary"> Not Proceeded </span></td>
-                            @endswitch --}}
-                            <td>
-                                <div class="d-flex gap-1">
-                                    <a href="{{ route('waste_management.edit', $data->id) }}" class="btn btn-sm btn-light">
-                                        <i class="bi bi-pencil"></i>
-                                    </a>
-                                    <a href="{{ route('waste_management.edit', $data->id) }}" class="btn btn-sm btn-light">
-                                    <i class="bi bi-check2"></i>
-                                    </a>
-                                    <a href="{{ route('waste_management.edit', $data->id) }}" class="btn btn-sm btn-light">
-                                        <i class="bi bi-x-lg"></i>
-                                    </a>
-
-                                </div>
-                            </td>
-                        </tr>
-                        {{-- @php
-                        $power_from_diesel_generators += $data->power_from_diesel_generators;
-                        $power_purchase_agreement += $data->power_purchase_agreement;
-                        $captive_power += $data->captive_power;
-                        $electricity += $data->electricity;
-                        @endphp --}}
 
                         @empty
                         <tr>

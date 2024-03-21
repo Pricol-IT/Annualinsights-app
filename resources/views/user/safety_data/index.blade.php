@@ -80,6 +80,7 @@
                             <th>Near miss</th>
                             <th>No. of kaizen</th>
                             <th>EHS training</th>
+                            <th>Status</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -99,45 +100,8 @@
                             <td>{{$data->near_miss}}</td>
                             <td>{{$data->no_of_kaizen}}</td>
                             <td>{{$data->ehs_training}}</td>
-                            {{--
-                            @switch($data->status)
-                            @case('submitted')
-                            <td> <span class="badge bg-primary"> Submitted </span></td>
-                            @break
-                            @case('saved')
-                            <td> <span class="badge bg-warning"> Draft </span></td>
-                            @break
-                            @case('approved')
-                            <td> <span class="badge bg-success"> Approved </span></td>
-                            @break
-                            @case('rejected')
-                            <td> <span class="badge bg-danger"> Rejected </span></td>
-                            @break
+                            <x-status.actionStatus :status="$data->status" :id="$data->id" :edit="'safety_data.edit'"/>
 
-                            @default
-                            <td> <span class="badge bg-secondary"> Not Proceeded </span></td>
-                            @endswitch --}}
-                            <td>
-                                <div class="d-flex gap-1">
-                                    <a href="{{ route('safety_data.edit', $data->id) }}" class="btn btn-sm btn-light">
-                                        <i class="bi bi-pencil"></i>
-                                    </a>
-                                    <a href="{{ route('safety_data.edit', $data->id) }}" class="btn btn-sm btn-light">
-                                    <i class="bi bi-check2"></i>
-                                    </a>
-                                    <a href="{{ route('safety_data.edit', $data->id) }}" class="btn btn-sm btn-light">
-                                        <i class="bi bi-x-lg"></i>
-                                    </a>
-
-                                </div>
-                            </td>
-                        </tr>
-                        {{-- @php
-                        $power_from_diesel_generators += $data->power_from_diesel_generators;
-                        $power_purchase_agreement += $data->power_purchase_agreement;
-                        $captive_power += $data->captive_power;
-                        $electricity += $data->electricity;
-                        @endphp --}}
                         @empty
                         <tr>
                             <td colspan="9" class="text-center">record not found</td>

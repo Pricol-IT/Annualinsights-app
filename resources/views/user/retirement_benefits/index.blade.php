@@ -84,7 +84,7 @@
                             <th>Total Employees </th>
                             <th>Total Workers </th>
                             <th>Remarks </th>
-                            {{-- <th rowspan="2">Status</th> --}}
+                            <th >Status</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -98,44 +98,8 @@
                             <td>{{$data->total_employees}}</td>
                             <td>{{$data->total_workers}}</td>
                             <td>{{$data->remarks}}</td>
-                            {{--
-                            @switch($data->status)
-                            @case('submitted')
-                            <td> <span class="badge bg-primary"> Submitted </span></td>
-                            @break
-                            @case('saved')
-                            <td> <span class="badge bg-warning"> Draft </span></td>
-                            @break
-                            @case('approved')
-                            <td> <span class="badge bg-success"> Approved </span></td>
-                            @break
-                            @case('rejected')
-                            <td> <span class="badge bg-danger"> Rejected </span></td>
-                            @break
+                            <x-status.actionStatus :status="$data->status" :id="$data->id" :edit="'retirement_benefits.edit'"/>
 
-                            @default
-                            <td> <span class="badge bg-secondary"> Not Proceeded </span></td>
-                            @endswitch --}}
-                            <td>
-                                <div class="d-flex gap-1">
-                                    <a href="{{ route('retirement_benefits.edit', $data->id) }}" class="btn btn-sm btn-light">
-                                        <i class="bi bi-pencil"></i>
-                                    </a>
-                                    <a href="{{ route('retirement_benefits.edit', $data->id) }}" class="btn btn-sm btn-light">
-                                    <i class="bi bi-check2"></i>
-                                    </a>
-                                    <a href="{{ route('retirement_benefits.edit', $data->id) }}" class="btn btn-sm btn-light">
-                                        <i class="bi bi-x-lg"></i>
-                                    </a>
-                                </div>
-                            </td>
-                        </tr>
-                        {{-- @php
-                        $power_from_diesel_generators += $data->power_from_diesel_generators;
-                        $power_purchase_agreement += $data->power_purchase_agreement;
-                        $captive_power += $data->captive_power;
-                        $electricity += $data->electricity;
-                        @endphp --}}
                         @empty
                         <tr>
                             <td colspan="9" class="text-center">record not found</td>

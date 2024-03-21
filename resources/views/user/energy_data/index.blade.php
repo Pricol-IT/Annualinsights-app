@@ -90,52 +90,9 @@
                             <td>{{round($data->electricity)}}</td>
                             <td>{{round($data->power_purchase_agreement)}}</td>
                             <td>{{round($data->captive_power)}}</td>
+                            <x-status.actionStatus :status="$data->status" :id="$data->id" :edit="'energy_data.edit'"/>
 
-                            @switch($data->status)
-                            @case('submitted')
-                            <td> <span class="badge bg-primary"> Submitted </span></td>
-                            @break
-                            @case('saved')
-                            <td> <span class="badge bg-warning"> Draft </span></td>
-                            @break
-                            @case('approved')
-                            <td> <span class="badge bg-success"> Approved </span></td>
-                            @break
-                            @case('rejected')
-                            <td> <span class="badge bg-danger"> Rejected </span></td>
-                            @break
-
-                            @default
-                            <td> <span class="badge bg-secondary"> Not Proceeded </span></td>
-                            @endswitch
-                            {{-- <td>#</td> --}}
-                            <td>
-                                {{-- <div class="d-flex gap-1">
-                                    <a href="{{ route('energy_data.edit', $data->id) }}" class="btn btn-sm btn-warning">
-                                        <i class="bi bi-pencil"></i>
-                                    </a>
-                                    <a href="{{ route('energy_data.edit', $data->id) }}" class="btn btn-sm btn-success">
-                                        <i class="bi bi-check-circle"></i>
-                                    </a>
-                                    <a href="{{ route('energy_data.edit', $data->id) }}" class="btn btn-sm btn-danger">
-                                        <i class="bi bi-x-circle"></i>
-                                    </a>
-
-                                </div> --}}
-
-                                <div class="d-flex gap-1">
-                                    <a href="{{ route('energy_data.edit', $data->id) }}" class="btn btn-sm btn-light">
-                                        <i class="bi bi-pencil"></i>
-                                    </a>
-                                    <a href="{{ route('energy_data.edit', $data->id) }}" class="btn btn-sm btn-light">
-                                        <i class="bi bi-check2"></i>
-                                    </a>
-                                    <a href="{{ route('energy_data.edit', $data->id) }}" class="btn btn-sm btn-light">
-                                        <i class="bi bi-x-lg"></i>
-                                    </a>
-
-                                </div>
-                            </td>
+                            
                         </tr>
                         @php
                         $power_from_diesel_generators += $data->power_from_diesel_generators;
