@@ -84,7 +84,7 @@
                             <th>Total Employees </th>
                             <th>Total Workers </th>
                             <th>Remarks </th>
-                            <th >Status</th>
+                            <th>Status</th>
                             <th>Action</th>
                         </tr>
                     </thead>

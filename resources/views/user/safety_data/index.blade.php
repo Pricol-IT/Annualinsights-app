@@ -70,16 +70,16 @@
                     <thead>
                         <tr>
                             <th>Month</th>
-                            <th>No. of employee</th>
-                            <th>No. of working day</th>
+                            <th>No. of employees</th>
+                            <th>No. of working days</th>
                             <th>Last date of accient</th>
                             <th>First aid cases</th>
                             <th>Non recordable injury</th>
                             <th>Recordable injury</th>
                             <th>Man days lost</th>
                             <th>Near miss</th>
-                            <th>No. of kaizen</th>
-                            <th>EHS training</th>
+                            {{-- <th>No. of kaizens</th>
+                            <th>EHS training</th> --}}
                             <th>Status</th>
                             <th>Action</th>
                         </tr>
@@ -98,8 +98,8 @@
                             <td>{{$data->recordable_injury}}</td>
                             <td>{{$data->man_days_lost}}</td>
                             <td>{{$data->near_miss}}</td>
-                            <td>{{$data->no_of_kaizen}}</td>
-                            <td>{{$data->ehs_training}}</td>
+                            {{-- <td>{{$data->no_of_kaizen}}</td>
+                            <td>{{$data->ehs_training}}</td> --}}
                             <x-status.action-status :status="$data->status" :id="$data->id" :edit="'safety_data.edit'"/>
 
                         @empty

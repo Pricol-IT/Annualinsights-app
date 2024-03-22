@@ -53,8 +53,8 @@ class SafetyDataController extends Controller
             'recordable_injury'=>$request->recordable_injury,
             'man_days_lost'=>$request->man_days_lost,
             'near_miss'=>$request->near_miss,
-            'no_of_kaizen'=>$request->no_of_kaizen,
-            'ehs_training'=>$request->ehs_training,
+            // 'no_of_kaizen'=>$request->no_of_kaizen,
+            // 'ehs_training'=>$request->ehs_training,
         ];
         $test=SafetyData::where('id',$id)->update($data);
         if ($test){

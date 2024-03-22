@@ -99,7 +99,7 @@
                                     </div>
                                 </div>
 
-                                <div class="form-group row mt-3">
+                                {{-- <div class="form-group row mt-3">
                                     <label class="col-sm-5 col-form-label">No of kaizen<span class="form-label-required text-danger">*</span>
                                     </label>
                                     <div class="col-sm-6">
@@ -113,7 +113,7 @@
                                     <div class="col-sm-6">
                                         <input type="number" name="ehs_training" id="ehs_training" class="form-control class " value="{{$data->ehs_training}}" placeholder="Enter no.of.person">
                                     </div>
-                                </div>
+                                </div> --}}
 
                             </div>
 
