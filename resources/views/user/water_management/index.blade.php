@@ -82,13 +82,12 @@
                         <tr>
                             <th>S.No.</th>
                             <th>Water Source</th>
+                            <th>Water Consumption </th>
                             <th>Total Water Consumption </th>
                             <th>Total Wastewater Generation </th>
-                            <th>Conservation Method</th>
-                            <th>Total Water Conserved </th>
-                            <th>Discharge Method</th>
-                            <th>Total Water Discharged </th>
-                            {{-- <th>Total Rainwater Harvested</th> --}}
+                            <th>Total Wastewater Recycled​</th>
+                            <th>Total Wastewater Discharged​ </th>
+                            <th>Total Rainwater Harvested​</th>
                             <th>Status</th>
                             <th>Action</th>
                         </tr>
@@ -100,13 +99,13 @@
 
                         <tr>
                             <td>{{$loop->iteration}}</td>
-                            <td>{{($data->watersource != 'Other' ) ? $data->watersource : $data->watersource_other}}</td>
-                            <td>{{$data->watergenerated.' in '.$data->watergenerated_unit}}</td>
-                            <td>{{$data->wastegenerated.' in '.$data->wastegenerated_unit}}</td>
-                            <td>{{($data->conservation_method != 'Other' ) ? $data->conservation_method : $data->conservation_other}}</td>
-                            <td>{{$data->conserved.' in '.$data->conserved_unit}}</td>
-                            <td>{{($data->disposal_method != 'Other' ) ? $data->disposal_method : $data->disposal_other}}</td>
-                            <td>{{$data->discharged.' in '.$data->discharged_unit}}</td>
+                            <td>{{($data->watersource)}}</td>
+                            <td>{{$data->watergenerated}}</td>
+                            <td>{{$data->totalwatergenerated}}</td>
+                            <td>{{$data->wastegenerated}}</td>
+                            <td>{{$data->conserved}}</td>
+                            <td>{{$data->discharged}}</td>
+                            <td>{{$data->disposal_other}}</td>
                             <x-status.action-status :status="$data->status" :id="$data->id" :edit="'water_management.edit'"/>
 
                         @empty

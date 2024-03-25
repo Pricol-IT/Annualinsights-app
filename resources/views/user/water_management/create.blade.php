@@ -52,7 +52,7 @@
                                             <div class=" row mt-3">
                                                 <label class="col-sm-5 col-form-label">Water consumption in m³</label>
                                                 <div class="col-sm-6">
-                                                    <input type="number" name="watergenerated[]" class="form-control" placeholder="">
+                                                    <input type="text" name="watergenerated[]" class="form-control" placeholder="">
                                                 </div>
                                             </div>
                                         </div>
@@ -75,10 +75,10 @@
                                 </div> --}}
 
                                 <div class="form-group row mt-3">
-                                    <label class="col-sm-5 col-form-label">Total Water generated
+                                    <label class="col-sm-5 col-form-label">Total Water Consumption
                                     </label>
                                     <div class="col-sm-6">
-                                        <input type="number" name="watergenerated" id="watergenerated" class="form-control class " placeholder="">
+                                        <input type="number" name="totalwatergenerated" id="watergenerated" class="form-control class " placeholder="">
                                     </div>
                                 </div>
 
@@ -97,7 +97,7 @@
                         </div> --}}
 
                         <div class="form-group row mt-3">
-                            <label class="col-sm-5 col-form-label">Total Waste generated
+                            <label class="col-sm-5 col-form-label">Total Wastewater  generated
                             </label>
                             <div class="col-sm-6">
                                 <input type="number" name="wastegenerated" id="wastegenerated" class="form-control class " placeholder="">
@@ -141,7 +141,7 @@
                                 </div> --}}
 
     <div class="form-group row mt-3">
-        <label class="col-sm-5 col-form-label">Total water conserved
+        <label class="col-sm-5 col-form-label">Total Wastewater Recycled​
         </label>
         <div class="col-sm-6">
             <input type="number" name="conserved" id="conserved" class="form-control class " placeholder="">
@@ -185,10 +185,19 @@
     </div> --}}
 
     <div class="form-group row mt-3">
-        <label class="col-sm-5 col-form-label">Total water Disposed
+        <label class="col-sm-5 col-form-label">Total Wastewater Discharged​
         </label>
         <div class="col-sm-6">
             <input type="number" name="discharged" id="discharged" class="form-control class " placeholder="">
+        </div>
+    </div>
+
+
+    <div class="form-group row mt-3">
+        <label class="col-sm-5 col-form-label">Total Rainwater Harvested​
+        </label>
+        <div class="col-sm-6">
+            <input type="number" name="disposal_other" id="disposal_other" class="form-control class " placeholder="">
         </div>
     </div>
 

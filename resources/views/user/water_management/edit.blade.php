@@ -36,49 +36,50 @@
 
 
                             <div class="card-body p-4">
-                                <div class="form-group row mt-3">
-                                    <label class="col-sm-5 col-form-label">
-                                        Type of Water Consumption<span class="form-label-required text-danger">*</span>
-                                    </label>
-                                    <div class="col-sm-6">
-                                        <select class="form-control" name="watersource" id="watersource">
-                                            <option value=" "></option>
-                                            @foreach ($watersources as $watersource)
-                                            <option value="{{$watersource}}" {{$data->watersource == $watersource ? 'selected': ''}}>{{$watersource}}</option>
-                                            @endforeach
-                                        </select>
+
+                                <div id="inputFieldsContainer">
+                                    <div class="input-group">
+                                        <div class="form-group">
+                                            <div class=" row mt-3">
+                                                <label class="col-sm-5 col-form-label">Type of Water Consumption<span class="form-label-required text-danger">*</span></label>
+                                                <div class="col-sm-6">
+                                                    <select class="form-control" name="watersource[]" id="watersource">
+                                                        <option value=""></option>
+                                                        @foreach ($watersources as $watersource)
+                                                        <option value="{{$watersource}}" >{{$watersource}}</option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class=" row mt-3">
+                                                <label class="col-sm-5 col-form-label">Water consumption in m³</label>
+                                                <div class="col-sm-6">
+                                                    <input type="text" name="watergenerated[]" class="form-control" placeholder="" >
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Remove button -->
+                                        <div class="col-sm-1">
+                                            <!-- This will be replaced by JavaScript -->
+                                        </div>
                                     </div>
                                 </div>
 
+                                <div id="addFieldsBtn" class="btn btn-primary">Add Item</div>
+
+
+
+
                                 <div class="form-group row mt-3">
-                                    <label class="col-sm-5 col-form-label">If Other
+                                    <label class="col-sm-5 col-form-label">Total Water Consumption
                                     </label>
                                     <div class="col-sm-6">
-                                        <input type="text" name="watersource_other" id="watersource_other" class="form-control class " placeholder="" value={{$data->watersource_other}} >
+                                        <input type="number" name="totalwatergenerated" id="totalwatergenerated" class="form-control class " placeholder="" value={{$data->totalwatergenerated}}>
                                     </div>
                                 </div>
 
-                                <div class="form-group row mt-3">
-                                    <label class="col-sm-5 col-form-label">Total Water generated
-                                    </label>
-                                    <div class="col-sm-6">
-                                        <input type="number" name="watergenerated" id="watergenerated" class="form-control class " placeholder="" value={{$data->watergenerated}}>
-                                    </div>
-                                </div>
 
-                                <div class="form-group row mt-3">
-                                    <label class="col-sm-5 col-form-label">
-                                        Unit<span class="form-label-required text-danger">*</span>
-                                    </label>
-                                    <div class="col-sm-6">
-                                        <select class="form-control" name="watergenerated_unit" id="watergenerated_unit">
-                                            <option value=" "></option>
-                                            @foreach ($units as $unit)
-                                            <option value={{$unit}} {{$data->watergenerated_unit == $unit ? 'selected': ''}}>{{$unit}}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>
 
                                 <div class="form-group row mt-3">
                                     <label class="col-sm-5 col-form-label">Total Waste generated
@@ -88,86 +89,19 @@
                                     </div>
                                 </div>
 
-                                <div class="form-group row mt-3">
-                                    <label class="col-sm-5 col-form-label">
-                                        Unit<span class="form-label-required text-danger">*</span>
-                                    </label>
-                                    <div class="col-sm-6">
-                                        <select class="form-control" name="wastegenerated_unit" id="wastegenerated_unit">
-                                            <option value=" "></option>
-                                            @foreach ($units as $unit)
-                                            <option value={{$unit}} {{$data->wastegenerated_unit == $unit ? 'selected': ''}}>{{$unit}}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>
 
                                 <div class="form-group row mt-3">
-                                    <label class="col-sm-5 col-form-label">
-                                        conservation method Type<span class="form-label-required text-danger">*</span>
-                                    </label>
-                                    <div class="col-sm-6">
-                                        <select class="form-control" name="conservation_method" id="conservation_method">
-                                            @foreach ($conservation_methods as $conservation_method)
-                                            <option value="{{$conservation_method}}" {{$data->conservation_method == $conservation_method ? 'selected': ''}}>{{$conservation_method}}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <div class="form-group row mt-3">
-                                    <label class="col-sm-5 col-form-label">If Other
-                                    </label>
-                                    <div class="col-sm-6">
-                                        <input type="text" name="conservation_other" id="conservation_other" class="form-control class " placeholder="" value={{$data->conservation_other}}>
-                                    </div>
-                                </div>
-
-                                <div class="form-group row mt-3">
-                                    <label class="col-sm-5 col-form-label">Total water conserved
+                                    <label class="col-sm-5 col-form-label">Total  Wastewater Recycled​
                                     </label>
                                     <div class="col-sm-6">
                                         <input type="number" name="conserved" id="conserved" class="form-control class " placeholder="" value={{$data->conserved}}>
                                     </div>
                                 </div>
 
-                                <div class="form-group row mt-3">
-                                    <label class="col-sm-5 col-form-label">
-                                        Unit<span class="form-label-required text-danger">*</span>
-                                    </label>
-                                    <div class="col-sm-6">
-                                        <select class="form-control" name="conserved_unit" id="conserved_unit">
-                                            <option value=" "></option>
-                                            @foreach ($units as $unit)
-                                            <option value={{$unit}} {{$data->conserved_unit == $unit ? 'selected': ''}}>{{$unit}}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>
+
 
                                 <div class="form-group row mt-3">
-                                    <label class="col-sm-5 col-form-label">
-                                        disposal method Type<span class="form-label-required text-danger">*</span>
-                                    </label>
-                                    <div class="col-sm-6">
-                                        <select class="form-control" name="disposal_method" id="disposal_method">
-                                            @foreach ($disposal_methods as $disposal_method)
-                                            <option value="{{$disposal_method}}" {{$data->disposal_method == $disposal_method ? 'selected': ''}}>{{$disposal_method}}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <div class="form-group row mt-3">
-                                    <label class="col-sm-5 col-form-label">If Other
-                                    </label>
-                                    <div class="col-sm-6">
-                                        <input type="text" name="disposal_other" id="disposal_other" class="form-control class " placeholder="" value={{$data->disposal_other}}>
-                                    </div>
-                                </div>
-
-                                <div class="form-group row mt-3">
-                                    <label class="col-sm-5 col-form-label">Total water Disposed
+                                    <label class="col-sm-5 col-form-label">Total Wastewater Discharged​
                                     </label>
                                     <div class="col-sm-6">
                                         <input type="number" name="discharged" id="discharged" class="form-control class " placeholder="" value={{$data->discharged}}>
@@ -175,18 +109,15 @@
                                 </div>
 
                                 <div class="form-group row mt-3">
-                                    <label class="col-sm-5 col-form-label">
-                                        Unit<span class="form-label-required text-danger">*</span>
+                                    <label class="col-sm-5 col-form-label">Total Rainwater Harvested​
                                     </label>
                                     <div class="col-sm-6">
-                                        <select class="form-control" name="discharged_unit" id="discharged_unit">
-                                            <option value=" "></option>
-                                            @foreach ($units as $unit)
-                                            <option value={{$unit}} {{$data->discharged_unit == $unit ? 'selected': ''}}>{{$unit}}</option>
-                                            @endforeach
-                                        </select>
+                                        <input type="number" name="disposal_other" id="disposal_other" class="form-control class " placeholder="" value={{$data->disposal_other}}>
                                     </div>
                                 </div>
+
+
+
 
                             </div>
 
@@ -207,3 +138,30 @@
     </div>
 </main><!-- End #main -->
 @endsection
+@section('script')
+<script>
+    document.getElementById('addFieldsBtn').addEventListener('click', function() {
+        var container = document.getElementById('inputFieldsContainer');
+        var clonedNode = container.firstElementChild.cloneNode(true);
+
+        // Check if it's a cloned node
+        if (container.children.length >= 1) {
+            var removeBtn = document.createElement('div');
+            removeBtn.classList.add('btn', 'btn-danger', 'removeBtn');
+            removeBtn.textContent = 'Remove';
+            clonedNode.querySelector('.col-sm-1').appendChild(removeBtn);
+        }
+
+        container.appendChild(clonedNode);
+    });
+
+    // Event delegation to handle remove button click
+    document.getElementById('inputFieldsContainer').addEventListener('click', function(event) {
+        if (event.target.classList.contains('removeBtn')) {
+            event.target.closest('.input-group').remove();
+        }
+    });
+
+</script>
+@endsection
+

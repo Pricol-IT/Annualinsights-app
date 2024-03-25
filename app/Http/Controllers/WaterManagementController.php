@@ -73,14 +73,16 @@ class WaterManagementController extends Controller
     public function store(Request $request)
     {
 
+        // return $request;
         $data = [
             'year' => $request->year,
             'loction' => $request->loction,
             'month' => $request->month,
-            'watersource' => $request->watersource,
+            'watersource' => implode(", ",$request->watersource),
             'watersource_other' => $request->watersource_other,
-            'watergenerated' => $request->watergenerated,
+            'watergenerated' => implode(", ",$request->watergenerated),
             'watergenerated_unit' => $request->watergenerated_unit,
+            'totalwatergenerated'=>$request->totalwatergenerated,
             'wastegenerated' => $request->wastegenerated,
             'wastegenerated_unit' => $request->wastegenerated_unit,
             'conservation_method' => $request->conservation_method,
@@ -140,9 +142,10 @@ class WaterManagementController extends Controller
             'year' => $request->year,
             'loction' => $request->loction,
             'month' => $request->month,
-            'watersource' => $request->watersource,
+            'watersource' => implode(", ",$request->watersource),
             // 'watersource_other' => $request->watersource_other,
-            'watergenerated' => $request->watergenerated,
+            'watergenerated' => implode(", ",$request->watergenerated),
+            'totalwatergenerated'=>$request->totalwatergenerated,
             // 'watergenerated_unit' => $request->watergenerated_unit,
             'wastegenerated' => $request->wastegenerated,
             // 'wastegenerated_unit' => $request->wastegenerated_unit,
@@ -151,7 +154,7 @@ class WaterManagementController extends Controller
             'conserved' => $request->conserved,
             // 'conserved_unit' => $request->conserved_unit,
             // 'disposal_method' => $request->disposal_method,
-            // 'disposal_other' => $request->disposal_other,
+            'disposal_other' => $request->disposal_other,
             'discharged' => $request->discharged,
             // 'discharged_unit' => $request->discharged_unit,
         ];
