@@ -17,6 +17,7 @@ class WaterManagement extends Model
         "watersource_other",
         "watergenerated",
         "watergenerated_unit",
+        "totalwatergenerated",
         "wastegenerated",
         "wastegenerated_unit",
         "conservation_method",
