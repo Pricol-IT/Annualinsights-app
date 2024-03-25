@@ -96,10 +96,10 @@
 
                         <tr>
                             <td>{{$loop->iteration}}</td>
-                            <td>{{($data->wastetype != 'Other' ) ? $data->wastetype : $data->wastetypes_other}}</td>
-                            <td>{{$data->generated.' in '.$data->generated_unit}}</td>
+                            <td>{{($data->wastetype )}}</td>
+                            <td>{{$data->generated}}</td>
                             <td>{{$data->disposaltype}}</td>
-                            <td>{{$data->disposed.' in '.$data->disposed_unit}}</td>
+                            <td>{{$data->disposed}}</td>
                             <x-status.action-status :status="$data->status" :id="$data->id" :edit="'waste_management.edit'"/>
 
 

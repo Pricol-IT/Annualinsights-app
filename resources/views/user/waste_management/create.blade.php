@@ -34,73 +34,82 @@
                             </div>
 
                             <div class="card-body p-4">
-                                <div class="form-group row mt-3">
-                                    <label class="col-sm-5 col-form-label">
-                                        Waste Type<span class="form-label-required text-danger">*</span>
-                                    </label>
-                                    <div class="col-sm-6">
-                                        <select class="form-control" name="wastetype" id="wastetype">
-                                            <option value=" "></option>
-                                            @foreach ($wastetypes as $wastetype)
-                                            <option value={{$wastetype}}>{{$wastetype}}</option>
-                                            @endforeach
-                                        </select>
+                                <div id="inputFieldsContainer">
+                                    <div class="input-group">
+                                        <div class="form-group">
+                                            <div class="row mt-3">
+                                                <label class="col-sm-5 col-form-label">
+                                                    Waste Type<span class="form-label-required text-danger">*</span>
+                                                </label>
+                                                <div class="col-sm-6">
+                                                    <select class="form-control" name="wastetype[]" id="wastetype">
+                                                        <option value=" "></option>
+                                                        @foreach ($wastetypes as $wastetype)
+                                                        <option value={{$wastetype}}>{{$wastetype}}</option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="row mt-3">
+                                                <label class="col-sm-5 col-form-label">Total Waste generated
+                                                </label>
+                                                <div class="col-sm-6">
+                                                    <input type="number" name="generated[]" id="generated" class="form-control class " placeholder="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Remove button -->
+                                        <div class="col-sm-1">
+                                            <!-- This will be replaced by JavaScript -->
+                                        </div>
                                     </div>
                                 </div>
 
-                                <div class="form-group row mt-3">
-                                    <label class="col-sm-5 col-form-label">If Other
-                                    </label>
-                                    <div class="col-sm-6">
-                                        <input type="text" name="wastetypes_other" id="wastetypes_other" class="form-control class " placeholder="" >
+                                <div id="addFieldsBtn" class="btn btn-primary">Add Item</div>
+
+
+
+
+                                <hr>
+
+                                <div id="inputFieldsContainer2">
+
+                                    <div class="input-group">
+                                        <div class="form-group">
+                                            <div class="row mt-3">
+                                                <label class="col-sm-5 col-form-label">
+                                                    Waste Disposal Type<span class="form-label-required text-danger">*</span>
+                                                </label>
+                                                <div class="col-sm-6">
+                                                    <select class="form-control" name="disposaltype[]" id="disposaltype">
+                                                        <option value=" "></option>
+                                                        @foreach ($disposaltypes as $disposaltype)
+                                                        <option value={{$disposaltype}}>{{$disposaltype}}</option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="row mt-3">
+                                                <label class="col-sm-5 col-form-label">Total Waste Disposed
+                                                </label>
+                                                <div class="col-sm-6">
+                                                    <input type="number" name="disposed[]" id="disposed" class="form-control class " placeholder="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Remove button -->
+                                        <div class="col-sm-1">
+                                            <!-- This will be replaced by JavaScript -->
+                                        </div>
                                     </div>
                                 </div>
 
-                                <div class="form-group row mt-3">
-                                    <label class="col-sm-5 col-form-label">Total Waste generated
-                                    </label>
-                                    <div class="col-sm-6">
-                                        <input type="number" name="generated" id="generated" class="form-control class " placeholder="" >
-                                    </div>
-                                </div>
+                                <div id="addFieldsBtn2" class="btn btn-primary">Add Item</div>
 
-                                <div class="form-group row mt-3">
-                                    <label class="col-sm-5 col-form-label">
-                                        Unit<span class="form-label-required text-danger">*</span>
-                                    </label>
-                                    <div class="col-sm-6">
-                                        <select class="form-control" name="generated_unit" id="generated_unit">
-                                            <option value=" "></option>
-                                            @foreach ($units as $unit)
-                                            <option value={{$unit}}>{{$unit}}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>
+                            </div>
 
-                                <div class="form-group row mt-3">
-                                    <label class="col-sm-5 col-form-label">
-                                        Waste Disposal Type<span class="form-label-required text-danger">*</span>
-                                    </label>
-                                    <div class="col-sm-6">
-                                        <select class="form-control" name="disposaltype" id="disposaltype">
-                                            <option value=" "></option>
-                                            @foreach ($disposaltypes as $disposaltype)
-                                            <option value={{$disposaltype}}>{{$disposaltype}}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>
 
-                                <div class="form-group row mt-3">
-                                    <label class="col-sm-5 col-form-label">Total Waste Disposed
-                                    </label>
-                                    <div class="col-sm-6">
-                                        <input type="number" name="disposed" id="disposed" class="form-control class " placeholder="" >
-                                    </div>
-                                </div>
-
-                                <div class="form-group row mt-3">
+                            {{-- <div class="form-group row mt-3">
                                     <label class="col-sm-5 col-form-label">
                                         Unit<span class="form-label-required text-danger">*</span>
                                     </label>
@@ -109,25 +118,76 @@
                                             <option value=" "></option>
                                             @foreach ($units as $unit)
                                             <option value={{$unit}}>{{$unit}}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>
-
-                            </div>
+                            @endforeach
+                            </select>
                         </div>
-                    </div>
+                    </div> --}}
+
                 </div>
-                <div>
-                    <center>
-                        {{-- <input type="submit" class="btn btn-success" value='Send for Approval'>
-                        <input type="submit" class="btn btn-primary" value='Save'> --}}
-                        <input type="submit" class="btn btn-primary" value='Submit'>
-                        <a href="{{ url()->previous() }}" class="btn btn-danger">Cancel</a>
-                    </center>
-                </div>
-            </form>
         </div>
     </div>
+    </div>
+    <div>
+        <center>
+            {{-- <input type="submit" class="btn btn-success" value='Send for Approval'>
+                        <input type="submit" class="btn btn-primary" value='Save'> --}}
+            <input type="submit" class="btn btn-primary" value='Submit'>
+            <a href="{{ url()->previous() }}" class="btn btn-danger">Cancel</a>
+        </center>
+    </div>
+    </form>
+    </div>
+    </div>
 </main><!-- End #main -->
+@endsection
+@section('script')
+<script>
+    document.getElementById('addFieldsBtn').addEventListener('click', function() {
+        var container = document.getElementById('inputFieldsContainer');
+        var clonedNode = container.firstElementChild.cloneNode(true);
+
+        // Check if it's a cloned node
+        if (container.children.length >= 1) {
+            var removeBtn = document.createElement('div');
+            removeBtn.classList.add('btn', 'btn-danger', 'removeBtn');
+            removeBtn.textContent = 'Remove';
+            clonedNode.querySelector('.col-sm-1').appendChild(removeBtn);
+        }
+
+        container.appendChild(clonedNode);
+    });
+
+    // Event delegation to handle remove button click
+    document.getElementById('inputFieldsContainer').addEventListener('click', function(event) {
+        if (event.target.classList.contains('removeBtn')) {
+            event.target.closest('.input-group').remove();
+        }
+    });
+
+
+
+
+    document.getElementById('addFieldsBtn2').addEventListener('click', function() {
+        var container = document.getElementById('inputFieldsContainer2');
+        var clonedNode = container.firstElementChild.cloneNode(true);
+
+        // Check if it's a cloned node
+        if (container.children.length >= 1) {
+            var removeBtn = document.createElement('div');
+            removeBtn.classList.add('btn', 'btn-danger', 'removeBtn');
+            removeBtn.textContent = 'Remove';
+            clonedNode.querySelector('.col-sm-1').appendChild(removeBtn);
+        }
+
+        container.appendChild(clonedNode);
+    });
+
+    // Event delegation to handle remove button click
+    document.getElementById('inputFieldsContainer2').addEventListener('click', function(event) {
+        if (event.target.classList.contains('removeBtn')) {
+            event.target.closest('.input-group').remove();
+        }
+    });
+
+</script>
 @endsection

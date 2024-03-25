@@ -80,18 +80,18 @@ class WasteManagementController extends Controller
 
     public function store(Request $request)
     {
-
+// return $request;
         $data = [
             'year' => $request->year,
             'loction' => $request->loction,
             'month' => $request->month,
-            'wastetype' => $request->wastetype,
+            'wastetype' => implode(", ",$request->wastetype),
             'wastetype_other' => $request->wastetype_other,
-            'generated' => $request->generated,
-            'generated_unit' => $request->generated_unit,
-            'disposaltype' => $request->disposaltype,
-            'disposed' => $request->disposed,
-            'disposed_unit' => $request->disposed_unit,
+            'generated' => implode(", ",$request->generated),
+            'generated_unit' => 'Kg',
+            'disposaltype' => implode(", ",$request->disposaltype),
+            'disposed' => implode(", ",$request->disposed),
+            'disposed_unit' => 'Kg',
         ];
         // return $data;
         $test = WasteManagement::create($data);
@@ -149,13 +149,13 @@ class WasteManagementController extends Controller
             'year' => $request->year,
             'loction' => $request->loction,
             'month' => $request->month,
-            'wastetype' => $request->wastetype,
+            'wastetype' => implode(", ",$request->wastetype),
             'wastetype_other' => $request->wastetype_other,
-            'generated' => $request->generated,
-            'generated_unit' => $request->generated_unit,
-            'disposaltype' => $request->disposaltype,
-            'disposed' => $request->disposed,
-            'disposed_unit' => $request->disposed_unit,
+            'generated' => implode(", ",$request->generated),
+            'generated_unit' => 'Kg',
+            'disposaltype' => implode(", ",$request->disposaltype),
+            'disposed' => implode(", ",$request->disposed),
+            'disposed_unit' => 'Kg',
         ];
 
         $test = WasteManagement::where('id', $id)->update($data);
