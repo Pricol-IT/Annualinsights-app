@@ -74,6 +74,24 @@ class MobileCombustionController extends Controller
             'fuelconsumed' => $request->fuelconsumed,
             'Total_distance' => $request->Total_distance,
         ];
+
+        switch ($request->submit) {
+            case ('Save'):
+                $data['status'] = 'saved';
+                break;
+            case ('Send for Approval'):
+                $data['status'] = 'submitted';
+                break;
+            case ('approved'):
+                $data['status'] = 'approved';
+                break;
+            case ('rejected'):
+                $data['status'] = 'rejected';
+                break;
+            default:
+                $data['status'] = 'not proceeded';
+                break;
+        }
         $test = MobileCombustion::create($data);
         if ($test) {
             toastr()->success('added sucessfully');
@@ -118,6 +136,23 @@ class MobileCombustionController extends Controller
             'fuelconsumed' => $request->fuelconsumed,
             'Total_distance' => $request->Total_distance,
         ];
+        switch ($request->submit) {
+            case ('Save'):
+                $data['status'] = 'saved';
+                break;
+            case ('Send for Approval'):
+                $data['status'] = 'submitted';
+                break;
+            case ('approved'):
+                $data['status'] = 'approved';
+                break;
+            case ('rejected'):
+                $data['status'] = 'rejected';
+                break;
+            default:
+                $data['status'] = 'not proceeded';
+                break;
+        }
         $test = MobileCombustion::where('id', $id)->update($data);
         if ($test) {
             toastr()->success('added sucessfully');

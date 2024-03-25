@@ -53,6 +53,24 @@ class MinimumWageController extends Controller
             'te_male' => $request->te_male,
             'te_female' => $request->te_female,
         ];
+
+        switch ($request->submit) {
+            case ('Save'):
+                $data['employee_status'] = 'saved';
+                break;
+            case ('Send for Approval'):
+                $data['employee_status'] = 'submitted';
+                break;
+            case ('approved'):
+                $data['employee_status'] = 'approved';
+                break;
+            case ('rejected'):
+                $data['employee_status'] = 'rejected';
+                break;
+            default:
+                $data['employee_status'] = 'not proceeded';
+                break;
+        }
         $test = MinimumWage::where('id', $id)->update($data);
         if ($test) {
             toastr()->success('added sucessfully');
@@ -106,6 +124,24 @@ class MinimumWageController extends Controller
             'tw_male' => $request->tw_male,
             'tw_female' => $request->tw_female,
         ];
+
+        switch ($request->submit) {
+            case ('Save'):
+                $data['worker_status'] = 'saved';
+                break;
+            case ('Send for Approval'):
+                $data['worker_status'] = 'submitted';
+                break;
+            case ('approved'):
+                $data['worker_status'] = 'approved';
+                break;
+            case ('rejected'):
+                $data['worker_status'] = 'rejected';
+                break;
+            default:
+                $data['worker_status'] = 'not proceeded';
+                break;
+        }
         $test = MinimumWage::where('id', $id)->update($data);
         if ($test) {
             toastr()->success('added sucessfully');

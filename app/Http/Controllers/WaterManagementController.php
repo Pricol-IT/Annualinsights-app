@@ -94,6 +94,24 @@ class WaterManagementController extends Controller
             'discharged' => $request->discharged,
             'discharged_unit' => $request->discharged_unit,
         ];
+
+        switch ($request->submit) {
+            case ('Save'):
+                $data['status'] = 'saved';
+                break;
+            case ('Send for Approval'):
+                $data['status'] = 'submitted';
+                break;
+            case ('approved'):
+                $data['status'] = 'approved';
+                break;
+            case ('rejected'):
+                $data['status'] = 'rejected';
+                break;
+            default:
+                $data['status'] = 'not proceeded';
+                break;
+        }
         // return $data;
         $test = WaterManagement::create($data);
         if ($test) {
@@ -158,6 +176,24 @@ class WaterManagementController extends Controller
             'discharged' => $request->discharged,
             // 'discharged_unit' => $request->discharged_unit,
         ];
+
+        switch ($request->submit) {
+            case ('Save'):
+                $data['status'] = 'saved';
+                break;
+            case ('Send for Approval'):
+                $data['status'] = 'submitted';
+                break;
+            case ('approved'):
+                $data['status'] = 'approved';
+                break;
+            case ('rejected'):
+                $data['status'] = 'rejected';
+                break;
+            default:
+                $data['status'] = 'not proceeded';
+                break;
+        }
 
         $test = WaterManagement::where('id', $id)->update($data);
         if ($test) {

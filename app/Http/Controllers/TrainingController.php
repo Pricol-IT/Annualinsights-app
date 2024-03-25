@@ -83,6 +83,24 @@ class TrainingController extends Controller
             'total_days' => $request->total_days,
             'total_personnel_covered' => $request->total_personnel_covered,
         ];
+
+        switch ($request->submit) {
+            case ('Save'):
+                $data['status'] = 'saved';
+                break;
+            case ('Send for Approval'):
+                $data['status'] = 'submitted';
+                break;
+            case ('approved'):
+                $data['status'] = 'approved';
+                break;
+            case ('rejected'):
+                $data['status'] = 'rejected';
+                break;
+            default:
+                $data['status'] = 'not proceeded';
+                break;
+        }
         // return $data;
         $test = Training::create($data);
         if ($test) {
@@ -137,6 +155,25 @@ class TrainingController extends Controller
             'total_days' => $request->total_days,
             'total_personnel_covered' => $request->total_personnel_covered,
         ];
+
+
+        switch ($request->submit) {
+            case ('Save'):
+                $data['status'] = 'saved';
+                break;
+            case ('Send for Approval'):
+                $data['status'] = 'submitted';
+                break;
+            case ('approved'):
+                $data['status'] = 'approved';
+                break;
+            case ('rejected'):
+                $data['status'] = 'rejected';
+                break;
+            default:
+                $data['status'] = 'not proceeded';
+                break;
+        }
 
         $test = Training::where('id', $id)->update($data);
         if ($test) {

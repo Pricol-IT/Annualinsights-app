@@ -119,6 +119,24 @@ class EmployeeWorkerCountController extends Controller
             'tw_female' => $request->tw_female,
             'tw_other' => $request->tw_other,
         ];
+
+        switch ($request->submit) {
+            case ('Save'):
+                $data['worker_status'] = 'saved';
+                break;
+            case ('Send for Approval'):
+                $data['worker_status'] = 'submitted';
+                break;
+            case ('approved'):
+                $data['worker_status'] = 'approved';
+                break;
+            case ('rejected'):
+                $data['worker_status'] = 'rejected';
+                break;
+            default:
+                $data['worker_status'] = 'not proceeded';
+                break;
+        }
         $test = EmployeeWorkerCount::where('id', $id)->update($data);
         if ($test) {
             toastr()->success('added sucessfully');

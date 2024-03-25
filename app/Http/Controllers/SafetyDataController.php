@@ -56,6 +56,24 @@ class SafetyDataController extends Controller
             // 'no_of_kaizen'=>$request->no_of_kaizen,
             // 'ehs_training'=>$request->ehs_training,
         ];
+
+        // switch ($request->submit) {
+        //     case ('Save'):
+        //         $data['status'] = 'saved';
+        //         break;
+        //     case ('Send for Approval'):
+        //         $data['status'] = 'submitted';
+        //         break;
+        //     case ('approved'):
+        //         $data['status'] = 'approved';
+        //         break;
+        //     case ('rejected'):
+        //         $data['status'] = 'rejected';
+        //         break;
+        //     default:
+        //         $data['status'] = 'not proceeded';
+        //         break;
+        // }
         $test=SafetyData::where('id',$id)->update($data);
         if ($test){
             toastr()->success('added sucessfully');

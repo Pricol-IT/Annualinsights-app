@@ -94,6 +94,23 @@ class WasteManagementController extends Controller
             'disposed_unit' => 'Kg',
         ];
         // return $data;
+        switch ($request->submit) {
+            case ('Save'):
+                $data['status'] = 'saved';
+                break;
+            case ('Send for Approval'):
+                $data['status'] = 'submitted';
+                break;
+            case ('approved'):
+                $data['status'] = 'approved';
+                break;
+            case ('rejected'):
+                $data['status'] = 'rejected';
+                break;
+            default:
+                $data['status'] = 'not proceeded';
+                break;
+        }
         $test = WasteManagement::create($data);
         if ($test) {
             toastr()->success('added sucessfully');
@@ -157,6 +174,23 @@ class WasteManagementController extends Controller
             'disposed' => implode(", ",$request->disposed),
             'disposed_unit' => 'Kg',
         ];
+        switch ($request->submit) {
+            case ('Save'):
+                $data['status'] = 'saved';
+                break;
+            case ('Send for Approval'):
+                $data['status'] = 'submitted';
+                break;
+            case ('approved'):
+                $data['status'] = 'approved';
+                break;
+            case ('rejected'):
+                $data['status'] = 'rejected';
+                break;
+            default:
+                $data['status'] = 'not proceeded';
+                break;
+        }
 
         $test = WasteManagement::where('id', $id)->update($data);
         if ($test) {

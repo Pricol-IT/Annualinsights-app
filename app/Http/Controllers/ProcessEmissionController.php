@@ -77,6 +77,24 @@ class ProcessEmissionController extends Controller
             'output_total_amount' => $request->output_total_amount,
             'output_unit' => $request->output_unit,
         ];
+
+        switch ($request->submit) {
+            case ('Save'):
+                $data['status'] = 'saved';
+                break;
+            case ('Send for Approval'):
+                $data['status'] = 'submitted';
+                break;
+            case ('approved'):
+                $data['status'] = 'approved';
+                break;
+            case ('rejected'):
+                $data['status'] = 'rejected';
+                break;
+            default:
+                $data['status'] = 'not proceeded';
+                break;
+        }
         $test = ProcessEmission::create($data);
         if ($test) {
             toastr()->success('added sucessfully');
@@ -123,6 +141,24 @@ class ProcessEmissionController extends Controller
             'output_total_amount' => $request->output_total_amount,
             'output_unit' => $request->output_unit,
         ];
+
+        switch ($request->submit) {
+            case ('Save'):
+                $data['status'] = 'saved';
+                break;
+            case ('Send for Approval'):
+                $data['status'] = 'submitted';
+                break;
+            case ('approved'):
+                $data['status'] = 'approved';
+                break;
+            case ('rejected'):
+                $data['status'] = 'rejected';
+                break;
+            default:
+                $data['status'] = 'not proceeded';
+                break;
+        }
         $test = ProcessEmission::where('id', $id)->update($data);
         if ($test) {
             toastr()->success('added sucessfully');

@@ -89,6 +89,23 @@ class FugitiveEmissionController extends Controller
             'unit' => $request->unit,
             'Total_consumed' => $request->Total_consumed,
         ];
+        switch ($request->submit) {
+            case ('Save'):
+                $data['status'] = 'saved';
+                break;
+            case ('Send for Approval'):
+                $data['status'] = 'submitted';
+                break;
+            case ('approved'):
+                $data['status'] = 'approved';
+                break;
+            case ('rejected'):
+                $data['status'] = 'rejected';
+                break;
+            default:
+                $data['status'] = 'not proceeded';
+                break;
+        }
         $test = FugitiveEmission::create($data);
         if ($test) {
             toastr()->success('added sucessfully');
@@ -148,6 +165,23 @@ class FugitiveEmissionController extends Controller
             'unit' => $request->unit,
             'Total_consumed' => $request->Total_consumed,
         ];
+        switch ($request->submit) {
+            case ('Save'):
+                $data['status'] = 'saved';
+                break;
+            case ('Send for Approval'):
+                $data['status'] = 'submitted';
+                break;
+            case ('approved'):
+                $data['status'] = 'approved';
+                break;
+            case ('rejected'):
+                $data['status'] = 'rejected';
+                break;
+            default:
+                $data['status'] = 'not proceeded';
+                break;
+        }
         $test = FugitiveEmission::where('id', $id)->update($data);
         if ($test) {
             toastr()->success('added sucessfully');

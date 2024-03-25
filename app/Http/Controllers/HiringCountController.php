@@ -51,6 +51,24 @@ class HiringCountController extends Controller
             'te_other'=>$request->te_other,
             'te_age_group'=>$request->te_age_group,
         ];
+
+        switch ($request->submit) {
+            case ('Save'):
+                $data['employee_status'] = 'saved';
+                break;
+            case ('Send for Approval'):
+                $data['employee_status'] = 'submitted';
+                break;
+            case ('approved'):
+                $data['employee_status'] = 'approved';
+                break;
+            case ('rejected'):
+                $data['employee_status'] = 'rejected';
+                break;
+            default:
+                $data['employee_status'] = 'not proceeded';
+                break;
+        }
         $test=HiringCount::where('id',$id)->update($data);
         if ($test){
             toastr()->success('added sucessfully');
@@ -104,6 +122,24 @@ class HiringCountController extends Controller
             'tw_female'=>$request->tw_female,
             'tw_other'=>$request->tw_other,
         ];
+
+        switch ($request->submit) {
+            case ('Save'):
+                $data['worker_status'] = 'saved';
+                break;
+            case ('Send for Approval'):
+                $data['worker_status'] = 'submitted';
+                break;
+            case ('approved'):
+                $data['worker_status'] = 'approved';
+                break;
+            case ('rejected'):
+                $data['worker_status'] = 'rejected';
+                break;
+            default:
+                $data['worker_status'] = 'not proceeded';
+                break;
+        }
         $test=HiringCount::where('id',$id)->update($data);
         if ($test){
             toastr()->success('added sucessfully');

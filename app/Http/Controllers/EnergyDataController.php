@@ -117,6 +117,24 @@ class EnergyDataController extends Controller
             'power_purchase_agreement'=>$request->power_purchase_agreement,
             'captive_power'=>$request->captive_power
         ];
+
+        switch ($request->submit) {
+            case ('Save'):
+                $energy_data['status'] = 'saved';
+                break;
+            case ('Send for Approval'):
+                $energy_data['status'] = 'submitted';
+                break;
+            case ('approved'):
+                $energy_data['status'] = 'approved';
+                break;
+            case ('rejected'):
+                $energy_data['status'] = 'rejected';
+                break;
+            default:
+                $energy_data['status'] = 'not proceeded';
+                break;
+        }
         $data=EnergyData::where('id',$id)->update($energy_data);
         if ($data){
             return redirect()->route('energy_data.index',['year'=>$request->year,'loction'=>$request->loction]);
