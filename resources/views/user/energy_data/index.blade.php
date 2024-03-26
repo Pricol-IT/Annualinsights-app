@@ -90,9 +90,23 @@
                             <td>{{round($data->electricity)}}</td>
                             <td>{{round($data->power_purchase_agreement)}}</td>
                             <td>{{round($data->captive_power)}}</td>
-                            <x-status.action-status :status="$data->status" :id="$data->id" :edit="'energy_data.edit'"/>
 
+                            {{-- <form action="{{route('employee_worker_benefits.workercount.update',$data->id)}}" method="post">
+                                @csrf
+                                @method('post') --}}
 
+                                <input type="hidden" name="year" value="{{$data->year}}">
+                                <input type="hidden" name="loction" value="{{$data->loction}}">
+                                <input type="hidden" name="month" value="{{$data->month}}">
+
+                                <input type="hidden" name="fuel_for_diesel_generators" value="{{$data->fuel_for_diesel_generators}}">
+                                <input type="hidden" name="power_from_diesel_generators" value="{{$data->power_from_diesel_generators}}">
+                                <input type="hidden" name="electricity" value="{{$data->electricity}}">
+                                <input type="hidden" name="power_purchase_agreement" value="{{$data->power_purchase_agreement}}">
+                                <input type="hidden" name="captive_power" value="{{$data->captive_power}}">
+                                <x-status.action-status :status="$data->status" :id="$data->id" :edit="'energy_data.edit'" />
+
+                            {{-- </form> --}}
                         </tr>
                         @php
                         $power_from_diesel_generators += $data->power_from_diesel_generators;

@@ -98,9 +98,23 @@
                             <td>{{$data->tw_female}}</td>
                             <td>{{$data->tw_other}}</td>
 
-                            <x-status.action-status :status="$data->worker_status" :id="$data->id" :edit="'workercount.edit'"/>
+                            <form action="{{route('workercount.update',$data->id)}}" method="POST">
+                                @csrf
+                                @method('post')
 
-                        @empty
+                                <input type="hidden" name="year" value="{{$data->year}}">
+                                <input type="hidden" name="loction" value="{{$data->loction}}">
+                                <input type="hidden" name="month" value="{{$data->month}}">
+                                <input type="hidden" name="pw_male" value="{{$data->pw_male}}">
+                                <input type="hidden" name="pw_female" value="{{$data->pw_female}}">
+                                <input type="hidden" name="pw_other" value="{{$data->pw_other}}">
+                                <input type="hidden" name="tw_male" value="{{$data->tw_male}}">
+                                <input type="hidden" name="tw_female" value="{{$data->tw_female}}">
+                                <input type="hidden" name="tw_other" value="{{$data->tw_other}}">
+
+                                <x-status.action-status :status="$data->worker_status" :id="$data->id" :edit="'workercount.edit'" />
+                            </form>
+                            @empty
                         <tr>
                             <td colspan="9" class="text-center">record not found</td>
                         </tr>

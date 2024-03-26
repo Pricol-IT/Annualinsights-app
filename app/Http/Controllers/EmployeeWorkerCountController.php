@@ -107,7 +107,7 @@ class EmployeeWorkerCountController extends Controller
 
     public function worker_update(Request $request, $id)
     {
-
+// return $request;
         $data = [
             'year' => $request->year,
             'loction' => $request->loction,

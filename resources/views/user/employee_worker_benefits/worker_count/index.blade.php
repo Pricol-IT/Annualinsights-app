@@ -109,8 +109,28 @@
                             <td>{{$data->tw_male}}</td>
                             <td>{{$data->tw_female}}</td>
                             <td>{{$data->tw_remark}}</td>
-                            <x-status.action-status :status="$data->worker_status" :id="$data->id" :edit="'employee_worker_benefits.workercount.edit'"/>
 
+
+                            <form action="{{route('employee_worker_benefits.workercount.update',$data->id)}}" method="POST">
+                                @csrf
+                                @method('post')
+
+                                <input type="hidden" name="year" value="{{$data->year}}">
+                                <input type="hidden" name="loction" value="{{$data->loction}}">
+                                <input type="hidden" name="month" value="{{$data->month}}">
+                                <input type="hidden" name="benefits" value="{{$data->benefits}}">
+
+
+                                <input type="hidden" name="pw_male" value="{{$data->pw_male}}">
+                                <input type="hidden" name="pw_female" value="{{$data->pw_female}}">
+                                <input type="hidden" name="pw_remark" value="{{$data->pw_remark}}">
+                                <input type="hidden" name="tw_male" value="{{$data->tw_male}}">
+                                <input type="hidden" name="tw_female" value="{{$data->tw_female}}">
+                                <input type="hidden" name="tw_remark" value="{{$data->tw_remark}}">
+
+
+                            <x-status.action-status :status="$data->worker_status" :id="$data->id" :edit="'employee_worker_benefits.workercount.edit'"/>
+                            </form>
                         @empty
                         <tr>
                             <td colspan="9" class="text-center">record not found</td>
