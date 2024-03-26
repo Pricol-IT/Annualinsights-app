@@ -98,8 +98,18 @@
                             <td>{{$data->total_employees}}</td>
                             <td>{{$data->total_workers}}</td>
                             <td>{{$data->remarks}}</td>
-                            <x-status.action-status :status="$data->status" :id="$data->id" :edit="'retirement_benefits.edit'"/>
 
+                            <form action="{{route('retirement_benefits.update',$data->id)}}" method="POST">
+                                @csrf
+                                @method('patch')
+
+                                <input type="hidden" name="year" value="{{$data->year}}">
+                                <input type="hidden" name="loction" value="{{$data->loction}}">
+                                <input type="hidden" name="month" value="{{$data->month}}">
+
+                                <input type="hidden" name="process" value="status">
+                            <x-status.action-status :status="$data->status" :id="$data->id" :edit="'retirement_benefits.edit'"/>
+                            </form>
                         @empty
                         <tr>
                             <td colspan="9" class="text-center">record not found</td>

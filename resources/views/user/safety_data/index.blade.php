@@ -100,8 +100,18 @@
                             <td>{{$data->near_miss}}</td>
                             {{-- <td>{{$data->no_of_kaizen}}</td>
                             <td>{{$data->ehs_training}}</td> --}}
-                            <x-status.action-status :status="$data->status" :id="$data->id" :edit="'safety_data.edit'"/>
 
+                            <form action="{{route('safety_data.update',$data->id)}}" method="POST">
+                                @csrf
+                                @method('patch')
+
+                                <input type="hidden" name="year" value="{{$data->year}}">
+                                <input type="hidden" name="loction" value="{{$data->loction}}">
+                                <input type="hidden" name="month" value="{{$data->month}}">
+
+                                <input type="hidden" name="process" value="status">
+                            <x-status.action-status :status="$data->status" :id="$data->id" :edit="'safety_data.edit'"/>
+                            </form>
                         @empty
                         <tr>
                             <td colspan="9" class="text-center">record not found</td>

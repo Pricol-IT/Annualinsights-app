@@ -97,9 +97,20 @@
                             <td>{{$data->equipment}}</td>
                             <td>{{($data->fueltype != 'Other') ? $data->fueltype.' in '.$data->unit : $data->fueltype_other.' in '.$data->unit}}</td>
                             <td>{{$data->total_comsumption}}</td>
+
+
+                            <form action="{{route('stationary_combustion.update',$data->id)}}" method="POST">
+                                @csrf
+                                @method('patch')
+
+                                <input type="hidden" name="year" value="{{$data->year}}">
+                                <input type="hidden" name="loction" value="{{$data->loction}}">
+                                <input type="hidden" name="month" value="{{$data->month}}">
+
+                                <input type="hidden" name="process" value="status">
                             <x-status.action-status :status="$data->status" :id="$data->id" :edit="'stationary_combustion.edit'"/>
 
-
+                            </form>
                         @empty
                         <tr>
                             <td colspan="9" class="text-center">record not found</td>

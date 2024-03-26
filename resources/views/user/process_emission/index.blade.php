@@ -101,10 +101,20 @@
                             <td>{{$data->input_total_amount.' in '.$data->input_unit}}</td>
                             <td>{{$data->output }}</td>
                             <td>{{$data->output_total_amount.' in '.$data->output_unit}}</td>
+
+                            <form action="{{route('process_emission.update',$data->id)}}" method="POST">
+                                @csrf
+                                @method('patch')
+
+                                <input type="hidden" name="year" value="{{$data->year}}">
+                                <input type="hidden" name="loction" value="{{$data->loction}}">
+                                <input type="hidden" name="month" value="{{$data->month}}">
+
+                                <input type="hidden" name="process" value="status">
                             <x-status.action-status :status="$data->status" :id="$data->id" :edit="'process_emission.edit'"/>
 
 
-
+                            </form>
                         @empty
                         <tr>
                             <td colspan="9" class="text-center">record not found</td>

@@ -100,8 +100,18 @@
                             <td>{{$data->fueltype.' in '.$data->unit}}</td>
                             <td>{{$data->fuelconsumed}}</td>
                             <td>{{$data->Total_distance}}</td>
-                            <x-status.action-status :status="$data->status" :id="$data->id" :edit="'mobile_combustion.edit'"/>
 
+                            <form action="{{route('mobile_combustion.update',$data->id)}}" method="POST">
+                                @csrf
+                                @method('patch')
+
+                                <input type="hidden" name="year" value="{{$data->year}}">
+                                <input type="hidden" name="loction" value="{{$data->loction}}">
+                                <input type="hidden" name="month" value="{{$data->month}}">
+
+                                <input type="hidden" name="process" value="status">
+                            <x-status.action-status :status="$data->status" :id="$data->id" :edit="'mobile_combustion.edit'"/>
+                            </form>
                         @empty
                         <tr>
                             <td colspan="9" class="text-center">record not found</td>

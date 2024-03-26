@@ -105,8 +105,18 @@
                             <td>{{$data->pw_female}}</td>
                             <td>{{$data->tw_male}}</td>
                             <td>{{$data->tw_female}}</td>
-                            <x-status.action-status :status="$data->worker_status" :id="$data->id" :edit="'minimum_wage.workercount.edit'"/>
 
+                            <form action="{{route('minimum_wage.workercount.update',$data->id)}}" method="POST">
+                                @csrf
+                                @method('patch')
+
+                                <input type="hidden" name="year" value="{{$data->year}}">
+                                <input type="hidden" name="loction" value="{{$data->loction}}">
+                                <input type="hidden" name="month" value="{{$data->month}}">
+
+                                <input type="hidden" name="process" value="status">
+                            <x-status.action-status :status="$data->worker_status" :id="$data->id" :edit="'minimum_wage.workercount.edit'"/>
+                            </form>
                         @empty
                         <tr>
                             <td colspan="9" class="text-center">record not found</td>

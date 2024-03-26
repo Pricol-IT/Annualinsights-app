@@ -104,8 +104,18 @@
                             <td>{{$data->em_female}}</td>
                             <td>{{$data->wr_male}}</td>
                             <td>{{$data->wr_female}}</td>
-                            <x-status.action-status :status="$data->status" :id="$data->id" :edit="'parental_leave.edit'"/>
 
+                            <form action="{{route('parental_leave.update',$data->id)}}" method="POST">
+                                @csrf
+                                @method('patch')
+
+                                <input type="hidden" name="year" value="{{$data->year}}">
+                                <input type="hidden" name="loction" value="{{$data->loction}}">
+                                <input type="hidden" name="month" value="{{$data->month}}">
+
+                                <input type="hidden" name="process" value="status">
+                            <x-status.action-status :status="$data->status" :id="$data->id" :edit="'parental_leave.edit'"/>
+                            </form>
                         @empty
                         <tr>
                             <td colspan="9" class="text-center">record not found</td>

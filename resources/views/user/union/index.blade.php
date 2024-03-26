@@ -94,8 +94,19 @@
                             <td>{{$data->wr_male}}</td>
                             <td>{{$data->wr_female}}</td>
                             <td>{{$data->remarks}}</td>
-                            <x-status.action-status :status="$data->status" :id="$data->id" :edit="'union.edit'"/>
 
+
+                            <form action="{{route('union.update',$data->id)}}" method="POST">
+                                @csrf
+                                @method('patch')
+
+                                <input type="hidden" name="year" value="{{$data->year}}">
+                                <input type="hidden" name="loction" value="{{$data->loction}}">
+                                <input type="hidden" name="month" value="{{$data->month}}">
+
+                                <input type="hidden" name="process" value="status">
+                            <x-status.action-status :status="$data->status" :id="$data->id" :edit="'union.edit'"/>
+                            </form>
                         @empty
                         <tr>
                             <td colspan="9" class="text-center">record not found</td>

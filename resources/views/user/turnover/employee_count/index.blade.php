@@ -96,8 +96,18 @@
                             <td>{{$data->te_male}}</td>
                             <td>{{$data->te_female}}</td>
                             <td>{{$data->te_other}}</td>
-                            <x-status.action-status :status="$data->employee_status" :id="$data->id" :edit="'turnover.employeecount.edit'"/>
 
+                            <form action="{{route('turnover.employeecount.update',$data->id)}}" method="POST">
+                                @csrf
+                                @method('patch')
+
+                                <input type="hidden" name="year" value="{{$data->year}}">
+                                <input type="hidden" name="loction" value="{{$data->loction}}">
+                                <input type="hidden" name="month" value="{{$data->month}}">
+
+                                <input type="hidden" name="process" value="status">
+                            <x-status.action-status :status="$data->employee_status" :id="$data->id" :edit="'turnover.employeecount.edit'"/>
+                            </form>
                         @empty
                         <tr>
                             <td colspan="9" class="text-center">record not found</td>

@@ -106,8 +106,19 @@
                             <td>{{$data->conserved}}</td>
                             <td>{{$data->discharged}}</td>
                             <td>{{$data->disposal_other}}</td>
-                            <x-status.action-status :status="$data->status" :id="$data->id" :edit="'water_management.edit'"/>
 
+
+                            <form action="{{route('water_management.update',$data->id)}}" method="POST">
+                                @csrf
+                                @method('patch')
+
+                                <input type="hidden" name="year" value="{{$data->year}}">
+                                <input type="hidden" name="loction" value="{{$data->loction}}">
+                                <input type="hidden" name="month" value="{{$data->month}}">
+
+                                <input type="hidden" name="process" value="status">
+                            <x-status.action-status :status="$data->status" :id="$data->id" :edit="'water_management.edit'"/>
+                            </form>
                         @empty
                         <tr>
                             <td colspan="9" class="text-center">record not found</td>
