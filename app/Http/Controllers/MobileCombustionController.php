@@ -62,7 +62,7 @@ class MobileCombustionController extends Controller
 
     public function store(Request $request)
     {
-
+        if($request->process=='update'){
         $data = [
             'year' => $request->year,
             'loction' => $request->loction,
@@ -74,7 +74,7 @@ class MobileCombustionController extends Controller
             'fuelconsumed' => $request->fuelconsumed,
             'Total_distance' => $request->Total_distance,
         ];
-
+    }
         switch ($request->submit) {
             case ('Save'):
                 $data['status'] = 'saved';
@@ -124,7 +124,7 @@ class MobileCombustionController extends Controller
     }
     public function update(Request $request, $id)
     {
-
+        if($request->process=='update'){
         $data = [
             'year' => $request->year,
             'loction' => $request->loction,
@@ -136,6 +136,7 @@ class MobileCombustionController extends Controller
             'fuelconsumed' => $request->fuelconsumed,
             'Total_distance' => $request->Total_distance,
         ];
+    }
         switch ($request->submit) {
             case ('Save'):
                 $data['status'] = 'saved';

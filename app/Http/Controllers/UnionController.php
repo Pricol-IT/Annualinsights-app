@@ -40,7 +40,7 @@ class UnionController extends Controller
         return view('user.union.edit',compact('data'));
     }
     public function update(Request $request, $id){
-
+        if($request->process=='update'){
         $data =[
             'year'=>$request->year,
             'loction'=>$request->loction,
@@ -51,7 +51,7 @@ class UnionController extends Controller
             'wr_female'=>$request->wr_female,
             'remarks'=>$request->remarks,
         ];
-
+    }
         switch ($request->submit) {
             case ('Save'):
                 $data['status'] = 'saved';

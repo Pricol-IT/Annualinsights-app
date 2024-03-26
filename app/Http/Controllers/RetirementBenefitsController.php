@@ -45,7 +45,7 @@ class RetirementBenefitsController extends Controller
         return view('user.retirement_benefits.edit',compact('data'));
     }
     public function update(Request $request, $id){
-
+        if($request->process=='update'){
         $data =[
             'year'=>$request->year,
             'loction'=>$request->loction,
@@ -54,7 +54,7 @@ class RetirementBenefitsController extends Controller
             'total_workers'=>$request->total_workers,
             'remarks'=>$request->remarks,
         ];
-
+    }
         switch ($request->submit) {
             case ('Save'):
                 $data['status'] = 'saved';

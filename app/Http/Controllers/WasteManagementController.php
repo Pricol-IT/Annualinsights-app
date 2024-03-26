@@ -81,6 +81,7 @@ class WasteManagementController extends Controller
     public function store(Request $request)
     {
 // return $request;
+if($request->process=='update'){
         $data = [
             'year' => $request->year,
             'loction' => $request->loction,
@@ -93,6 +94,7 @@ class WasteManagementController extends Controller
             'disposed' => implode(", ",$request->disposed),
             'disposed_unit' => 'Kg',
         ];
+    }
         // return $data;
         switch ($request->submit) {
             case ('Save'):
@@ -161,7 +163,7 @@ class WasteManagementController extends Controller
     }
     public function update(Request $request, $id)
     {
-
+        if($request->process=='update'){
         $data = [
             'year' => $request->year,
             'loction' => $request->loction,
@@ -174,6 +176,7 @@ class WasteManagementController extends Controller
             'disposed' => implode(", ",$request->disposed),
             'disposed_unit' => 'Kg',
         ];
+    }
         switch ($request->submit) {
             case ('Save'):
                 $data['status'] = 'saved';

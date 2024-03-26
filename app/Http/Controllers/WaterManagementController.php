@@ -72,7 +72,7 @@ class WaterManagementController extends Controller
 
     public function store(Request $request)
     {
-
+        if($request->process=='update'){
         // return $request;
         $data = [
             'year' => $request->year,
@@ -94,7 +94,7 @@ class WaterManagementController extends Controller
             'discharged' => $request->discharged,
             'discharged_unit' => $request->discharged_unit,
         ];
-
+    }
         switch ($request->submit) {
             case ('Save'):
                 $data['status'] = 'saved';
@@ -155,7 +155,7 @@ class WaterManagementController extends Controller
     }
     public function update(Request $request, $id)
     {
-
+        if($request->process=='update'){
         $data = [
             'year' => $request->year,
             'loction' => $request->loction,
@@ -176,7 +176,7 @@ class WaterManagementController extends Controller
             'discharged' => $request->discharged,
             // 'discharged_unit' => $request->discharged_unit,
         ];
-
+    }
         switch ($request->submit) {
             case ('Save'):
                 $data['status'] = 'saved';

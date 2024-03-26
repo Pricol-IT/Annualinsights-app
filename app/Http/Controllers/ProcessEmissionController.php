@@ -63,7 +63,7 @@ class ProcessEmissionController extends Controller
 
     public function store(Request $request)
     {
-
+        if($request->process=='update'){
         $data = [
             'year' => $request->year,
             'loction' => $request->loction,
@@ -77,7 +77,7 @@ class ProcessEmissionController extends Controller
             'output_total_amount' => $request->output_total_amount,
             'output_unit' => $request->output_unit,
         ];
-
+    }
         switch ($request->submit) {
             case ('Save'):
                 $data['status'] = 'saved';
@@ -127,7 +127,7 @@ class ProcessEmissionController extends Controller
     }
     public function update(Request $request, $id)
     {
-
+        if($request->process=='update'){
         $data = [
             'year' => $request->year,
             'loction' => $request->loction,
@@ -141,7 +141,7 @@ class ProcessEmissionController extends Controller
             'output_total_amount' => $request->output_total_amount,
             'output_unit' => $request->output_unit,
         ];
-
+    }
         switch ($request->submit) {
             case ('Save'):
                 $data['status'] = 'saved';

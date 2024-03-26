@@ -9,7 +9,7 @@
 
             <form action="{{route('differently_abled.employeecount.update',$data->id)}}" method="POST">
                 @csrf
-                @method('post')
+                @method('patch')
                 <div class="card">
                     <div class="card-header">
                         <h4 class="card-title p-0">Fill Employees Count</h4>
@@ -29,6 +29,7 @@
                                     <input type="hidden" name="month" value="{{$data->month}}">
                                     <p>Location: {{$data->loction}}</p>
                                     <input type="hidden" name="loction" value="{{$data->loction}}">
+                                    <input type="hidden" name="process" value="update">
                                 </div>
                             </div>
 

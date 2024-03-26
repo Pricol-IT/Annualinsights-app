@@ -53,7 +53,7 @@ class StationaryCombustionController extends Controller
 
     public function store(Request $request)
     {
-
+        if($request->process=='update'){
         $data = [
             'year' => $request->year,
             'loction' => $request->loction,
@@ -64,7 +64,7 @@ class StationaryCombustionController extends Controller
             'unit' => $request->unit,
             'total_comsumption' => $request->total_comsumption,
         ];
-
+    }
         switch ($request->submit) {
             case ('Save'):
                 $data['status'] = 'saved';
@@ -105,7 +105,7 @@ class StationaryCombustionController extends Controller
     }
     public function update(Request $request, $id)
     {
-
+        if($request->process=='update'){
         $data = [
             'year' => $request->year,
             'loction' => $request->loction,
@@ -116,7 +116,7 @@ class StationaryCombustionController extends Controller
             'unit' => $request->unit,
             'total_comsumption' => $request->total_comsumption,
         ];
-
+    }
         switch ($request->submit) {
             case ('Save'):
                 $data['status'] = 'saved';

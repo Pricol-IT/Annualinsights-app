@@ -38,6 +38,7 @@ class DifferentlyAbledController extends Controller
     }
     public function employee_update(Request $request, $id){
 
+        if($request->process=='update'){
         $data =[
             'year'=>$request->year,
             'loction'=>$request->loction,
@@ -47,7 +48,7 @@ class DifferentlyAbledController extends Controller
             'te_male'=>$request->te_male,
             'te_female'=>$request->te_female,
         ];
-
+    }
         switch ($request->submit) {
             case ('Save'):
                 $data['employee_status'] = 'saved';
@@ -105,6 +106,7 @@ class DifferentlyAbledController extends Controller
 
     public function worker_update(Request $request, $id){
 
+        if($request->process=='update'){
         $data =[
             'year'=>$request->year,
             'loction'=>$request->loction,
@@ -114,7 +116,7 @@ class DifferentlyAbledController extends Controller
             'tw_male'=>$request->tw_male,
             'tw_female'=>$request->tw_female,
         ];
-
+    }
         switch ($request->submit) {
             case ('Save'):
                 $data['worker_status'] = 'saved';

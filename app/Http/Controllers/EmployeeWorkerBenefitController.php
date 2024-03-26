@@ -44,7 +44,7 @@ class EmployeeWorkerBenefitController extends Controller
     }
     public function employee_update(Request $request, $id)
     {
-
+        if($request->process=='update'){
         $data = [
             'year' => $request->year,
             'loction' => $request->loction,
@@ -56,6 +56,7 @@ class EmployeeWorkerBenefitController extends Controller
             'te_female' => $request->te_female,
             'te_remark' => $request->te_remark,
         ];
+    }
         switch ($request->submit) {
             case ('Save'):
                 $data['employee_status'] = 'saved';
@@ -115,7 +116,7 @@ class EmployeeWorkerBenefitController extends Controller
 
     public function worker_update(Request $request, $id)
     {
-
+        if($request->process=='update'){
         $data = [
             'year' => $request->year,
             'loction' => $request->loction,
@@ -127,6 +128,7 @@ class EmployeeWorkerBenefitController extends Controller
             'tw_female' => $request->tw_female,
             'tw_remark' => $request->tw_remark,
         ];
+    }
 
         switch ($request->submit) {
             case ('Save'):

@@ -108,15 +108,6 @@ class EnergyDataController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $energy_data =[
-            'year'=>$request->year,
-            'loction'=>$request->loction,
-            'month'=>$request->month,
-            'power_from_diesel_generators'=>$request->power_from_diesel_generators,
-            'electricity'=>$request->electricity,
-            'power_purchase_agreement'=>$request->power_purchase_agreement,
-            'captive_power'=>$request->captive_power
-        ];
 
         switch ($request->submit) {
             case ('Save'):
@@ -135,13 +126,26 @@ class EnergyDataController extends Controller
                 $energy_data['status'] = 'not proceeded';
                 break;
         }
-        $data=EnergyData::where('id',$id)->update($energy_data);
+        if($request->process=='update'){
+        $energy_data =[
+            'year'=>$request->year,
+            'loction'=>$request->loction,
+            'month'=>$request->month,
+            'power_from_diesel_generators'=>$request->power_from_diesel_generators,
+            'electricity'=>$request->electricity,
+            'power_purchase_agreement'=>$request->power_purchase_agreement,
+            'captive_power'=>$request->captive_power
+        ];
+
+            }
+            $data=EnergyData::where('id',$id)->update($energy_data);
+
+
         if ($data){
             return redirect()->route('energy_data.index',['year'=>$request->year,'loction'=>$request->loction]);
         } else{
             return back();
         }
-
     }
 
     /**

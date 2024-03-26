@@ -37,7 +37,7 @@ class EmployeeWorkerCountController extends Controller
     public function employee_update(Request $request, $id)
     {
         // return $request;
-
+        if($request->process=='update'){
 
         $data = [
             'year' => $request->year,
@@ -50,7 +50,7 @@ class EmployeeWorkerCountController extends Controller
             'te_female' => $request->te_female,
             'te_other' => $request->te_other
         ];
-
+    }
         switch ($request->submit) {
             case ('Save'):
                 $data['employee_status'] = 'saved';
@@ -108,6 +108,7 @@ class EmployeeWorkerCountController extends Controller
     public function worker_update(Request $request, $id)
     {
 // return $request;
+if($request->process=='update'){
         $data = [
             'year' => $request->year,
             'loction' => $request->loction,
@@ -119,7 +120,7 @@ class EmployeeWorkerCountController extends Controller
             'tw_female' => $request->tw_female,
             'tw_other' => $request->tw_other,
         ];
-
+    }
         switch ($request->submit) {
             case ('Save'):
                 $data['worker_status'] = 'saved';

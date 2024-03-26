@@ -37,7 +37,7 @@ class HiringCountController extends Controller
         return view('user.hiring_count.employee_count.edit',compact('data'));
     }
     public function employee_update(Request $request, $id){
-
+        if($request->process=='update'){
         $data =[
             'year'=>$request->year,
             'loction'=>$request->loction,
@@ -51,7 +51,7 @@ class HiringCountController extends Controller
             'te_other'=>$request->te_other,
             'te_age_group'=>$request->te_age_group,
         ];
-
+    }
         switch ($request->submit) {
             case ('Save'):
                 $data['employee_status'] = 'saved';
@@ -108,7 +108,7 @@ class HiringCountController extends Controller
     }
 
     public function worker_update(Request $request, $id){
-
+        if($request->process=='update'){
         $data =[
             'year'=>$request->year,
             'loction'=>$request->loction,
@@ -122,7 +122,7 @@ class HiringCountController extends Controller
             'tw_female'=>$request->tw_female,
             'tw_other'=>$request->tw_other,
         ];
-
+    }
         switch ($request->submit) {
             case ('Save'):
                 $data['worker_status'] = 'saved';

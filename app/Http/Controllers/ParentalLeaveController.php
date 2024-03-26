@@ -45,7 +45,7 @@ class ParentalLeaveController extends Controller
         return view('user.parental_leave.edit',compact('data'));
     }
     public function update(Request $request, $id){
-
+        if($request->process=='update'){
         $data =[
             'year'=>$request->year,
             'loction'=>$request->loction,
@@ -55,7 +55,7 @@ class ParentalLeaveController extends Controller
             'wr_male'=>$request->wr_male,
             'wr_female'=>$request->wr_female,
         ];
-
+    }
         switch ($request->submit) {
             case ('Save'):
                 $data['status'] = 'saved';

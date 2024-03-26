@@ -70,7 +70,7 @@ class TrainingController extends Controller
 
     public function store(Request $request)
     {
-
+        if($request->process=='update'){
         $data = [
             'year' => $request->year,
             'loction' => $request->loction,
@@ -83,7 +83,7 @@ class TrainingController extends Controller
             'total_days' => $request->total_days,
             'total_personnel_covered' => $request->total_personnel_covered,
         ];
-
+    }
         switch ($request->submit) {
             case ('Save'):
                 $data['status'] = 'saved';
@@ -142,7 +142,7 @@ class TrainingController extends Controller
     }
     public function update(Request $request, $id)
     {
-
+        if($request->process=='update'){
         $data = [
             'year' => $request->year,
             'loction' => $request->loction,
@@ -156,7 +156,7 @@ class TrainingController extends Controller
             'total_personnel_covered' => $request->total_personnel_covered,
         ];
 
-
+    }
         switch ($request->submit) {
             case ('Save'):
                 $data['status'] = 'saved';

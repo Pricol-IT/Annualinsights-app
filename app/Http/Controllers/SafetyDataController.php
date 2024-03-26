@@ -40,7 +40,7 @@ class SafetyDataController extends Controller
         return view('user.safety_data.edit',compact('data'));
     }
     public function update(Request $request, $id){
-
+        if($request->process=='update'){
         $data =[
             'year'=>$request->year,
             'loction'=>$request->loction,
@@ -56,7 +56,7 @@ class SafetyDataController extends Controller
             // 'no_of_kaizen'=>$request->no_of_kaizen,
             // 'ehs_training'=>$request->ehs_training,
         ];
-
+    }
         // switch ($request->submit) {
         //     case ('Save'):
         //         $data['status'] = 'saved';

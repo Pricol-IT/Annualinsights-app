@@ -95,16 +95,16 @@
                             <td>{{$data->tw_female}}</td>
                             <form action="{{route('differently_abled.workercount.update',$data->id)}}" method="POST">
                                 @csrf
-                                @method('post')
+                                @method('patch')
 
                                 <input type="hidden" name="year" value="{{$data->year}}">
                                 <input type="hidden" name="loction" value="{{$data->loction}}">
                                 <input type="hidden" name="month" value="{{$data->month}}">
 
-                                <input type="hidden" name="pw_male" value="{{$data->pw_male}}">
-                                <input type="hidden" name="pw_female" value="{{$data->pw_female}}">
-                                <input type="hidden" name="tw_male" value="{{$data->tw_male}}">
-                                <input type="hidden" name="tw_female" value="{{$data->tw_female}}">
+
+                                <input type="hidden" name="process" value="status">
+
+
                             <x-status.action-status :status="$data->worker_status" :id="$data->id" :edit="'differently_abled.workercount.edit'"/>
                             </form>
                         @empty

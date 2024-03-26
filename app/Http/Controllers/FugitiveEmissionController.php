@@ -78,7 +78,7 @@ class FugitiveEmissionController extends Controller
 
     public function store(Request $request)
     {
-
+        if($request->process=='update'){
         $data = [
             'year' => $request->year,
             'loction' => $request->loction,
@@ -89,6 +89,7 @@ class FugitiveEmissionController extends Controller
             'unit' => $request->unit,
             'Total_consumed' => $request->Total_consumed,
         ];
+    }
         switch ($request->submit) {
             case ('Save'):
                 $data['status'] = 'saved';
@@ -154,7 +155,7 @@ class FugitiveEmissionController extends Controller
     }
     public function update(Request $request, $id)
     {
-
+        if($request->process=='update'){
         $data = [
             'year' => $request->year,
             'loction' => $request->loction,
@@ -165,6 +166,7 @@ class FugitiveEmissionController extends Controller
             'unit' => $request->unit,
             'Total_consumed' => $request->Total_consumed,
         ];
+    }
         switch ($request->submit) {
             case ('Save'):
                 $data['status'] = 'saved';

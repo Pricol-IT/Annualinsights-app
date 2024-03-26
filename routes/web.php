@@ -47,10 +47,10 @@ Route::resource('energy_data', EnergyDataController::class);
     Route::controller(EmployeeWorkerCountController::class)->group(function () {
         Route::get('/employee_count/index', 'employee_index')->name('employeecount.index');
         Route::get('/employee_count/edit/{id}', 'employee_edit')->name('employeecount.edit');
-        Route::post('/employee_count/update/{id}', 'employee_update')->name('employeecount.update');
+        Route::patch('/employee_count/update/{id}', 'employee_update')->name('employeecount.update');
         Route::get('/worker_count/index', 'worker_index')->name('workercount.index');
         Route::get('/worker_count/edit/{id}', 'worker_edit')->name('workercount.edit');
-        Route::post('/worker_count/update/{id}', 'worker_update')->name('workercount.update');
+        Route::patch('/worker_count/update/{id}', 'worker_update')->name('workercount.update');
     });
 
     Route::controller(HiringCountController::class)->group(function () {
@@ -74,19 +74,19 @@ Route::resource('energy_data', EnergyDataController::class);
     Route::controller(DifferentlyAbledController::class)->group(function () {
         Route::get('/differently_abled/employee_count/index', 'employee_index')->name('differently_abled.employeecount.index');
         Route::get('/differently_abled/employee_count/edit/{id}', 'employee_edit')->name('differently_abled.employeecount.edit');
-        Route::post('/differently_abled/employee_count/update/{id}', 'employee_update')->name('differently_abled.employeecount.update');
+        Route::patch('/differently_abled/employee_count/update/{id}', 'employee_update')->name('differently_abled.employeecount.update');
         Route::get('/differently_abled/worker_count/index', 'worker_index')->name('differently_abled.workercount.index');
         Route::get('/differently_abled/worker_count/edit/{id}', 'worker_edit')->name('differently_abled.workercount.edit');
-        Route::post('/differently_abled/worker_count/update/{id}', 'worker_update')->name('differently_abled.workercount.update');
+        Route::patch('/differently_abled/worker_count/update/{id}', 'worker_update')->name('differently_abled.workercount.update');
     });
 
     Route::controller(EmployeeWorkerBenefitController::class)->group(function () {
         Route::get('/employee_worker_benefits/employee_count/index', 'employee_index')->name('employee_worker_benefits.employeecount.index');
         Route::get('/employee_worker_benefits/employee_count/edit/{id}', 'employee_edit')->name('employee_worker_benefits.employeecount.edit');
-        Route::post('/employee_worker_benefits/employee_count/update/{id}', 'employee_update')->name('employee_worker_benefits.employeecount.update');
+        Route::patch('/employee_worker_benefits/employee_count/update/{id}', 'employee_update')->name('employee_worker_benefits.employeecount.update');
         Route::get('/employee_worker_benefits/worker_count/index', 'worker_index')->name('employee_worker_benefits.workercount.index');
         Route::get('/employee_worker_benefits/worker_count/edit/{id}', 'worker_edit')->name('employee_worker_benefits.workercount.edit');
-        Route::post('/employee_worker_benefits/worker_count/update/{id}', 'worker_update')->name('employee_worker_benefits.workercount.update');
+        Route::patch('/employee_worker_benefits/worker_count/update/{id}', 'worker_update')->name('employee_worker_benefits.workercount.update');
     });
 
     Route::controller(MinimumWageController::class)->group(function () {
