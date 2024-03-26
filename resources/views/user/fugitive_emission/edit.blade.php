@@ -30,6 +30,7 @@
                                     <input type="hidden" name="month" value="{{$data->month}}">
                                     <p>Location: {{$data->loction}}</p>
                                     <input type="hidden" name="loction" value="{{$data->loction}}">
+                                    <input type="hidden" name="process" value="update">
 
                                 </div>
                             </div>

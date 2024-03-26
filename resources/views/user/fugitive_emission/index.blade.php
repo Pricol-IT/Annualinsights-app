@@ -99,8 +99,19 @@
                             <td>{{$data->activitytype}}</td>
                             <td>{{($data->gastype != 'Other' ) ? $data->gastype.' in '.$data->unit : $data->gastype_other.' in '.$data->unit}}</td>
                             <td>{{$data->Total_consumed}}</td>
-                            <x-status.action-status :status="$data->status" :id="$data->id" :edit="'fugitive_emission.edit'"/>
 
+                            <form action="{{route('fugitive_emission.update',$data->id)}}" method="POST">
+                                @csrf
+                                @method('patch')
+
+                                <input type="hidden" name="year" value="{{$data->year}}">
+                                <input type="hidden" name="loction" value="{{$data->loction}}">
+                                <input type="hidden" name="month" value="{{$data->month}}">
+
+                                <input type="hidden" name="process" value="status">
+
+                            <x-status.action-status :status="$data->status" :id="$data->id" :edit="'fugitive_emission.edit'"/>
+                            </form>
                         </tr>
                         {{-- @php
                         $power_from_diesel_generators += $data->power_from_diesel_generators;

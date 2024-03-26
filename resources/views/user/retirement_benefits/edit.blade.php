@@ -31,6 +31,7 @@
                                     <input type="hidden" name="loction" value="{{$data->loction}}">
                                     <p>Condition: {{$data->benefits}}</p>
                                     <input type="hidden" name="benefits" value="{{$data->benefits}}">
+                                    <input type="hidden" name="process" value="update">
                                 </div>
                             </div>
 
