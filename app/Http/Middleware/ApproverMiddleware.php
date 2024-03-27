@@ -20,6 +20,8 @@ class ApproverMiddleware
                 return $next($request);
             }else if (authUser()->role == 'user') {
                 return redirect()->route('user.dashboard');
+            }else if (authUser()->role == 'admin') {
+                return redirect()->route('admin.dashboard');
             }
 
         }

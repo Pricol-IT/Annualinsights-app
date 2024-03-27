@@ -23,6 +23,8 @@ use App\Http\Controllers\WaterManagementController;
 use Illuminate\Support\Facades\Route;
 include base_path('routes/users.php');
 include base_path('routes/approvers.php');
+include base_path('routes/admin.php');
+
 
 /*
 |--------------------------------------------------------------------------

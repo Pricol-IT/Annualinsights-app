@@ -112,6 +112,7 @@
                                 <input type="hidden" name="year" value="{{$data->year}}">
                                 <input type="hidden" name="loction" value="{{$data->loction}}">
                                 <input type="hidden" name="month" value="{{$data->month}}">
+                                <input type="hidden" name="benefits" value="{{$data->benefits}}">
 
                                 <input type="hidden" name="process" value="status">
                             <x-status.action-status :status="$data->employee_status" :id="$data->id" :edit="'minimum_wage.employeecount.edit'"/>

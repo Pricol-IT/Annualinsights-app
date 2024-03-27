@@ -22,7 +22,7 @@
     <td>
         <div class="d-flex gap-1">
             @if ((authUser()->role == 'user'))
-            @if ( ($status == 'approved') || ($status == 'submitted'))
+            @if ( ($status == 'approved') )
             <span class="badge bg-success"> Added </span>
             @else
 

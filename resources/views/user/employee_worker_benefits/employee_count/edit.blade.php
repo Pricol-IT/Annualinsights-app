@@ -9,7 +9,7 @@
 
             <form action="{{route('employee_worker_benefits.employeecount.update',$data->id)}}" method="POST">
                 @csrf
-                @method('post')
+                @method('patch')
                 <div class="card">
                     <div class="card-header">
                         <h4 class="card-title p-0">Fill Employees Count</h4>

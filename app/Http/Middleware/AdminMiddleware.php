@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class UserMiddleware
+class AdminMiddleware
 {
     /**
      * Handle an incoming request.
@@ -15,20 +15,20 @@ class UserMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-
         if (authUser()) {
-            if (authUser()->role == 'user') {
+            if (authUser()->role == 'admin') {
                 return $next($request);
+            }else if (authUser()->role == 'user') {
+                return redirect()->route('user.dashboard');
             }else if (authUser()->role == 'approver') {
                 return redirect()->route('approver.dashboard');
-            }else if (authUser()->role == 'admin') {
-                return redirect()->route('admin.dashboard');
             }
 
         }
         else {
             return redirect('login');
         }
+
 
     }
 }

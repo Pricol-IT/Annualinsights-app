@@ -101,12 +101,12 @@
 
                             <form action="{{route('employeecount.update',$data->id)}}" method="POST">
                                 @csrf
-                                @method('post')
+                                @method('patch')
                                 <input type="hidden" name="year" value="{{$data->year}}">
                                 <input type="hidden" name="loction" value="{{$data->loction}}">
                                 <input type="hidden" name="month" value="{{$data->month}}">
 
-                
+
                                     <input type="hidden" name="process" value="status">
 
 
