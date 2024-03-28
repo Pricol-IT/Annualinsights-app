@@ -6,6 +6,7 @@ use App\Models\StationaryCombustion;
 use App\Models\Union;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class StationaryCombustionController extends Controller
 {
@@ -36,7 +37,7 @@ class StationaryCombustionController extends Controller
         }
         $datas = $query->get();
         // return $data;
-
+        $total = DB::table('stationary_combustions')->select('year','status','month')->selectRaw('SUM(total_comsumption) as total')->where('status','approved')
         return view('user.stationary_combustion.index', compact('datas', 'uniqueYears', 'uniqueLocations', 'monthsArray'));
     }
 

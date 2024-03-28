@@ -5,7 +5,7 @@
 @section('main')
 <main id="main" class="main">
     <div class="container">
-        {{-- <h3 class="fw-bold">Dashboard</h3>
+        <h3 class="fw-bold">Dashboard</h3>
 
         <div class="row">
             <div class="col-lg-6">
@@ -25,7 +25,7 @@
                 </div>
             </div>
 
-        </div> --}}
+        </div>
         <h3 class="fw-bold">
             Stationary Combustion</h3>
         <div class=" card">
@@ -108,10 +108,10 @@
                                 <input type="hidden" name="month" value="{{$data->month}}">
 
                                 <input type="hidden" name="process" value="status">
-                            <x-status.action-status :status="$data->status" :id="$data->id" :edit="'stationary_combustion.edit'"/>
+                                <x-status.action-status :status="$data->status" :id="$data->id" :edit="'stationary_combustion.edit'" />
 
                             </form>
-                        @empty
+                            @empty
                         <tr>
                             <td colspan="9" class="text-center">record not found</td>
                         </tr>
@@ -120,8 +120,8 @@
                             <form id="formSubmit" action="{{route('stationary_combustion.create')}}" method="POST">
                                 @csrf
                                 <input type="hidden" name="year" value="{{request('year') ? request('year') : ($uniqueYears[0] ? $uniqueYears[0] : '') }}">
-                                <input type="hidden"  name="loction" value="{{request('loction') ? request('loction') : ($uniqueLocations[0] ? $uniqueLocations[0] : '') }}">
-                                <input type="hidden"  name="month" value="{{request('month') ? request('month') : $monthsArray[0] }}">
+                                <input type="hidden" name="loction" value="{{request('loction') ? request('loction') : ($uniqueLocations[0] ? $uniqueLocations[0] : '') }}">
+                                <input type="hidden" name="month" value="{{request('month') ? request('month') : $monthsArray[0] }}">
                                 <td colspan="9" class="text-center"><input class="btn btn-primary" type="submit" value="Add item"></td>
                             </form>
                         </tr>
@@ -144,137 +144,58 @@
 @endsection
 @section('script')
 {{-- <script>
-    const ctx = document.getElementById('myChart');
-    new Chart(ctx, {
+
+
+    const yearbar = document.getElementById('myChartyear');
+    new Chart(yearbar, {
         type: 'bar'
         , data: {
-            labels: ['Generation from Diesel Generators', 'Grid Electricity', 'Power Purchase Agreement', 'Captive Power generation']
+            labels: [@foreach($threeyeartotal as $three)
+                '{{$three->year}}'
+                , @endforeach
+            ]
             , datasets: [{
-                axis: 'y'
-                , data: ['{{round($currentyeartotal->dg)}}', '{{round($currentyeartotal->ecity)}}', '{{round($currentyeartotal->ppa)}}', '{{round($currentyeartotal->cap)}}']
-, fill: false
-, backgroundColor: [
-'rgba(39, 183, 245, 0.8)'
-, 'rgba(208, 5, 11, 0.8)'
-, 'rgba(255, 132, 3, 0.91)'
-, 'rgba(45, 174, 0, 0.97)'
-]
-, borderColor: [
-'rgb(31,146,196)'
-, 'rgb(166,4,9)'
-, 'rgb(232,120,3)'
-, 'rgb(44,169,0)'
-]
-, borderWidth: 1
-}]
-}
-, options: {
-indexAxis: 'y'
-, plugins: {
-legend: {
-display: false
-}
-, title: {
-display: true
-, text: 'Energy Consumption by Source'
-}
-}
-, scales: {
-x: {
-grid: {
-display: false
-, }
-}
-, y: {
-grid: {
-display: false
-, }
-}
-, }
-}
 
-});
+                data: [
+                    @foreach($threeyeartotal as $three)
+                    '{{round($three->total)}}'
+                    , @endforeach
+                ]
+                , backgroundColor: [
+                    'rgba(208, 5, 11, 0.8)'
+                ]
+                , borderColor: [
+                    'rgb(166,4,9)'
+                ]
+                , borderWidth: 1
+            }]
+        }
+        , options: {
 
-
-const pie = document.getElementById('myChartpie');
-
-new Chart(pie, {
-type: 'doughnut'
-, data: {
-labels: [
-'Renewable'
-, 'Non-Renewable'
-, ]
-, datasets: [{
-data: ['{{$RE_percentage}}', (100 - ('{{$RE_percentage}}'))]
-, backgroundColor: [
-'rgb(44,169,0)'
-, 'rgb(247,1,1)'
-, ]
-, hoverOffset: 4
-}]
-}
-, options: {
-responsive: true
-, plugins: {
-title: {
-display: true
-, text: 'Energy Mix'
-}
-}
-, }
-});
-
-const yearbar = document.getElementById('myChartyear');
-new Chart(yearbar, {
-type: 'bar'
-, data: {
-labels: [@foreach($threeyeartotal as $three)
-'{{$three->year}}'
-, @endforeach
-]
-, datasets: [{
-
-data: [
-@foreach($threeyeartotal as $three)
-'{{round($three->total)}}'
-, @endforeach
-]
-, backgroundColor: [
-'rgba(208, 5, 11, 0.8)'
-]
-, borderColor: [
-'rgb(166,4,9)'
-]
-, borderWidth: 1
-}]
-}
-, options: {
-
-plugins: {
-title: {
-display: true
-, text: 'Energy Consumption Trend'
-}
-, legend: {
-display: false
-}
-, }
-, scales: {
-x: {
-grid: {
-display: false
-, }
-}
-, y: {
-beginAtZero: false
-, grid: {
-display: false
-, }
-}
-, }
-}
-, });
+            plugins: {
+                title: {
+                    display: true
+                    , text: 'Energy Consumption Trend'
+                }
+                , legend: {
+                    display: false
+                }
+            , }
+            , scales: {
+                x: {
+                    grid: {
+                        display: false
+                    , }
+                }
+                , y: {
+                    beginAtZero: false
+                    , grid: {
+                        display: false
+                    , }
+                }
+            , }
+        }
+    , });
 
 </script> --}}
 @endsection
