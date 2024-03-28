@@ -37,7 +37,13 @@ class StationaryCombustionController extends Controller
         }
         $datas = $query->get();
         // return $data;
-        $total = DB::table('stationary_combustions')->select('year','status','month')->selectRaw('SUM(total_comsumption) as total')->where('status','approved')
+        $total = DB::table('stationary_combustions')
+            ->select('year', 'status', 'month')
+            ->selectRaw('SUM(total_comsumption) as total')
+            ->where('status', 'approved')
+            ->groupBy('year', 'status', 'month')
+            ->get();
+        // return $total;
         return view('user.stationary_combustion.index', compact('datas', 'uniqueYears', 'uniqueLocations', 'monthsArray'));
     }
 
@@ -54,18 +60,18 @@ class StationaryCombustionController extends Controller
 
     public function store(Request $request)
     {
-        if($request->process=='update'){
-        $data = [
-            'year' => $request->year,
-            'loction' => $request->loction,
-            'month' => $request->month,
-            'equipment' => $request->equipment,
-            'fueltype' => $request->fueltype,
-            'fueltype_other' => $request->fueltype_other,
-            'unit' => $request->unit,
-            'total_comsumption' => $request->total_comsumption,
-        ];
-    }
+        if ($request->process == 'update') {
+            $data = [
+                'year' => $request->year,
+                'loction' => $request->loction,
+                'month' => $request->month,
+                'equipment' => $request->equipment,
+                'fueltype' => $request->fueltype,
+                'fueltype_other' => $request->fueltype_other,
+                'unit' => $request->unit,
+                'total_comsumption' => $request->total_comsumption,
+            ];
+        }
         switch ($request->submit) {
             case ('Save'):
                 $data['status'] = 'saved';
@@ -102,22 +108,22 @@ class StationaryCombustionController extends Controller
         $fueltypes = ['Diesel', 'LPG', 'Petrol', 'Natural Gas', 'Propane', 'Fuel Oil', 'Kerosene', 'Coal', 'Other'];
         $units = ['Litres', 'Kg'];
         $data = StationaryCombustion::find($id);
-        return view('user.stationary_combustion.edit', compact('data','equipments', 'fueltypes', 'units'));
+        return view('user.stationary_combustion.edit', compact('data', 'equipments', 'fueltypes', 'units'));
     }
     public function update(Request $request, $id)
     {
-        if($request->process=='update'){
-        $data = [
-            'year' => $request->year,
-            'loction' => $request->loction,
-            'month' => $request->month,
-            'equipment' => $request->equipment,
-            'fueltype' => $request->fueltype,
-            'fueltype_other' => $request->fueltype_other,
-            'unit' => $request->unit,
-            'total_comsumption' => $request->total_comsumption,
-        ];
-    }
+        if ($request->process == 'update') {
+            $data = [
+                'year' => $request->year,
+                'loction' => $request->loction,
+                'month' => $request->month,
+                'equipment' => $request->equipment,
+                'fueltype' => $request->fueltype,
+                'fueltype_other' => $request->fueltype_other,
+                'unit' => $request->unit,
+                'total_comsumption' => $request->total_comsumption,
+            ];
+        }
         switch ($request->submit) {
             case ('Save'):
                 $data['status'] = 'saved';
@@ -138,7 +144,7 @@ class StationaryCombustionController extends Controller
         $test = StationaryCombustion::where('id', $id)->update($data);
         if ($test) {
             toastr()->success('added sucessfully');
-            return redirect()->route('stationary_combustion.index', ['year' => $request->year, 'loction' => $request->loction,'month' => $request->month,]);
+            return redirect()->route('stationary_combustion.index', ['year' => $request->year, 'loction' => $request->loction, 'month' => $request->month,]);
         } else {
             toastr()->error('someting went worng');
             return back();

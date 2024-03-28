@@ -12,7 +12,8 @@
     <!-- <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon"> -->
 
-
+  @filamentStyles
+  @vite('resources/css/app.css')
     @include('parts.links')
     @yield('links')
     <!-- Vendor CSS Files -->
@@ -20,6 +21,7 @@
 </head>
 
 <body>
+
     <!-- ======= Header ======= -->
     @include('parts.header')
 
@@ -27,7 +29,7 @@
     @include('parts.sidebar')
     @yield('main')
 
-
+    {{-- {{ $slot }} --}}
 
     <footer id="footer" class="footer">
         <div class="copyright">
@@ -42,6 +44,8 @@
     <!-- Vendor JS Files -->
     @include('parts.script')
     @yield('script')
+    @filamentScripts
+    @vite('resources/js/app.js')
 </body>
 
 </html>

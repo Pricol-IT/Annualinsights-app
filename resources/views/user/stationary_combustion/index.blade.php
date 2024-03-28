@@ -9,20 +9,13 @@
 
         <div class="row">
             <div class="col-lg-6">
-                <div class="card p-3">
-                    <canvas id="myChart"></canvas>
-                </div>
+                @livewire(\App\Livewire\StationaryCombustion\FuelsTypeChart::class)
             </div>
             <div class="col-lg-6">
-                <div class="card p-3">
-                    <canvas id="myChartyear"></canvas>
-                </div>
+                @livewire(\App\Livewire\StationaryCombustion\YearlyChart::class)
             </div>
-            <div class="col-lg-6">
-                <div class="card p-3">
-                    <canvas id="myChartpie" style="margin-left: auto;
-                    margin-right: auto;"></canvas>
-                </div>
+            <div class="col-lg-6 mt-3">
+                @livewire(\App\Livewire\StationaryCombustion\MonthlyChart::class)
             </div>
 
         </div>
@@ -152,50 +145,50 @@
         , data: {
             labels: [@foreach($threeyeartotal as $three)
                 '{{$three->year}}'
-                , @endforeach
-            ]
-            , datasets: [{
+, @endforeach
+]
+, datasets: [{
 
-                data: [
-                    @foreach($threeyeartotal as $three)
-                    '{{round($three->total)}}'
-                    , @endforeach
-                ]
-                , backgroundColor: [
-                    'rgba(208, 5, 11, 0.8)'
-                ]
-                , borderColor: [
-                    'rgb(166,4,9)'
-                ]
-                , borderWidth: 1
-            }]
-        }
-        , options: {
+data: [
+@foreach($threeyeartotal as $three)
+'{{round($three->total)}}'
+, @endforeach
+]
+, backgroundColor: [
+'rgba(208, 5, 11, 0.8)'
+]
+, borderColor: [
+'rgb(166,4,9)'
+]
+, borderWidth: 1
+}]
+}
+, options: {
 
-            plugins: {
-                title: {
-                    display: true
-                    , text: 'Energy Consumption Trend'
-                }
-                , legend: {
-                    display: false
-                }
-            , }
-            , scales: {
-                x: {
-                    grid: {
-                        display: false
-                    , }
-                }
-                , y: {
-                    beginAtZero: false
-                    , grid: {
-                        display: false
-                    , }
-                }
-            , }
-        }
-    , });
+plugins: {
+title: {
+display: true
+, text: 'Energy Consumption Trend'
+}
+, legend: {
+display: false
+}
+, }
+, scales: {
+x: {
+grid: {
+display: false
+, }
+}
+, y: {
+beginAtZero: false
+, grid: {
+display: false
+, }
+}
+, }
+}
+, });
 
 </script> --}}
 @endsection
